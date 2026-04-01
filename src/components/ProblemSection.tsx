@@ -1,4 +1,5 @@
 import { ShieldAlert, FileSearch, Eye, Workflow } from "lucide-react";
+import { motion } from "framer-motion";
 
 const problems = [
   { icon: ShieldAlert, title: "Scattered Compliance Data", desc: "Multiple systems, no unified view of compliance status across the organization." },
@@ -8,21 +9,42 @@ const problems = [
 ];
 
 const ProblemSection = () => (
-  <section id="overview" className="py-20 md:py-28 bg-surface-accent">
-    <div className="container">
-      <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-        Enterprise Compliance Challenges
-      </h2>
-      <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+  <section id="overview" className="py-24 md:py-32 relative overflow-hidden">
+    {/* Background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-surface-accent via-background to-primary/5" />
+    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+    <div className="container relative">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-14"
+      >
+        <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-4">
+          The Challenge
+        </span>
+        <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+          Enterprise Compliance Challenges
+        </h2>
+      </motion.div>
+
+      <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
         {problems.map((p, i) => (
-          <div
+          <motion.div
             key={i}
-            className="bg-background border-l-4 border-primary rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="group glass-strong rounded-2xl p-6 hover:glow-primary transition-all duration-300 hover:-translate-y-1 cursor-default"
           >
-            <p.icon className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-bold text-foreground mb-1">{p.title}</h3>
-            <p className="text-sm text-muted-foreground">{p.desc}</p>
-          </div>
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <p.icon className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="font-bold text-foreground mb-2">{p.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+          </motion.div>
         ))}
       </div>
     </div>
