@@ -34,7 +34,7 @@
     --input: 216 12% 90%;
     --ring: 168 76% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --primary-hover: 168 76% 36%;
     --secondary-hover: 211 100% 42%;
@@ -42,8 +42,6 @@
     --surface-accent: 207 100% 94%;
     --dark-navy: 222 84% 11%;
     --dark-navy-foreground: 216 12% 90%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(168 76% 42%), hsl(211 100% 50%));
 
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -67,4 +65,71 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-lg;
+  }
+
+  .glass-strong {
+    @apply bg-white/80 backdrop-blur-2xl border border-white/40 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/10 shadow-lg;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(168 76% 42% / 0.4);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 40px -10px hsl(211 100% 50% / 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--background));
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    background: linear-gradient(135deg, hsl(168 76% 42%), hsl(211 100% 50%));
+    z-index: -1;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .mesh-bg {
+    background-image:
+      radial-gradient(at 20% 30%, hsl(168 76% 42% / 0.08) 0%, transparent 50%),
+      radial-gradient(at 80% 70%, hsl(211 100% 50% / 0.08) 0%, transparent 50%),
+      radial-gradient(at 50% 50%, hsl(168 76% 42% / 0.03) 0%, transparent 70%);
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(hsl(168 76% 42% / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px -5px hsl(168 76% 42% / 0.3); }
+  50% { box-shadow: 0 0 40px -5px hsl(168 76% 42% / 0.5); }
 }
