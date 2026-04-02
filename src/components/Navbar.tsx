@@ -40,56 +40,85 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/70 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] border-b border-white/30"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
     >
-      <nav className="container flex items-center justify-between h-16 md:h-20">
-        <button onClick={() => handleClick("#home")} className="flex items-center gap-2.5 font-heading text-xl font-bold">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">CV</span>
-          </div>
-          <span className="gradient-text">Compliance Vista</span>
-        </button>
-
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleClick(link.href)}
-              className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                activeSection === link.href.slice(1)
-                  ? "text-primary"
-                  : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
+      <div
+        className={`transition-all duration-500 ${
+          scrolled
+            ? "mx-4 md:mx-8 mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50"
+            : "mx-0 mt-0 rounded-none bg-transparent"
+        }`}
+      >
+        <nav
+          className={`container flex items-center justify-between transition-all duration-500 ${
+            scrolled ? "h-14" : "h-20"
+          }`}
+        >
+          <button
+            onClick={() => handleClick("#home")}
+            className="flex items-center gap-2.5 font-heading font-bold transition-all duration-500"
+          >
+            <div
+              className={`rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-500 ${
+                scrolled ? "w-7 h-7" : "w-8 h-8"
               }`}
             >
-              {link.label}
-              {activeSection === link.href.slice(1) && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
-                />
-              )}
-            </button>
-          ))}
-          <button
-            onClick={() => handleClick("#contact")}
-            className="ml-4 bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-6 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
-          >
-            Book Demo
+              <span
+                className={`text-primary-foreground font-bold transition-all duration-500 ${
+                  scrolled ? "text-xs" : "text-sm"
+                }`}
+              >
+                CV
+              </span>
+            </div>
+            <span
+              className={`gradient-text transition-all duration-500 ${
+                scrolled ? "text-lg" : "text-xl"
+              }`}
+            >
+              Compliance Vista
+            </span>
           </button>
-        </div>
 
-        <button
-          className="md:hidden w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </nav>
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleClick(link.href)}
+                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
+                }`}
+              >
+                {link.label}
+                {activeSection === link.href.slice(1) && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                  />
+                )}
+              </button>
+            ))}
+            <button
+              onClick={() => handleClick("#contact")}
+              className={`ml-4 bg-gradient-to-r from-primary to-primary-hover text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-500 hover:-translate-y-0.5 ${
+                scrolled ? "px-5 py-2 text-xs" : "px-6 py-2.5 text-sm"
+              }`}
+            >
+              Book Demo
+            </button>
+          </div>
+
+          <button
+            className="md:hidden w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </nav>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -97,7 +126,11 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-white/80 backdrop-blur-2xl border-t border-white/30"
+            className={`md:hidden overflow-hidden backdrop-blur-2xl border-t border-white/30 transition-all duration-500 ${
+              scrolled
+                ? "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-white/50"
+                : "bg-white/80"
+            }`}
           >
             <div className="container py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
