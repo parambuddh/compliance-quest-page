@@ -36,6 +36,7 @@ const Navbar = () => {
       
       let overColored = false;
       
+      // Check if over Final CTA (green section at bottom)
       if (finalCtaElement) {
         const finalCtaRect = finalCtaElement.getBoundingClientRect();
         if (finalCtaRect.top < 100 && finalCtaRect.bottom > 0) {
@@ -43,11 +44,9 @@ const Navbar = () => {
         }
       }
       
-      if (!overColored && heroElement) {
-        const heroRect = heroElement.getBoundingClientRect();
-        if (heroRect.top < 100 && heroRect.bottom > 0 && window.scrollY < 100) {
-          overColored = true;
-        }
+      // Check if over Hero (green section at top) - only when scrollY is very small
+      if (!overColored && heroElement && window.scrollY <= 50) {
+        overColored = true;
       }
       
       setIsOverColoredSection(overColored);
@@ -73,8 +72,8 @@ const Navbar = () => {
         className={`container transition-all duration-500 ${
           scrolled
             ? isOverColoredSection
-              ? "mt-3 rounded-2xl bg-slate-900/90 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-slate-700/60"
-              : "mt-3 rounded-2xl bg-white/60 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/60"
+              ? "mt-3 rounded-3xl bg-slate-900/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-600/50"
+              : "mt-3 rounded-3xl bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-white/40"
             : "mt-0 rounded-none bg-transparent"
         }`}
       >
@@ -146,14 +145,14 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden overflow-hidden backdrop-blur-2xl border-t transition-all duration-500 ${
+            className={`md:hidden overflow-hidden backdrop-blur-xl border-t transition-all duration-500 ${
               scrolled
                 ? isOverColoredSection
-                  ? "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-slate-900/90 border-slate-700/60"
-                  : "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-white/50 border-white/30"
+                  ? "mx-4 md:mx-8 mt-1 rounded-b-3xl bg-slate-900/80 border-slate-600/50"
+                  : "mx-4 md:mx-8 mt-1 rounded-b-3xl bg-white/40 border-white/40"
                 : isOverColoredSection
-                ? "bg-slate-900/80 border-slate-700/60"
-                : "bg-white/80 border-white/30"
+                ? "bg-slate-900/80 border-slate-600/50"
+                : "bg-white/40 border-white/40"
             }`}
           >
             <div className="container py-4 flex flex-col gap-1">
