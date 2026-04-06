@@ -58,8 +58,8 @@ const FeaturesSection = () => {
       className="relative"
       style={{ height: `${features.length * 160}vh` }}
     >
-      {/* Section Heading */}
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden pointer-events-none">
+      {/* Section Heading - NOT sticky, scrolls naturally */}
+      <div className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
         <motion.div 
           className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
