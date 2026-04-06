@@ -97,16 +97,16 @@ const Navbar = () => {
                 key={link.href}
                 onClick={() => handleClick(link.href)}
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                  activeSection === link.href.slice(1)
+                  !scrolled
+                    ? activeSection === link.href.slice(1)
+                      ? "text-slate-900"
+                      : "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
+                    : activeSection === link.href.slice(1)
                     ? isOverColoredSection
                       ? "text-white"
-                      : !scrolled
-                      ? "text-slate-900"
                       : "text-primary"
                     : isOverColoredSection
-                    ? "text-white/70 hover:text-white hover:bg-white/10"
-                    : !scrolled
-                    ? "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
+                    ? "text-white hover:text-white hover:bg-white/10"
                     : "text-foreground hover:text-foreground hover:bg-primary/5"
                 }`}
               >
