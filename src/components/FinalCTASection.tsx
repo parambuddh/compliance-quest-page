@@ -1,48 +1,102 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const FinalCTASection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Very subtle darkening - preserves vibrant brand colors
+  const darkOverlay = useTransform(scrollYProgress, [0, 1], [0, 0.15]);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 md:py-28 relative overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-secondary" />
 
-      {/* Floating orbs for depth */}
-      <div className="absolute top-10 left-[10%] w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-[10%] w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+      {/* Progressive dark overlay - darkens as user scrolls through section */}
+      <motion.div
+        className="absolute inset-0 bg-black"
+        style={{ opacity: darkOverlay }}
+      />
+
+      {/* Single animated orb - subtle effect */}
+      <motion.div
+        className="absolute bottom-20 right-[15%] w-80 h-80 bg-white/10 rounded-full blur-3xl"
+        animate={{
+          y: [0, 40, -40, 0],
+          x: [0, -30, 30, 0],
+          scale: [1, 1.15, 0.9, 1],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Subtle glow layer */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-t from-secondary/8 via-transparent to-transparent"
+        animate={{ opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 5, repeat: Infinity }}
+      />
+
+      {/* Dot pattern */}
       <div className="absolute inset-0 dot-pattern opacity-10" />
 
-      <div className="container relative text-center max-w-2xl mx-auto">
+      <div className="container relative text-center max-w-3xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-5 leading-tight">
+          <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
             Ready to Simplify Enterprise Compliance?
           </h2>
-          <p className="text-primary-foreground/70 mb-10 text-lg">
+          <p className="relative text-white/85 mb-10 text-base md:text-lg leading-relaxed drop-shadow-md">
             Join 500+ enterprise customers managing compliance with confidence.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
+
+          {/* Buttons container */}
+          <motion.div
+            className="relative flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            {/* Primary Button */}
+            <motion.button
               onClick={() => scrollTo("contact")}
-              className="group bg-white/95 backdrop-blur text-primary px-8 py-4 rounded-2xl font-semibold hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-2xl shadow-black/20 flex items-center gap-2"
+              className="group relative px-8 py-4 rounded-full font-semibold text-base overflow-hidden shadow-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
+              whileHover={{ scale: 1.06, y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Request a Demo
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
+              {/* Content */}
+              <div className="relative flex items-center gap-2 font-bold drop-shadow-sm">
+                <span>Request a Demo</span>
+                <ArrowRight className="w-5 h-5" />
+              </div>
+            </motion.button>
+
+            {/* Secondary Button */}
+            <motion.button
               onClick={() => scrollTo("contact")}
-              className="glass-dark text-primary-foreground px-8 py-4 rounded-2xl font-semibold hover:bg-white/15 transition-all duration-300 hover:-translate-y-1"
+              className="group relative px-8 py-4 rounded-full font-semibold text-base overflow-hidden shadow-xl bg-transparent border-2 border-white text-white hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
+              whileHover={{ scale: 1.06, y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Schedule a Call
-            </button>
-          </div>
+              {/* Content */}
+              <div className="relative font-bold drop-shadow-sm">
+                Schedule a Call
+              </div>
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

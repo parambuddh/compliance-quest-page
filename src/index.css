@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,10 +15,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 26% 14%;
 
-    --primary: 168 76% 42%;
+    --primary: 114 77% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 211 100% 50%;
+    --secondary: 185 99% 35%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 20% 98%;
@@ -32,19 +32,19 @@
 
     --border: 216 12% 90%;
     --input: 216 12% 90%;
-    --ring: 168 76% 42%;
+    --ring: 114 77% 56%;
 
     --radius: 0.75rem;
 
-    --primary-hover: 168 76% 36%;
-    --secondary-hover: 211 100% 42%;
+    --primary-hover: 114 77% 44%;
+    --secondary-hover: 185 99% 28%;
     --surface-light: 210 20% 98%;
     --surface-accent: 207 100% 94%;
     --dark-navy: 222 84% 11%;
     --dark-navy-foreground: 216 12% 90%;
 
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
   }
 }
 
@@ -59,11 +59,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: 'Poppins', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -81,11 +81,11 @@
   }
 
   .glow-primary {
-    box-shadow: 0 0 40px -10px hsl(168 76% 42% / 0.4);
+    box-shadow: 0 0 40px -10px hsl(114 77% 56% / 0.4);
   }
 
   .glow-secondary {
-    box-shadow: 0 0 40px -10px hsl(211 100% 50% / 0.3);
+    box-shadow: 0 0 40px -10px hsl(194 96% 50% / 0.3);
   }
 
   .gradient-text {
@@ -103,7 +103,7 @@
     position: absolute;
     inset: -1px;
     border-radius: calc(var(--radius) + 1px);
-    background: linear-gradient(135deg, hsl(168 76% 42%), hsl(211 100% 50%));
+    background: linear-gradient(135deg, hsl(114 77% 56%), hsl(194 96% 50%));
     z-index: -1;
   }
 
@@ -113,13 +113,13 @@
 
   .mesh-bg {
     background-image:
-      radial-gradient(at 20% 30%, hsl(168 76% 42% / 0.08) 0%, transparent 50%),
-      radial-gradient(at 80% 70%, hsl(211 100% 50% / 0.08) 0%, transparent 50%),
-      radial-gradient(at 50% 50%, hsl(168 76% 42% / 0.03) 0%, transparent 70%);
+      radial-gradient(at 20% 30%, hsl(114 77% 56% / 0.08) 0%, transparent 50%),
+      radial-gradient(at 80% 70%, hsl(194 96% 50% / 0.08) 0%, transparent 50%),
+      radial-gradient(at 50% 50%, hsl(114 77% 56% / 0.03) 0%, transparent 70%);
   }
 
   .dot-pattern {
-    background-image: radial-gradient(hsl(168 76% 42% / 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(114 77% 56% / 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 }
@@ -130,8 +130,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px -5px hsl(168 76% 42% / 0.3); }
-  50% { box-shadow: 0 0 40px -5px hsl(168 76% 42% / 0.5); }
+  0%, 100% { box-shadow: 0 0 20px -5px hsl(114 77% 56% / 0.3); }
+  50% { box-shadow: 0 0 40px -5px hsl(114 77% 56% / 0.5); }
 }
 
 .scrollbar-hide {

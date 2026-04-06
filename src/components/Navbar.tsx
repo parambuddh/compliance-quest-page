@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/compliance-vista-logo.png";
+import logo from "/ComplianceVista-logo.svg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -46,14 +46,12 @@ const Navbar = () => {
       <div
         className={`container transition-all duration-500 ${
           scrolled
-            ? "mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50"
+            ? "mt-3 rounded-2xl bg-white/60 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/60"
             : "mt-0 rounded-none bg-transparent"
         }`}
       >
         <nav
-          className={`container flex items-center justify-between transition-all duration-500 ${
-            scrolled ? "h-16" : "h-24"
-          }`}
+          className={`container flex items-center justify-between transition-all duration-500 h-20`}
         >
           <button
             onClick={() => handleClick("#home")}
@@ -62,9 +60,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Compliance Vista"
-              className={`transition-all duration-500 ${
-                scrolled ? "h-9" : "h-11"
-              }`}
+              className={`transition-all duration-500 h-10`}
             />
           </button>
 
@@ -90,7 +86,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={() => handleClick("#contact")}
-              className={`ml-4 bg-gradient-to-r from-primary to-primary-hover text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-500 hover:-translate-y-0.5 ${
+              className={`ml-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 ${
                 scrolled ? "px-5 py-2 text-xs" : "px-6 py-2.5 text-sm"
               }`}
             >

@@ -81,7 +81,7 @@ const ContactSection = () => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-primary to-primary-hover text-primary-foreground py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
               Send

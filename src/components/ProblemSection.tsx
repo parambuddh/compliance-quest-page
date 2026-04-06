@@ -1,12 +1,28 @@
-import { ShieldAlert, FileSearch, Eye, Workflow } from "lucide-react";
 import { motion } from "framer-motion";
 
 const problems = [
-  { icon: ShieldAlert, title: "Scattered Compliance Data", desc: "Multiple systems, no unified view of compliance status across the organization." },
-  { icon: FileSearch, title: "Manual Audit Trails", desc: "Time-consuming, error-prone documentation that risks regulatory findings." },
-  { icon: Eye, title: "Risk Visibility Gaps", desc: "Hard to identify non-compliance in real-time before it becomes a problem." },
-  { icon: Workflow, title: "Workflow Inefficiency", desc: "Disconnected approvals and sign-offs slowing down compliance processes." },
+  { icon: "clipboard", title: "Scattered Compliance Data", desc: "Multiple systems, no unified view of compliance status across the organization." },
+  { icon: "magnifying", title: "Manual Audit Trails", desc: "Time-consuming, error-prone documentation that risks regulatory findings." },
+  { icon: "email", title: "Risk Visibility Gaps", desc: "Hard to identify non-compliance in real-time before it becomes a problem." },
+  { icon: "circular", title: "Workflow Inefficiency", desc: "Disconnected approvals and sign-offs slowing down compliance processes." },
 ];
+
+const IconComponent = ({ iconType }: { iconType: string }) => {
+  const iconMap: { [key: string]: string } = {
+    clipboard: "/icons/SV-Clipboard.png",
+    magnifying: "/icons/SV-MagnifyingGlass.png",
+    email: "/icons/SV-Email.png",
+    circular: "/icons/SV-CircularArrows.png",
+  };
+
+  return (
+    <img
+      src={iconMap[iconType]}
+      alt={iconType}
+      className="w-6 h-6 object-contain drop-shadow-md"
+    />
+  );
+};
 
 const ProblemSection = () => (
   <section id="overview" className="py-24 md:py-32 relative overflow-hidden">
@@ -40,7 +56,7 @@ const ProblemSection = () => (
             className="group glass-strong rounded-2xl p-6 hover:glow-primary transition-all duration-300 hover:-translate-y-1 cursor-default"
           >
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <p.icon className="w-6 h-6 text-primary" />
+              <IconComponent iconType={p.icon} />
             </div>
             <h3 className="font-bold text-foreground mb-2">{p.title}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>

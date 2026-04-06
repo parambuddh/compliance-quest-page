@@ -1,7 +1,11 @@
-import { Shield, ArrowDown, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import GetNowModal from "./GetNowModal";
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -55,16 +59,16 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => scrollTo("contact")}
-                className="group relative bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-8 py-4 rounded-2xl font-semibold hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
+                className="group relative bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="relative z-10">Request Demo</span>
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
               <button
-                onClick={() => scrollTo("overview")}
-                className="glass px-8 py-4 rounded-2xl font-semibold text-foreground hover:bg-white/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                onClick={() => setIsModalOpen(true)}
+                className="glass px-8 py-4 rounded-full font-semibold text-foreground overflow-hidden shadow-xl hover:bg-white/80 hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Learn More ↓
+                Get it now →
               </button>
             </div>
 
@@ -78,7 +82,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Hero graphic - glassmorphism dashboard */}
+          {/* Hero graphic - Company Image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -89,56 +93,12 @@ const HeroSection = () => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl scale-110" />
 
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl glass-strong p-6 float-animation">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-destructive/60" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-                  <div className="w-3 h-3 rounded-full bg-primary/60" />
-                </div>
-
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <div className="h-2.5 w-24 bg-foreground/15 rounded-full" />
-                    <div className="h-2 w-16 bg-foreground/10 rounded-full mt-1.5" />
-                  </div>
-                </div>
-
-                {/* KPI cards */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  {[
-                    { v: "92%", l: "Compliance", c: "from-primary/20 to-primary/5" },
-                    { v: "87%", l: "Audit Ready", c: "from-secondary/20 to-secondary/5" },
-                    { v: "95%", l: "Risk Score", c: "from-primary/15 to-secondary/10" },
-                  ].map((item, i) => (
-                    <div key={i} className={`bg-gradient-to-br ${item.c} rounded-xl p-3 text-center backdrop-blur-sm border border-white/30`}>
-                      <span className="text-lg font-bold gradient-text">{item.v}</span>
-                      <p className="text-[9px] text-muted-foreground mt-0.5">{item.l}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Progress bars */}
-                <div className="space-y-3">
-                  {[85, 72, 93].map((w, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between text-[10px] text-muted-foreground mb-1">
-                        <span>Policy {i + 1}</span>
-                        <span>{w}%</span>
-                      </div>
-                      <div className="h-2 bg-foreground/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${w}%` }}
-                          transition={{ duration: 1.2, delay: 0.8 + i * 0.2 }}
-                          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="relative w-96 h-80 lg:w-96 lg:h-96 rounded-3xl glass-strong overflow-hidden float-animation shadow-2xl shadow-primary/20 border border-white/30">
+                <img
+                  src="/company-images/CV_HERO_NEW.png"
+                  alt="ComplianceVista Dashboard"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Floating badge */}
@@ -146,7 +106,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2 }}
-                className="absolute -bottom-4 -left-4 glass rounded-2xl px-4 py-3 flex items-center gap-2 glow-primary"
+                className="absolute -bottom-4 -left-4 glass rounded-2xl px-4 py-3 flex items-center gap-2 glow-primary float-animation"
               >
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <span className="text-primary-foreground text-xs font-bold">✓</span>
@@ -174,6 +134,8 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
+
+      <GetNowModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

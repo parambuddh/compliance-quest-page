@@ -1,76 +1,169 @@
-import { ClipboardList, Lock, BarChart3, Clock, Search, Smartphone } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const features = [
-  { icon: ClipboardList, title: "Policy Management", desc: "Centralized repository with version control and policy lifecycle management." },
-  { icon: Lock, title: "Access Control", desc: "Role-based permissions and segregation of duties for enterprise security." },
-  { icon: BarChart3, title: "Compliance Reporting", desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks." },
-  { icon: Clock, title: "Deadline Tracking", desc: "Automated compliance reminders and deadline management with escalations." },
-  { icon: Search, title: "Audit Management", desc: "Evidence collection, audit trail management, and finding resolution." },
-  { icon: Smartphone, title: "Mobile Access", desc: "Manage compliance on-the-go with full mobile Salesforce experience." },
+  { icon: "clipboard", title: "Policy Management", desc: "Centralized repository with version control and policy lifecycle management." },
+  { icon: "dartboard", title: "Access Control", desc: "Role-based permissions and segregation of duties for enterprise security." },
+  { icon: "chart", title: "Compliance Reporting", desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks." },
+  { icon: "lightning", title: "Deadline Tracking", desc: "Automated compliance reminders and deadline management with escalations." },
+  { icon: "magnifying", title: "Audit Management", desc: "Evidence collection, audit trail management, and finding resolution." },
+  { icon: "circular", title: "Mobile Access", desc: "Manage compliance on-the-go with full mobile Salesforce experience." },
 ];
+
+const IconComponent = ({ iconType }: { iconType: string }) => {
+  const iconMap: { [key: string]: string } = {
+    clipboard: "/icons/SV-Clipboard.png",
+    dartboard: "/icons/SV-Dartboard.png",
+    chart: "/icons/SV-Chart.png",
+    lightning: "/icons/SV-LightningBolt.png",
+    magnifying: "/icons/SV-MagnifyingGlass.png",
+    circular: "/icons/SV-CircularArrows.png",
+  };
+
+  return (
+    <img
+      src={iconMap[iconType]}
+      alt={iconType}
+      className="w-8 h-8 object-contain drop-shadow-md"
+    />
+  );
+};
 
 const FeaturesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
 
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (v) => {
+      const idx = Math.min(
+        Math.floor(v * features.length * 1.2),
+        features.length - 1
+      );
+      setActiveIndex(idx);
+    });
+    return unsubscribe;
+  }, [scrollYProgress]);
+
+  const activeFeature = features[activeIndex];
+  const progress = (activeIndex / (features.length - 1)) * 100;
+
   return (
-    <section id="features" className="py-24 md:py-32 relative overflow-hidden" ref={containerRef}>
-      <div className="absolute inset-0 bg-gradient-to-b from-surface-light to-background" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+    <section
+      ref={containerRef}
+      className="relative"
+      style={{ height: `${features.length * 160}vh` }}
+    >
+      {/* Sticky container */}
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
+        <motion.div 
+          className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, 30, -20, 0],
+            y: [0, -40, 20, 0]
+          }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, -30, 20, 0],
+            y: [0, 40, -20, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
 
-      <div className="container relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
-          <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-4">
-            Features
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
-            Powerful Features Built for Enterprise
-          </h2>
-          <p className="text-muted-foreground">Everything you need at enterprise scale</p>
-        </motion.div>
+        <div className="absolute inset-0 dot-pattern opacity-20" />
 
-        {/* Horizontal scroll carousel */}
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 -mx-4">
-            {features.map((f, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group glass-strong rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 hover:glow-primary relative overflow-hidden cursor-default snap-center flex-shrink-0 w-[320px] min-h-[220px]"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-                <div className="absolute top-4 right-4 text-6xl font-bold text-primary/5 select-none">
-                  {String(i + 1).padStart(2, "0")}
+        <div className="container relative z-10">
+          <div className="flex items-center justify-center gap-12 max-w-6xl mx-auto">
+            {/* Central content card */}
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, scale: 0.95, rotateX: 10 }}
+              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+              className="w-full lg:w-3/4 max-w-5xl"
+            >
+              <div className="glass-strong rounded-3xl p-10 md:p-12 relative">
+                {/* Icon on top left */}
+                <motion.div
+                  className="absolute top-6 left-8 w-20 h-20 flex items-center justify-center"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
+                  <IconComponent iconType={activeFeature.icon} />
+                </motion.div>
+
+                {/* Number on top right */}
+                <motion.div
+                  className="absolute top-8 right-8 text-6xl font-bold text-primary/15"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  {String(activeIndex + 1).padStart(2, "0")}
+                </motion.div>
+
+                {/* Content with top padding for icon */}
+                <div className="pt-8">
+
+                {/* Title */}
+                <motion.h3
+                  className="text-3xl md:text-4xl font-bold gradient-text mb-3"
+                  animate={{ opacity: [0.8, 1, 0.8] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  {activeFeature.title}
+                </motion.h3>
+
+                {/* Description */}
+                <motion.p
+                  className="text-lg text-muted-foreground leading-relaxed mb-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {activeFeature.desc}
+                </motion.p>
+
+                {/* Progress bar - left to right */}
+                <div className="w-full h-2.5 bg-border rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+                    initial={{ width: "0%" }}
+                    animate={{ width: `${progress}%` }}
+                    transition={{ duration: 0.8 }}
+                  />
                 </div>
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
-                    <f.icon className="w-7 h-7 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-bold text-foreground mb-2 text-lg">{f.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+
+            {/* Feature list on right (mobile swipe indicator) */}
+            <div className="hidden xl:flex flex-col gap-6 w-1/3">
+              {features.map((f, i) => (
+                <motion.button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={`text-left p-4 rounded-xl transition-all duration-300 ${
+                    i === activeIndex
+                      ? "glass-strong glow-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  whileHover={{ x: 10 }}
+                >
+                  <div className="text-sm font-semibold">0{i + 1}</div>
+                  <div className="font-medium text-base truncate">{f.title}</div>
+                </motion.button>
+              ))}
+            </div>
           </div>
-          {/* Scroll fade indicators */}
-          <div className="absolute top-0 bottom-6 left-0 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-          <div className="absolute top-0 bottom-6 right-0 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
-
-        <p className="text-center text-xs text-muted-foreground mt-4">← Scroll to explore →</p>
       </div>
     </section>
   );
