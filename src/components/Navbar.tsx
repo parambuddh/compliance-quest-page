@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUp, Sun, Moon } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/ComplianceVista-logo.svg";
 
@@ -15,13 +15,10 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isOverColoredSection, setIsOverColoredSection] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
-      setShowScrollTop(window.scrollY > 300);
       
       // Detect which section is in view
       const sections = ["contact", "features", "overview", "home"];
@@ -62,15 +59,6 @@ const Navbar = () => {
   const handleClick = (href: string) => {
     setMobileOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
   };
 
   return (
@@ -116,10 +104,10 @@ const Navbar = () => {
                       ? "text-slate-900"
                       : "text-primary"
                     : isOverColoredSection
-                    ? "text-white/60 hover:text-white hover:bg-white/10"
+                    ? "text-white/70 hover:text-white hover:bg-white/10"
                     : !scrolled
                     ? "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
-                    : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
+                    : "text-foreground hover:text-foreground hover:bg-primary/5"
                 }`}
               >
                 {link.label}
@@ -143,55 +131,6 @@ const Navbar = () => {
             >
               Book Demo
             </button>
-
-            {/* Theme Toggle Button */}
-            <motion.button
-              onClick={toggleTheme}
-              className={`ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                isOverColoredSection
-                  ? "bg-white/20 text-white hover:bg-white/30"
-                  : !scrolled
-                  ? "bg-slate-800/10 text-slate-800 hover:bg-slate-800/20"
-                  : "bg-primary/10 text-primary hover:bg-primary/20"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              title="Toggle theme"
-            >
-              <motion.div
-                key={isDark ? "dark" : "light"}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.div>
-            </motion.button>
-
-            {/* Scroll to Top Button */}
-            <AnimatePresence>
-              {showScrollTop && (
-                <motion.button
-                  onClick={scrollToTop}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  className={`ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    isOverColoredSection
-                      ? "bg-white/20 text-white hover:bg-white/30"
-                      : !scrolled
-                      ? "bg-slate-800/10 text-slate-800 hover:bg-slate-800/20"
-                      : "bg-primary/10 text-primary hover:bg-primary/20"
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  title="Scroll to top"
-                >
-                  <ArrowUp size={18} />
-                </motion.button>
-              )}
-            </AnimatePresence>
           </div>
 
           <button
@@ -260,6 +199,24 @@ const Navbar = () => {
               </button>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Scroll to Top Button - Fixed Position */}
+      <AnimatePresence>
+        {scrolled && window.scrollY > 300 && (
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title="Scroll to top"
+          >
+            <ArrowUp size={20} />
+          </motion.button>
         )}
       </AnimatePresence>
     </motion.header>
