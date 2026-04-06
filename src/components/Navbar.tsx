@@ -104,7 +104,7 @@ const Navbar = () => {
                       ? "text-slate-900"
                       : "text-primary"
                     : isOverColoredSection
-                    ? "text-white/70 hover:text-white hover:bg-white/10"
+                    ? "text-white/60 hover:text-white hover:bg-white/10"
                     : !scrolled
                     ? "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
                     : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
@@ -178,9 +178,9 @@ const Navbar = () => {
                         ? "text-slate-900 bg-slate-800/5"
                         : "text-primary bg-primary/5"
                       : isOverColoredSection
-                      ? "text-white/70"
+                      ? "text-white/60"
                       : !scrolled
-                      ? "text-slate-700/70"
+                      ? "text-slate-800"
                       : "text-foreground/70"
                   }`}
                 >

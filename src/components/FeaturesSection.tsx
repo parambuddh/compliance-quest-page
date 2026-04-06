@@ -54,6 +54,7 @@ const FeaturesSection = () => {
   return (
     <section
       ref={containerRef}
+      id="features"
       className="relative"
       style={{ height: `${features.length * 160}vh` }}
     >
