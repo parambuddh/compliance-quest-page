@@ -14,10 +14,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isOverColoredSection, setIsOverColoredSection] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Detect which section is in view
       const sections = ["contact", "features", "overview", "home"];
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -26,7 +29,30 @@ const Navbar = () => {
           break;
         }
       }
+
+      // Detect if navbar is over a colored section (green sections)
+      const finalCtaElement = document.getElementById("final-cta");
+      const heroElement = document.getElementById("home");
+      
+      let overColored = false;
+      
+      if (finalCtaElement) {
+        const finalCtaRect = finalCtaElement.getBoundingClientRect();
+        if (finalCtaRect.top < 100 && finalCtaRect.bottom > 0) {
+          overColored = true;
+        }
+      }
+      
+      if (!overColored && heroElement) {
+        const heroRect = heroElement.getBoundingClientRect();
+        if (heroRect.top < 100 && heroRect.bottom > 0 && window.scrollY < 100) {
+          overColored = true;
+        }
+      }
+      
+      setIsOverColoredSection(overColored);
     };
+    
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -46,7 +72,9 @@ const Navbar = () => {
       <div
         className={`container transition-all duration-500 ${
           scrolled
-            ? "mt-3 rounded-2xl bg-white/60 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/60"
+            ? isOverColoredSection
+              ? "mt-3 rounded-2xl bg-slate-900/90 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-slate-700/60"
+              : "mt-3 rounded-2xl bg-white/60 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/60"
             : "mt-0 rounded-none bg-transparent"
         }`}
       >
@@ -60,7 +88,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Compliance Vista"
-              className={`transition-all duration-500 h-10`}
+              className={`transition-all duration-500 h-10 ${isOverColoredSection ? "brightness-150" : ""}`}
             />
           </button>
 
@@ -71,7 +99,11 @@ const Navbar = () => {
                 onClick={() => handleClick(link.href)}
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   activeSection === link.href.slice(1)
-                    ? "text-primary"
+                    ? isOverColoredSection
+                      ? "text-white"
+                      : "text-primary"
+                    : isOverColoredSection
+                    ? "text-white/70 hover:text-white hover:bg-white/10"
                     : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
                 }`}
               >
@@ -95,7 +127,11 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary"
+            className={`md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+              isOverColoredSection
+                ? "bg-white/20 text-white"
+                : "bg-primary/10 text-primary"
+            }`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -110,10 +146,14 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden overflow-hidden backdrop-blur-2xl border-t border-white/30 transition-all duration-500 ${
+            className={`md:hidden overflow-hidden backdrop-blur-2xl border-t transition-all duration-500 ${
               scrolled
-                ? "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-white/50"
-                : "bg-white/80"
+                ? isOverColoredSection
+                  ? "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-slate-900/90 border-slate-700/60"
+                  : "mx-4 md:mx-8 mt-1 rounded-b-2xl bg-white/50 border-white/30"
+                : isOverColoredSection
+                ? "bg-slate-900/80 border-slate-700/60"
+                : "bg-white/80 border-white/30"
             }`}
           >
             <div className="container py-4 flex flex-col gap-1">
@@ -123,7 +163,11 @@ const Navbar = () => {
                   onClick={() => handleClick(link.href)}
                   className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
                     activeSection === link.href.slice(1)
-                      ? "text-primary bg-primary/5"
+                      ? isOverColoredSection
+                        ? "text-white bg-white/10"
+                        : "text-primary bg-primary/5"
+                      : isOverColoredSection
+                      ? "text-white/70"
                       : "text-foreground/70"
                   }`}
                 >
