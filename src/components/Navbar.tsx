@@ -72,8 +72,8 @@ const Navbar = () => {
         className={`container transition-all duration-500 ${
           scrolled
             ? isOverColoredSection
-              ? "mt-3 rounded-3xl bg-slate-900/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-slate-600/50"
-              : "mt-3 rounded-3xl bg-white/50 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-white/40"
+              ? "mt-3 rounded-[2.5rem] bg-slate-900/80 backdrop-blur-xl shadow-[0_12px_48px_rgba(0,0,0,0.5)] border border-slate-600/50"
+              : "mt-3 rounded-[2.5rem] bg-white/50 backdrop-blur-xl shadow-[0_12px_48px_rgba(0,0,0,0.25)] border border-white/40"
             : "mt-0 rounded-none bg-transparent"
         }`}
       >
@@ -158,11 +158,11 @@ const Navbar = () => {
             className={`md:hidden overflow-hidden backdrop-blur-xl border-t transition-all duration-500 ${
               scrolled
                 ? isOverColoredSection
-                  ? "mx-4 md:mx-8 mt-1 rounded-b-3xl bg-slate-900/80 border-slate-600/50"
-                  : "mx-4 md:mx-8 mt-1 rounded-b-3xl bg-white/40 border-white/40"
+                  ? "mx-4 md:mx-8 mt-1 rounded-b-[2.5rem] bg-slate-900/80 border-slate-600/50 shadow-[0_12px_48px_rgba(0,0,0,0.5)]"
+                  : "mx-4 md:mx-8 mt-1 rounded-b-[2.5rem] bg-white/40 border-white/40 shadow-[0_12px_48px_rgba(0,0,0,0.25)]"
                 : isOverColoredSection
-                ? "bg-slate-900/80 border-slate-600/50"
-                : "bg-white/40 border-white/40"
+                ? "bg-slate-900/80 border-slate-600/50 shadow-[0_12px_48px_rgba(0,0,0,0.5)]"
+                : "bg-white/40 border-white/40 shadow-[0_12px_48px_rgba(0,0,0,0.25)]"
             }`}
           >
             <div className="container py-4 flex flex-col gap-1">
