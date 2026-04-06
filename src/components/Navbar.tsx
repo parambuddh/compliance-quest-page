@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/compliance-vista-logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -43,41 +44,28 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
     >
       <div
-        className={`transition-all duration-500 ${
+        className={`container transition-all duration-500 ${
           scrolled
-            ? "container mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50"
-            : "container mt-0 rounded-none bg-transparent"
+            ? "mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50"
+            : "mt-0 rounded-none bg-transparent"
         }`}
       >
         <nav
           className={`container flex items-center justify-between transition-all duration-500 ${
-            scrolled ? "h-12" : "h-20"
+            scrolled ? "h-16" : "h-24"
           }`}
         >
           <button
             onClick={() => handleClick("#home")}
-            className="flex items-center gap-2.5 font-heading font-bold transition-all duration-500"
+            className="flex items-center gap-2 transition-all duration-500"
           >
-            <div
-              className={`rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-all duration-500 ${
-                scrolled ? "w-7 h-7" : "w-8 h-8"
+            <img
+              src={logo}
+              alt="Compliance Vista"
+              className={`transition-all duration-500 ${
+                scrolled ? "h-9" : "h-11"
               }`}
-            >
-              <span
-                className={`text-primary-foreground font-bold transition-all duration-500 ${
-                  scrolled ? "text-xs" : "text-sm"
-                }`}
-              >
-                CV
-              </span>
-            </div>
-            <span
-              className={`gradient-text transition-all duration-500 ${
-                scrolled ? "text-lg" : "text-xl"
-              }`}
-            >
-              Compliance Vista
-            </span>
+            />
           </button>
 
           <div className="hidden md:flex items-center gap-1">

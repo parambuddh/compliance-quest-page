@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "", demo: false });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -21,7 +21,7 @@ const ContactSection = () => {
     ev.preventDefault();
     if (!validate()) return;
     toast.success("Thank you! We'll be in touch shortly.");
-    setForm({ name: "", company: "", email: "", phone: "", message: "", demo: false });
+    setForm({ name: "", email: "", subject: "", message: "" });
     setErrors({});
   };
 
@@ -47,97 +47,87 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-10 gap-12 max-w-5xl mx-auto">
+          {/* Form - 60% */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="md:col-span-3 glass-strong rounded-2xl p-8 space-y-4"
+            className="md:col-span-6 glass-strong rounded-2xl p-8 space-y-4"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Full Name *</label>
-                <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass("name")} placeholder="John Doe" />
-                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Company</label>
-                <input type="text" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className={inputClass("company")} placeholder="Acme Inc." />
-              </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Email *</label>
-                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} placeholder="john@company.com" />
-                {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Phone</label>
-                <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass("phone")} placeholder="+1 (555) 000-0000" />
-              </div>
+            <div>
+              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
+              <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass("name")} placeholder="John Doe" />
+              {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Message *</label>
-              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} className={inputClass("message")} placeholder="Tell us about your compliance needs..." />
-              {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Email (Required)</label>
+              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} placeholder="john@company.com" />
+              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
             </div>
 
-            <label className="flex items-center gap-3 text-sm text-muted-foreground cursor-pointer group">
-              <input
-                type="checkbox"
-                checked={form.demo}
-                onChange={(e) => setForm({ ...form, demo: e.target.checked })}
-                className="w-5 h-5 rounded-md border-border/50 accent-primary"
-              />
-              <span className="group-hover:text-foreground transition-colors">I'm interested in a product demo</span>
-            </label>
+            <div>
+              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Subject</label>
+              <input type="text" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass("subject")} placeholder="How can we help?" />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Message</label>
+              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={6} className={inputClass("message")} placeholder="Tell us about your compliance needs..." />
+              {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+            </div>
 
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-primary to-primary-hover text-primary-foreground py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
-              Send Message
+              Send
             </button>
           </motion.form>
 
+          {/* Quick Connect - 40% */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 space-y-6"
+            className="md:col-span-4 space-y-6"
           >
-            <div className="glass-strong rounded-2xl p-6 space-y-5">
-              {[
-                { icon: Mail, label: "demo@ardira.com", href: "mailto:demo@ardira.com" },
-                { icon: Phone, label: "+1 (669) 777-6838", href: "tel:+16697776838" },
-                { icon: MapPin, label: "Ardira Technologies", href: "#" },
-              ].map((item, i) => (
-                <a key={i} href={item.href} className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="text-sm text-foreground/80 group-hover:text-primary transition-colors">{item.label}</span>
-                </a>
-              ))}
-            </div>
-
             <div className="glass-strong rounded-2xl p-6">
-              <p className="text-xs font-semibold text-foreground/70 uppercase tracking-wider mb-4">Follow Us</p>
-              <div className="flex gap-3">
-                {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center hover:from-primary hover:to-secondary hover:text-primary-foreground text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
-                    aria-label="Social link"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                ))}
+              <h3 className="font-bold text-foreground uppercase tracking-wider text-sm mb-6">
+                Reach Out to Us for Confidential Inquiry
+              </h3>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-bold text-foreground mb-3">US HQ</h4>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="text-sm text-muted-foreground leading-relaxed">
+                      <p>2040 Martin Ave</p>
+                      <p>Santa Clara, CA 95050</p>
+                      <p>United States</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="tel:+16697776838" className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-sm text-muted-foreground group-hover:text-primary transition-colors">1.669.777.6838</span>
+                </a>
+
+                <a href="mailto:info@ardira.com" className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-sm text-primary group-hover:text-primary/80 transition-colors">info (at) ardira.com</span>
+                </a>
               </div>
             </div>
           </motion.div>

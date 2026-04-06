@@ -28,24 +28,34 @@ const UseCasesSection = () => (
         </h2>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-        {useCases.map((u, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            className="group glass-strong rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 hover:glow-secondary cursor-default"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/15 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <u.icon className="w-6 h-6 text-secondary" />
-            </div>
-            <h3 className="font-bold text-foreground mb-2">{u.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{u.desc}</p>
-          </motion.div>
-        ))}
+      {/* Horizontal scroll carousel */}
+      <div className="relative">
+        <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 -mx-4">
+          {useCases.map((u, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="group glass-strong rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 hover:glow-secondary cursor-default snap-center flex-shrink-0 w-[300px] min-h-[200px]"
+            >
+              <div className="absolute top-4 right-4 text-6xl font-bold text-secondary/5 select-none">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/15 to-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <u.icon className="w-7 h-7 text-secondary" />
+              </div>
+              <h3 className="font-bold text-foreground mb-2 text-lg">{u.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{u.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="absolute top-0 bottom-6 left-0 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute top-0 bottom-6 right-0 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
       </div>
+
+      <p className="text-center text-xs text-muted-foreground mt-4">← Scroll to explore →</p>
     </div>
   </section>
 );
