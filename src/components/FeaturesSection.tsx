@@ -136,35 +136,34 @@ const FeaturesSection = () => {
               className="w-full lg:w-3/4 max-w-5xl"
             >
               <div className="glass-strong rounded-3xl p-10 md:p-12 relative">
-                {/* Icon on top left */}
-                <motion.div
-                  className="absolute top-6 left-8 w-20 h-20 flex items-center justify-center"
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
-                  <IconComponent iconType={activeFeature.icon} />
-                </motion.div>
-
                 {/* Number on top right */}
                 <motion.div
-                  className="absolute top-8 right-8 text-6xl font-bold text-primary/15"
+                  className="absolute top-8 right-8 text-5xl md:text-6xl font-bold text-primary/15"
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   {String(activeIndex + 1).padStart(2, "0")}
                 </motion.div>
 
-                {/* Content with top padding for icon */}
-                <div className="pt-8">
-
-                {/* Title */}
-                <motion.h3
-                  className="text-3xl md:text-4xl font-bold gradient-text mb-3"
-                  animate={{ opacity: [0.8, 1, 0.8] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {activeFeature.title}
-                </motion.h3>
+                {/* Content */}
+                <div>
+                  {/* Title with Icon beside */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <motion.div
+                      className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl"
+                      animate={{ rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                    >
+                      <IconComponent iconType={activeFeature.icon} />
+                    </motion.div>
+                    <motion.h3
+                      className="text-2xl md:text-4xl font-bold gradient-text"
+                      animate={{ opacity: [0.8, 1, 0.8] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      {activeFeature.title}
+                    </motion.h3>
+                  </div>
 
                 {/* Description */}
                 <motion.p

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUp, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/ComplianceVista-logo.svg";
 
@@ -15,10 +15,13 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isOverColoredSection, setIsOverColoredSection] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
+      setShowScrollTop(window.scrollY > 300);
       
       // Detect which section is in view
       const sections = ["contact", "features", "overview", "home"];
@@ -59,6 +62,15 @@ const Navbar = () => {
   const handleClick = (href: string) => {
     setMobileOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
@@ -131,6 +143,55 @@ const Navbar = () => {
             >
               Book Demo
             </button>
+
+            {/* Theme Toggle Button */}
+            <motion.button
+              onClick={toggleTheme}
+              className={`ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                isOverColoredSection
+                  ? "bg-white/20 text-white hover:bg-white/30"
+                  : !scrolled
+                  ? "bg-slate-800/10 text-slate-800 hover:bg-slate-800/20"
+                  : "bg-primary/10 text-primary hover:bg-primary/20"
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              title="Toggle theme"
+            >
+              <motion.div
+                key={isDark ? "dark" : "light"}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </motion.div>
+            </motion.button>
+
+            {/* Scroll to Top Button */}
+            <AnimatePresence>
+              {showScrollTop && (
+                <motion.button
+                  onClick={scrollToTop}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  className={`ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    isOverColoredSection
+                      ? "bg-white/20 text-white hover:bg-white/30"
+                      : !scrolled
+                      ? "bg-slate-800/10 text-slate-800 hover:bg-slate-800/20"
+                      : "bg-primary/10 text-primary hover:bg-primary/20"
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  title="Scroll to top"
+                >
+                  <ArrowUp size={18} />
+                </motion.button>
+              )}
+            </AnimatePresence>
           </div>
 
           <button
