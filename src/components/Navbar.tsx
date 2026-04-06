@@ -87,7 +87,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Compliance Vista"
-              className={`transition-all duration-500 h-10 ${isOverColoredSection ? "brightness-150" : ""}`}
+              className={`transition-all duration-500 h-10 ${!scrolled ? "" : isOverColoredSection ? "brightness-150" : ""}`}
             />
           </button>
 
@@ -100,9 +100,13 @@ const Navbar = () => {
                   activeSection === link.href.slice(1)
                     ? isOverColoredSection
                       ? "text-white"
+                      : !scrolled
+                      ? "text-slate-900"
                       : "text-primary"
                     : isOverColoredSection
                     ? "text-white/70 hover:text-white hover:bg-white/10"
+                    : !scrolled
+                    ? "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
                     : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
                 }`}
               >
@@ -117,7 +121,11 @@ const Navbar = () => {
             ))}
             <button
               onClick={() => handleClick("#contact")}
-              className={`ml-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 ${
+              className={`ml-4 ${
+                !scrolled
+                  ? "bg-gradient-to-r from-primary to-secondary text-white"
+                  : "bg-gradient-to-r from-primary to-secondary text-primary-foreground"
+              } rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 ${
                 scrolled ? "px-5 py-2 text-xs" : "px-6 py-2.5 text-sm"
               }`}
             >
@@ -129,6 +137,8 @@ const Navbar = () => {
             className={`md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
               isOverColoredSection
                 ? "bg-white/20 text-white"
+                : !scrolled
+                ? "bg-slate-800/10 text-slate-800"
                 : "bg-primary/10 text-primary"
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -164,9 +174,13 @@ const Navbar = () => {
                     activeSection === link.href.slice(1)
                       ? isOverColoredSection
                         ? "text-white bg-white/10"
+                        : !scrolled
+                        ? "text-slate-900 bg-slate-800/5"
                         : "text-primary bg-primary/5"
                       : isOverColoredSection
                       ? "text-white/70"
+                      : !scrolled
+                      ? "text-slate-700/70"
                       : "text-foreground/70"
                   }`}
                 >
@@ -175,7 +189,11 @@ const Navbar = () => {
               ))}
               <button
                 onClick={() => handleClick("#contact")}
-                className="bg-gradient-to-r from-primary to-secondary text-primary-foreground px-5 py-3 rounded-xl text-sm font-semibold mt-2"
+                className={`${
+                  !scrolled
+                    ? "bg-gradient-to-r from-primary to-secondary text-white"
+                    : "bg-gradient-to-r from-primary to-secondary text-primary-foreground"
+                } px-5 py-3 rounded-xl text-sm font-semibold mt-2`}
               >
                 Book Demo
               </button>
