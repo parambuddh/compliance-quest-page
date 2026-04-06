@@ -1,5 +1,5 @@
-import { motion, useScroll } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const useCases = [
   { icon: "chart", title: "Financial Services", desc: "Meet regulatory requirements including Basel III, CCAR, and stress testing compliance." },
@@ -29,138 +29,146 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
 
 const UseCasesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
 
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (v) => {
-      const idx = Math.min(
-        Math.floor(v * useCases.length * 1.3),
-        useCases.length - 1
-      );
-      setActiveIndex(idx);
-    });
-    return unsubscribe;
-  }, [scrollYProgress]);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
 
-  const activeUseCase = useCases[activeIndex];
-  const progress = (activeIndex / (useCases.length - 1)) * 100;
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative"
-      style={{ height: `${useCases.length * 160}vh` }}
-    >
-      {/* Sticky container */}
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/3 to-primary/3" />
-        <motion.div 
-          className="absolute -top-40 -left-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, 30, -20, 0],
-            y: [0, -40, 20, 0]
-          }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute -bottom-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
-          animate={{ 
-            x: [0, -30, 20, 0],
-            y: [0, 40, -20, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity }}
-        />
+    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/2 to-primary/2" />
+      <motion.div 
+        className="absolute top-20 -right-32 w-96 h-96 bg-secondary/8 rounded-full blur-3xl"
+        animate={{ 
+          x: [-40, 40, -40],
+          y: [0, 50, 0]
+        }}
+        transition={{ duration: 15, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/8 rounded-full blur-3xl"
+        animate={{ 
+          x: [40, -40, 40],
+          y: [0, -50, 0]
+        }}
+        transition={{ duration: 18, repeat: Infinity }}
+      />
+      <div className="absolute inset-0 dot-pattern opacity-10" />
 
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-
-        <div className="container relative z-10">
-          <div className="flex items-center justify-center gap-12 max-w-6xl mx-auto">
-            {/* Central content card */}
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95, rotateX: 10 }}
-              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              className="w-full lg:w-3/4 max-w-5xl"
-            >
-              <div className="glass-strong rounded-3xl p-10 md:p-12 relative">
-                {/* Icon on top left */}
-                <motion.div
-                  className="absolute top-6 left-8 w-20 h-20 flex items-center justify-center"
-                  animate={{ rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
-                  <IconComponent iconType={activeUseCase.icon} />
-                </motion.div>
-
-                {/* Number on top right */}
-                <motion.div
-                  className="absolute top-8 right-8 text-6xl font-bold text-primary/15"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  {String(activeIndex + 1).padStart(2, "0")}
-                </motion.div>
-
-                {/* Content with top padding for icon */}
-                <div className="pt-8">
-                  {/* Title */}
-                  <motion.h3
-                  className="text-3xl md:text-4xl font-bold gradient-text mb-3"
-                  animate={{ opacity: [0.8, 1, 0.8] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {activeUseCase.title}
-                </motion.h3>
-
-                {/* Description */}
-                <motion.p
-                  className="text-lg text-muted-foreground leading-relaxed mb-6"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {activeUseCase.desc}
-                </motion.p>
-
-                {/* Progress bar - left to right */}
-                <div className="w-full h-2.5 bg-border rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-                    initial={{ width: "0%" }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.8 }}
-                  />
-                </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Industry list on right */}
-            <div className="hidden xl:flex flex-col gap-6 w-1/3">
-              {useCases.map((u, i) => (
-                <motion.button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`text-left p-4 rounded-xl transition-all duration-300 ${
-                    i === activeIndex
-                      ? "glass-strong glow-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                  whileHover={{ x: 10 }}
-                >
-                  <div className="text-sm font-semibold">0{i + 1}</div>
-                  <div className="font-medium text-base truncate">{u.title}</div>
-                </motion.button>
-              ))}
+      <div className="container relative z-10">
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-6">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+              <span className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Industry Solutions
+              </span>
             </div>
           </div>
-        </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+            Built for Every Industry
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Tailored compliance solutions for your specific industry challenges and regulatory requirements.
+          </p>
+        </motion.div>
+
+        {/* Grid Layout - Different from Features sticky scroll */}
+        <motion.div
+          ref={containerRef}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        >
+          {useCases.map((useCase, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.2 }
+              }}
+              className="group"
+            >
+              <motion.div
+                className="glass-strong rounded-2xl p-8 h-full relative overflow-hidden transition-all duration-300 hover:glow-primary"
+                whileHover={{ scale: 1.02 }}
+              >
+                {/* Gradient background accent on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                />
+
+                {/* Icon Container */}
+                <motion.div
+                  className="relative z-10 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <IconComponent iconType={useCase.icon} />
+                </motion.div>
+
+                {/* Number */}
+                <motion.div
+                  className="absolute top-6 right-6 text-4xl font-bold text-primary/10 group-hover:text-primary/20 transition-all duration-300"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </motion.div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">
+                    {useCase.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-all duration-300">
+                    {useCase.desc}
+                  </p>
+
+                  {/* Separator line */}
+                  <motion.div
+                    className="mt-6 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "100%" }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -58,8 +58,52 @@ const FeaturesSection = () => {
       className="relative"
       style={{ height: `${features.length * 160}vh` }}
     >
+      {/* Section Heading */}
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
+        <motion.div 
+          className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, 30, -20, 0],
+            y: [0, -40, 20, 0]
+          }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, -30, 20, 0],
+            y: [0, 40, -20, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+        <div className="container relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block mb-6">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+                <span className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Powerful Capabilities
+                </span>
+              </div>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+              Enterprise Features
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Comprehensive compliance management tools designed for modern enterprises. Scroll to explore each feature in detail.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Sticky container */}
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden pointer-events-auto">
         {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
         <motion.div 
