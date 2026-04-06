@@ -54,9 +54,6 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
 
     setIsSubmitting(true);
 
-    // You can add API call here if needed
-    console.log("Form submitted:", formData);
-
     // Redirect to Salesforce AppExchange
     setTimeout(() => {
       window.location.href =
