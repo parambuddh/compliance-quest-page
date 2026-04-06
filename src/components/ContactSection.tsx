@@ -47,13 +47,13 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto">
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="glass-strong rounded-2xl p-8 space-y-4"
+            className="md:col-span-3 glass-strong rounded-2xl p-8 space-y-4"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
@@ -108,7 +108,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="md:col-span-2 space-y-6"
           >
             <div className="glass-strong rounded-2xl p-6 space-y-5">
               {[

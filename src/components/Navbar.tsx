@@ -45,10 +45,9 @@ const Navbar = () => {
       <div
         className={`transition-all duration-500 ${
           scrolled
-            ? "mx-6 md:mx-16 lg:mx-24 mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50 scale-[0.92]"
-            : "mx-0 mt-0 rounded-none bg-transparent scale-100"
+            ? "container mt-3 rounded-2xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50"
+            : "container mt-0 rounded-none bg-transparent"
         }`}
-        style={{ transformOrigin: "top center" }}
       >
         <nav
           className={`container flex items-center justify-between transition-all duration-500 ${
