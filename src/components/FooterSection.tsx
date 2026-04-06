@@ -1,18 +1,14 @@
-import { Linkedin, Twitter, Facebook, Youtube } from "lucide-react";
+import logo from "@/assets/compliance-vista-logo.png";
 
 const FooterSection = () => (
   <footer className="relative overflow-hidden bg-navy text-navy-foreground py-16">
-    {/* Subtle top gradient */}
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
     <div className="container relative">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <div>
           <div className="flex items-center gap-2.5 mb-6">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-primary-foreground text-sm font-bold">CV</span>
-            </div>
-            <span className="font-heading font-bold text-primary-foreground">Compliance Vista</span>
+            <img src={logo} alt="Compliance Vista" className="h-10 brightness-0 invert" />
           </div>
           <p className="text-sm text-navy-foreground/50 leading-relaxed">
             Enterprise governance simplified. A Salesforce-native compliance management solution by Ardira Technologies.
@@ -43,18 +39,6 @@ const FooterSection = () => (
         <p className="text-xs text-navy-foreground/40">
           © 2026 Ardira Technologies. All Rights Reserved.
         </p>
-        <div className="flex gap-3">
-          {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
-            <a
-              key={i}
-              href="#"
-              className="w-8 h-8 rounded-lg bg-navy-foreground/5 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              aria-label="Social link"
-            >
-              <Icon className="w-3.5 h-3.5" />
-            </a>
-          ))}
-        </div>
       </div>
     </div>
   </footer>
