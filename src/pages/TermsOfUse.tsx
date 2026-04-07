@@ -22,7 +22,7 @@ const TermsOfUse = () => {
     <>
       <Navbar />
       <main className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-surface-light to-background">
-        <div className="container max-w-3xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,11 +30,23 @@ const TermsOfUse = () => {
             className="space-y-8"
           >
             {/* Header */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl font-bold gradient-text">Terms of Use</h1>
-              <p className="text-muted-foreground text-lg">
-                Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-              </p>
+            <div className="space-y-4 relative">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h1 className="text-4xl md:text-5xl font-bold gradient-text">Terms of Use</h1>
+                  <p className="text-muted-foreground text-lg">
+                    Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                  </p>
+                </div>
+                <a
+                  href="https://surveyvista.com/ardira-appexchange-app-terms-and-conditions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-semibold whitespace-nowrap mt-2"
+                >
+                  Ardira AppExchange App Terms and Conditions
+                </a>
+              </div>
             </div>
 
             {/* Content Sections */}

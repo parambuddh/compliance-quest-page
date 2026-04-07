@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
     <>
       <Navbar />
       <main className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-surface-light to-background">
-        <div className="container max-w-3xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

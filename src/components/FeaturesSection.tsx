@@ -18,7 +18,7 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
     chart: "/icons/SV-Chart.png",
     lightning: "/icons/SV-LightningBolt.png",
     magnifying: "/icons/SV-MagnifyingGlass.png",
-    circular: "/icons/SV-CircularArrows.png",
+    circular: "/icons/SV-MobileAccess.png",
   };
 
   return (

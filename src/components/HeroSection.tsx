@@ -63,14 +63,14 @@ const HeroSection = () => {
                 onClick={() => scrollTo("contact")}
                 className="group relative bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
               >
-                <span className="relative z-10">Request Demo</span>
+                <span className="relative z-10">Book a Demo</span>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="glass px-8 py-4 rounded-full font-semibold text-foreground overflow-hidden shadow-xl hover:bg-white/80 hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Get it now →
+                View On AppExchange →
               </button>
             </div>
 
