@@ -33,7 +33,7 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
 
     if (!formData.contactNumber.trim()) {
       newErrors.contactNumber = "Contact number is required";
-    } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.contactNumber)) {
+    } else if (!/^[\d\s\-+()]+$/.test(formData.contactNumber)) {
       newErrors.contactNumber = "Please enter a valid phone number";
     }
 
