@@ -1,11 +1,22 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
 
 const PrivacyPolicy = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
     <>
@@ -281,6 +292,25 @@ const PrivacyPolicy = () => {
           </motion.div>
         </div>
       </main>
+
+      {/* Scroll to Top Button - Fixed Position */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title="Scroll to top"
+          >
+            <ArrowUp size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       <FooterSection />
     </>
   );
