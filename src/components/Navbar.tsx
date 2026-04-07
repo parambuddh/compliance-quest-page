@@ -190,6 +190,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className={`md:hidden overflow-hidden backdrop-blur-xl border-t transition-all duration-500 ${
               scrolled
                 ? isOverColoredSection
@@ -201,10 +202,13 @@ const Navbar = () => {
             }`}
           >
             <div className="container py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <button
+              {navLinks.map((link, index) => (
+                <motion.button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.08, duration: 0.3, ease: "easeOut" }}
                   className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
                     !isIndependentPage && activeSection === link.href.slice(1)
                       ? isOverColoredSection
@@ -220,10 +224,13 @@ const Navbar = () => {
                   }`}
                 >
                   {link.label}
-                </button>
+                </motion.button>
               ))}
-              <button
+              <motion.button
                 onClick={() => handleClick("#contact")}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.08, duration: 0.3, ease: "easeOut" }}
                 className={`${
                   !scrolled
                     ? "bg-gradient-to-r from-primary to-secondary text-white"
@@ -231,7 +238,7 @@ const Navbar = () => {
                 } px-5 py-3 rounded-xl text-sm font-semibold mt-2`}
               >
                 Book Demo
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         )}

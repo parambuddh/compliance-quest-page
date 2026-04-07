@@ -99,30 +99,32 @@ const SolutionSection = () => {
             </div>
 
             {/* Text */}
-            <div className="w-full md:w-1/2 space-y-6 min-h-[300px]">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-6"
-              >
-                <h3 className="text-3xl font-bold gradient-text">{active.title}</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">{active.desc}</p>
-                <ul className="space-y-4">
-                  {active.benefits.map((b, j) => (
-                    <li key={j} className="flex items-center gap-3 text-base text-foreground">
-                      <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                      </div>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+            <div className="w-full md:w-1/2 flex flex-col md:min-h-[300px]">
+              <div className="flex-1 overflow-y-auto pr-2 md:pr-0 max-h-96 md:max-h-none space-y-6 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-6"
+                >
+                  <h3 className="text-3xl font-bold gradient-text">{active.title}</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">{active.desc}</p>
+                  <ul className="space-y-4">
+                    {active.benefits.map((b, j) => (
+                      <li key={j} className="flex items-center gap-3 text-base text-foreground">
+                        <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
 
               {/* Progress dots */}
-              <div className="flex gap-3 pt-6">
+              <div className="flex gap-3 pt-6 mt-4 md:mt-0">
                 {solutions.map((_, i) => (
                   <div
                     key={i}
