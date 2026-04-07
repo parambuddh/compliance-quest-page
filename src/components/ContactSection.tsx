@@ -35,27 +35,6 @@ const ContactSection = () => {
       <div className="absolute inset-0 mesh-bg" />
 
       <div className="container relative">
-        {/* Google Maps */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 rounded-2xl overflow-hidden shadow-2xl border border-primary/20"
-          style={{ height: "400px" }}
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="ComplianceVista Office - Santa Clara, CA"
-            style={{ border: "none" }}
-          />
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,14 +47,15 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-10 gap-12 max-w-5xl mx-auto">
-          {/* Form - 60% */}
+        {/* Two Column Layout - Form Left, Map + Info Right */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
+          {/* Form - Left Side */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="md:col-span-6 glass-strong rounded-2xl p-8 space-y-4"
+            className="glass-strong rounded-2xl p-8 space-y-4"
           >
             <div>
               <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
@@ -109,13 +89,29 @@ const ContactSection = () => {
             </button>
           </motion.form>
 
-          {/* Quick Connect - 40% */}
+          {/* Right Side - Map + Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-4 space-y-6"
+            className="space-y-6"
           >
+            {/* Google Maps */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-primary/20" style={{ height: "300px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ComplianceVista Office - Santa Clara, CA"
+                style={{ border: "none" }}
+              />
+            </div>
+
+            {/* Contact Info Box */}
             <div className="glass-strong rounded-2xl p-6">
               <h3 className="font-bold text-foreground uppercase tracking-wider text-sm mb-6">
                 Reach Out to Us for Confidential Inquiry
