@@ -68,88 +68,90 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Form & Map */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="glass-strong rounded-2xl p-8 border border-primary/20"
-            >
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Your name"
-                    className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="your.email@example.com"
-                    className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+1 (555) 123-4567"
-                    className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    placeholder="Tell us what you'd like to discuss..."
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300 resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 mt-6"
-                >
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Form */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="glass-strong rounded-2xl p-8 border border-primary/20"
+              >
+                <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
+                <form className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="your.email@example.com"
+                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+1 (555) 123-4567"
+                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      placeholder="Tell us what you'd like to discuss..."
+                      rows={4}
+                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300 resize-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 mt-6"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </motion.div>
 
-            {/* Map */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="glass-strong rounded-2xl p-8 border border-primary/20 overflow-hidden"
-            >
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Location</h2>
-              <div className="rounded-lg overflow-hidden h-96">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  style={{ border: "none", display: "block" }}
-                  loading="lazy"
-                  allowFullScreen=""
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.5842693803393!2d-121.97789!3d37.35411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fccf7d8b5e5e5%3A0x5d9e5e5e5e5e5e5e!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1234567890"
-                />
-              </div>
-            </motion.div>
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="glass-strong rounded-2xl p-8 border border-primary/20 flex flex-col"
+              >
+                <h2 className="text-2xl font-bold text-foreground mb-4">Our Location</h2>
+                <div className="relative w-full h-64 rounded-lg overflow-hidden flex-1 bg-slate-900/20">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    style={{ border: "none" }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.5842693803393!2d-121.97789!3d37.35411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fccf7d8b5e5e5%3A0x5d9e5e5e5e5e5e5e!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1234567890"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </main>
