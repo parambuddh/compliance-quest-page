@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/ComplianceVista-logo.svg";
@@ -11,22 +12,29 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isOverColoredSection, setIsOverColoredSection] = useState(false);
 
+  // Determine if we're on an independent page (not the home page)
+  const isIndependentPage = location.pathname !== "/";
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      // Detect which section is in view
-      const sections = ["contact", "features", "overview", "home"];
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(id);
-          break;
+      // Only detect section on the home page
+      if (!isIndependentPage) {
+        const sections = ["contact", "features", "overview", "home"];
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 120) {
+            setActiveSection(id);
+            break;
+          }
         }
       }
 
@@ -54,11 +62,34 @@ const Navbar = () => {
     
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isIndependentPage]);
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    
+    // If on an independent page and clicking a section link, navigate to home first then scroll
+    if (isIndependentPage && href.startsWith("#")) {
+      navigate("/", { replace: false });
+      // Use setTimeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else if (href.startsWith("#")) {
+      // On home page, just scroll
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleLogoClick = () => {
+    setMobileOpen(false);
+    if (isIndependentPage) {
+      navigate("/");
+    } else {
+      handleClick("#home");
+    }
   };
 
   return (
@@ -81,7 +112,7 @@ const Navbar = () => {
           className={`container flex items-center justify-between transition-all duration-500 h-20`}
         >
           <button
-            onClick={() => handleClick("#home")}
+            onClick={handleLogoClick}
             className="flex items-center gap-2 transition-all duration-500"
           >
             <img
@@ -97,7 +128,11 @@ const Navbar = () => {
                 key={link.href}
                 onClick={() => handleClick(link.href)}
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                  !scrolled
+                  isIndependentPage
+                    ? !scrolled
+                      ? "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
+                      : "text-foreground hover:text-foreground hover:bg-primary/5"
+                    : !scrolled
                     ? activeSection === link.href.slice(1)
                       ? "text-slate-900"
                       : "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
@@ -111,7 +146,7 @@ const Navbar = () => {
                 }`}
               >
                 {link.label}
-                {activeSection === link.href.slice(1) && (
+                {!isIndependentPage && activeSection === link.href.slice(1) && (
                   <motion.div
                     layoutId="nav-indicator"
                     className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
@@ -171,7 +206,7 @@ const Navbar = () => {
                   key={link.href}
                   onClick={() => handleClick(link.href)}
                   className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
-                    activeSection === link.href.slice(1)
+                    !isIndependentPage && activeSection === link.href.slice(1)
                       ? isOverColoredSection
                         ? "text-white bg-white/10"
                         : !scrolled
