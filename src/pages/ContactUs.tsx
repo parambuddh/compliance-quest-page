@@ -68,7 +68,7 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Form & Map */}
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Form */}
               <motion.div
@@ -131,25 +131,23 @@ const ContactUs = () => {
                 </form>
               </motion.div>
 
-              {/* Map */}
+              {/* Map Container */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="glass-strong rounded-2xl p-8 border border-primary/20 flex flex-col"
+                className="rounded-2xl overflow-hidden border border-primary/20"
               >
-                <h2 className="text-2xl font-bold text-foreground mb-4">Our Location</h2>
-                <div className="w-full rounded-lg overflow-hidden bg-slate-900/20" style={{ height: "400px" }}>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.585!2d-121.978!3d37.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcad5f2e047f1%3A0x75db4b79e86ce8f5!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
+                <iframe
+                  title="ComplianceVista Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.585!2d-121.978!3d37.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcad5f2e047f1%3A0x75db4b79e86ce8f5!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
+                  width="100%"
+                  height="600"
+                  style={{ border: 0, display: "block" }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </motion.div>
             </div>
           </div>
