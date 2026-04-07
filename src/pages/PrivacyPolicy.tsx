@@ -22,110 +22,245 @@ const PrivacyPolicy = () => {
               </p>
             </div>
 
-            {/* Important Notice */}
-            <div className="glass-strong rounded-2xl p-6 border border-primary/20 bg-primary/5">
-              <h3 className="text-lg font-bold text-foreground mb-2">⚠️ Important Legal Notice</h3>
-              <p className="text-muted-foreground">
-                ComplianceVista's Privacy Policy is currently being prepared by our legal team and privacy specialists. For a complete and legally binding privacy policy that complies with all applicable regulations (GDPR, CCPA, etc.), please contact our legal department at{" "}
-                <a href="mailto:privacy@compliancevista.com" className="text-primary hover:underline">
-                  privacy@compliancevista.com
-                </a>
-              </p>
-            </div>
-
             {/* Content Sections */}
             <div className="prose prose-invert max-w-none space-y-8">
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">1. Introduction</h2>
+                <h2 className="text-2xl font-bold text-foreground">Privacy Notice</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  ComplianceVista ("Company", "we", "our", or "us") operates the website. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
+                  The website located at www.compliancevista.com, (the "Website") is published, owned, and operated by Ardira Corporation, its affiliates and related entities ("ComplianceVista," "the Company," "we," "us," and "our"). ComplianceVista respects your privacy and is committed to protecting your privacy through our compliance with this website privacy policy (the "Policy"). This Policy should be read in conjunction with our website{" "}
+                  <a href="/terms-of-use" className="text-primary hover:underline">
+                    Terms of Use
+                  </a>
+                  , into which this Policy is incorporated by reference.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">2. Information Collection and Use</h2>
+                <h2 className="text-2xl font-bold text-foreground">What We Collect and How We Collect It</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We collect several different types of information for various purposes to provide and improve our Service to you.
+                  To ensure that we provide you with the best possible experience, we will store, use, and share information about you in accordance with this Policy.
                 </p>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Types of Data Collected:</h3>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Information You Provide to Us</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Personal Information is any information that can be used to individually identify you from a larger group, such as data including, but not limited to, your:
+                </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>First and last name</li>
+                  <li>Email address</li>
+                  <li>Telephone number</li>
+                  <li>State/region</li>
+                  <li>Company/organization name</li>
+                  <li>Job title</li>
+                  <li>Job level (e.g., Supervisor, Manager, Consultant, etc.)</li>
+                  <li>Job role (e.g., Finance, Human Resources, Information Technology, etc.)</li>
+                  <li>Comments or messages provided in free text boxes</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  When you provide us Personal Information, we may combine that Personal Information from other data we have collected about you to learn more about you and to provide additional services. For example, your Personal Information may be included to update user profiles, provide services to follow-up on your prior questions or requests, and supplement existing marketing and sales promotional lists.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">You may provide us Personal Information when you:</h2>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>Request information</li>
+                  <li>Provide requested services</li>
+                  <li>Update your user profile</li>
+                  <li>Schedule a demonstration</li>
+                  <li>Apply for a job</li>
+                  <li>Subscribe to our emails</li>
+                  <li>Register yourself with our Website</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  The information that you provide in each case will vary. In some cases, we may ask you to create a username and password that should only be known to you.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Automated Information Collection</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  In addition to the information that you provide to us, we may also collect information about you during your visit to our Website. We collect this information using automated tools that are detailed below. These tools may collect information about your behavior and your computer system, such as your internet address (IP Address), the pages you have viewed, and the actions you have taken while using our Website. Some of the tools we use to automatically collect information about you may include:
+                </p>
+
+                <h3 className="text-xl font-semibold text-foreground mb-3">(a) Cookies</h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  A "cookie" is a small data file transmitted from a website to your computer's hard drive. Cookies are not used to run programs or deliver viruses to your computer. Instead, we use cookies to help you personalize your online experience. One of the primary purposes of cookies is to provide a convenience feature to save you time. For example, if you personalize pages on our Website, or register for a subscription service, a cookie helps us to recall your specific information on subsequent visits. When you return to the Website, the information you previously provided can be retrieved, so you can easily use the customized features.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Cookies are usually defined in one of two ways, and we may use both of them:
+                </p>
+                <ul className="list-decimal list-inside space-y-2 text-muted-foreground ml-2">
+                  <li>Session cookies, which do not stay on your computer after you close your browser</li>
+                  <li>Persistent cookies, which remain on your computer until you delete them or they expire</li>
+                </ul>
+
+                <h4 className="text-lg font-semibold text-foreground mt-4 mb-3">We may use the following categories of cookies on our Website:</h4>
+                <ul className="list-decimal list-inside space-y-3 text-muted-foreground ml-2">
                   <li>
-                    <strong>Personal Data:</strong> While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). This may include, but is not limited to:
-                    <ul className="list-circle list-inside ml-4 mt-2 space-y-1">
-                      <li>Email address</li>
-                      <li>First name and last name</li>
-                      <li>Phone number</li>
-                      <li>Address, State, Province, ZIP/Postal code, City</li>
-                      <li>Cookies and Usage Data</li>
-                    </ul>
+                    <span className="font-semibold">Strictly Necessary Cookies.</span> These cookies are essential in order to enable you to move around the Website and use its features. Without these cookies, services you have requested, such as maintaining a record of your downloaded items, cannot be provided.
                   </li>
                   <li>
-                    <strong>Usage Data:</strong> We may also collect information on how the Service is accessed and used ("Usage Data"). This may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data.
+                    <span className="font-semibold">Performance Cookies.</span> These cookies collect anonymous information on how people use our Website to help us understand how you arrive at our site, browse or use our Website and highlight areas where we can improve, such as navigation. The data stored by these cookies never shows personal details from which your individual identity can be established.
                   </li>
+                  <li>
+                    <span className="font-semibold">Functionality Cookies.</span> These cookies remember choices you make such as the country from which you visit our Website, your preferred language, and your search parameters. This information can then be used to provide you with an experience more appropriate to your selections and to make your visits to our Website more tailored to your preferences. The information in these cookies may be anonymized. These cookies cannot track your browsing activity on other websites.
+                  </li>
+                  <li>
+                    <span className="font-semibold">Targeting Cookies or Advertising Cookies.</span> These cookies collect information about your browsing habits in order to make advertising more relevant to you and your interests. They are also used to limit the number of times you see an advertisement as well as help measure the effectiveness of an advertising campaign. The cookies are usually placed by third-party advertising networks. These cookies remember the websites you visit and that information is shared with other parties.
+                  </li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  Of course, if you do not wish to have cookies on your devices, you may turn them off at any time by modifying your internet browser's settings. However, by disabling cookies on your device, you may be prohibited from full use of the Website's features or lose access to some functionality.
+                </p>
+
+                <h3 className="text-xl font-semibold text-foreground mb-3 mt-6">(b) Embedded Web Links</h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Links provided in our emails and, in some cases, on third-party websites may include tracking technology embedded in the link. The tracking system allows us to understand how the link is being used by email recipients. Some of these links will enable us to identify that you have personally clicked on the link and this may be attached to the Personal Information that we hold about you. This data is used to improve our service to you and to help us understand the performance of our marketing campaigns.
+                </p>
+
+                <h3 className="text-xl font-semibold text-foreground mb-3 mt-6">(c) Third-Party Websites and Services</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We work with a number of service providers of marketing communications technology. These service providers may use various data collection methods to improve the performance of the marketing campaigns we are contracting them to provide. The information collected can be gathered on our Website and also on the websites where our marketing communications are appearing. For example, we may collect data where our banner advertisements are displayed on third-party websites.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Do Not Track Disclosure</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  We may use cookies or other technologies to enable us to serve ComplianceVista advertisements to you on trusted third party websites. However, no Personal Information is shared in such advertisement placements. Our Website recognizes and responds to Do Not Track ("DNT") signals from your internet web browser. If you choose to enable such DNT features, you will not receive such advertisements on third party websites.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Your Choices and Selecting Your Privacy Preferences</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  We want to provide you with relevant information that you have requested. When you initially make contact with us, such as through requesting a white paper or requesting a demonstration of a product, we will add your information to our communications list. If we provide subscription-based services, such as email newsletters, we will always allow you to make choices about what information you provide at the point of information collection or at any time after you have received a communication from us while you are subscribed to the service.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  You may opt-out of receiving communications from us at any time by selecting the "unsubscribe" link at the bottom of each email. Please note that by opting out or unsubscribing you might affect other services you have requested we provide to you, in which email communication is a requirement of the service provided. Any such communications you receive from us will be administered in accordance with your preferences and this Policy.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Accuracy and Access to Your Personal Information</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  We strive to maintain and process your information accurately. We have processes in place to maintain all of our information in accordance with relevant data governance frameworks and legal requirements. We employ technologies designed to help us maintain information accuracy on input and processing.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Should you have any questions about your Personal Information, please e-mail us at{" "}
+                  <a href="mailto:legal@ardira.com" className="text-primary hover:underline">
+                    legal@ardira.com
+                  </a>
+                  .
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Information of Minors</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  We do not actively seek to gather information from individuals under the age of eighteen (18). We do not target our Website to minors, and would not expect them to be engaging with our websites or services. We encourage parents and guardians to provide adequate protection measures to prevent minors from providing information unwillingly on the internet. If we are aware of any Personal Information that we have collected about minors, we will take steps to securely remove it from our systems.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">How We Use Your Information</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  The information we gather and that you provide is collected to provide you information and the services you request, in addition to various other purposes, including, but not limited to:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>Assisting you with items such as personalized experiences, facilitation of product usage, and enforcement of Terms of Use</li>
+                  <li>Preventing malicious activity and providing you with a secure experience</li>
+                  <li>Providing service and support for services you request</li>
+                  <li>Providing marketing communications that are effective and optimized for you</li>
+                  <li>Keeping you up-to-date with the latest benefits available from us</li>
+                  <li>Preventing unwanted messages or content</li>
+                  <li>Measuring the performance of our marketing programs</li>
+                  <li>Contacting you about services and offers that are relevant to you</li>
                 </ul>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">3. Use of Data</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  ComplianceVista uses the collected data for various purposes:
+                <h2 className="text-2xl font-bold text-foreground">How We Share Your Information</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  We do not sell or lease your information to any third party. We may disclose your Personal Information to our trusted third-party business partners in accordance with this Policy. We work with a number of partners that help us process your requests, deliver customer service and support, send email marketing communications, and provide experiences that you have come to expect from us. We also work with a select group of trusted third-party business partners for sales and marketing purposes and to offer added value to our customers. We will share your information with these third parties in order to fulfill the service that they provide to us. These third-party partners are under contract to keep your information secure and not to use it for any reason other than to fulfill the service we have requested from them.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  One such trusted third-party partner is Google Analytics. The Website sends aggregated, non-Personal Information to Google Analytics for the purpose of providing us with the ability to conduct technical and statistical analysis on the Website's performance. For more information on how Google Analytics supports the Website and uses information sent from the Website, please review Google's privacy policy available at{" "}
+                  <a href="https://policies.google.com/technologies/partner-sites" className="text-primary hover:underline">
+                    https://policies.google.com/technologies/partner-sites
+                  </a>
+                  .
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  <span className="font-semibold">California Residents.</span> As already disclosed, we may market our services to you on third party websites by showing you advertisements for ComplianceVista products or services. We will not share your Personal Information with such third parties for the purposes of any third party marketing of its products to you without your prior consent.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Except as described in this Policy, we will not share your information with third parties without your notice and consent, unless it is under one of the following circumstances:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>To provide and maintain our Service</li>
-                  <li>To notify you about changes to our Service</li>
-                  <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
-                  <li>To provide customer support</li>
-                  <li>To gather analysis or valuable information so that we can improve our Service</li>
-                  <li>To monitor the usage of our Service</li>
-                  <li>To detect, prevent and address technical issues</li>
+                  <li>Responding to duly authorized information requests from law enforcement or other governmental authorities</li>
+                  <li>Complying with any law, regulation, subpoena, or court order</li>
+                  <li>Investigating and helping prevent security threats, fraud, or other malicious activity</li>
+                  <li>Enforcing or protecting the rights and properties of ComplianceVista or its subsidiaries</li>
+                  <li>Protecting the rights or personal safety of ComplianceVista's employees</li>
                 </ul>
-              </section>
-
-              <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">4. Security of Data</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  There are circumstances where ComplianceVista may decide to buy, sell, or reorganize its business in selected countries. Under these circumstances, it may be necessary to share or receive Personal Information with prospective or actual partners or affiliates. In such circumstances, ComplianceVista will ensure your information is used in accordance with this Policy.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">5. Changes to This Privacy Policy</h2>
+                <h2 className="text-2xl font-bold text-foreground">Third-Party Websites</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy.
+                  This Policy does not apply to websites or other domains that are maintained or operated by third parties or our affiliates. Our Website may link to third-party websites and services, but these links are not endorsements of these sites, and this Policy does not extend to them. Because this Policy is not enforced on these third-party websites, we encourage you to read any posted privacy policy of the third-party website before using the service or site and providing any information.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">6. Contact Us</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  If you have any questions about this Privacy Policy, please contact us:
+                <h2 className="text-2xl font-bold text-foreground">International</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  We do not currently market or sell our goods and services to customers outside the United States or Canada. Accordingly, we do not warrant or represent our use of your Personal Information as described in this Policy will necessarily comply with laws of countries other than the United States or Canada. However, we understand many visitors to our Website may be located outside the United States or Canada. To provide you with our Website services or to operate our Website, please be advised we may store, process, and transmit information in the United States, Canada, and other countries that may not have the same privacy and security laws as the country in which you live. Regardless of the country in which such information is stored or from which you access our Website, we will process your Personal Information in accordance with this Policy.
                 </p>
-                <div className="glass-strong rounded-xl p-4 space-y-2">
-                  <p className="text-foreground">
-                    <strong>Privacy Team</strong>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Safeguarding the Information We Collect</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  We take reasonable technical, administrative, and physical safeguards in order to protect your Personal Information against accidental loss and from unauthorized access, use, alteration, and disclosure. However, we can never promise 100% security. You have a responsibility, as well, to safeguard your information through the proper use and security of any online credentials used to access your Personal Information, such as a username and password. If you believe your credentials have been compromised, please change your password. Please also notify us of any unauthorized use.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">Changes to this Policy</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  If we make any changes to this Policy, a revised Policy will be posted on this webpage and the date of the change will be reported in the "Last Revised" block. You can get to this page from our Website by clicking on the "Privacy Policy" link (usually at the bottom of the screen).
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">How to Contact Us</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We value your opinions and welcome your feedback. To contact us about this Policy or your Personal Information, please contact us at:
+                </p>
+                <div className="glass-strong rounded-xl p-4 space-y-3">
+                  <p className="text-foreground font-semibold">Legal Department</p>
+                  <p className="text-muted-foreground">Ardira Corporation</p>
+                  <p className="text-muted-foreground">
+                    Legal Email:{" "}
+                    <a href="mailto:legal@ardira.com" className="text-primary hover:underline">
+                      legal@ardira.com
+                    </a>
                   </p>
                   <p className="text-muted-foreground">
-                    Email:{" "}
-                    <a href="mailto:privacy@compliancevista.com" className="text-primary hover:underline">
-                      privacy@compliancevista.com
+                    Support Email:{" "}
+                    <a href="mailto:support@ardira.com" className="text-primary hover:underline">
+                      support@ardira.com
                     </a>
                   </p>
                 </div>
-              </section>
-
-              <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">7. Your Rights</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Depending on your location, you may have certain rights regarding your personal data, including:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>The right to access your personal data</li>
-                  <li>The right to correct inaccurate data</li>
-                  <li>The right to request deletion of your data</li>
-                  <li>The right to restrict processing of your data</li>
-                  <li>The right to data portability</li>
-                  <li>The right to object to processing</li>
-                </ul>
               </section>
             </div>
           </motion.div>
