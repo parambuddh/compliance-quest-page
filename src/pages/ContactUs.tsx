@@ -129,24 +129,32 @@ const ContactUs = () => {
           </motion.div>
 
           {/* Map Section */}
-          <div className="max-w-4xl mx-auto mt-24 mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Our Location</h2>
+          <div style={{ 
+            maxWidth: "56rem", 
+            margin: "6rem auto 4rem auto",
+            padding: "2rem",
+            backgroundColor: "#ffffff",
+            borderRadius: "1rem",
+            border: "2px solid rgba(80, 217, 69, 0.3)",
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+          }}>
+            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1.5rem", color: "#ffffff" }}>Our Location</h2>
             <div style={{ 
               width: "100%", 
               height: "450px", 
-              borderRadius: "1rem", 
-              overflow: "hidden", 
-              border: "2px solid rgba(80, 217, 69, 0.3)",
-              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+              borderRadius: "0.5rem", 
+              overflow: "hidden"
             }}>
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 frameBorder="0"
-                allowFullScreen
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Google Maps - ComplianceVista Office"
+                style={{ border: "none" }}
               />
             </div>
           </div>
