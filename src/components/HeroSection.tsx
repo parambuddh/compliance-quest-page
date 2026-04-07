@@ -39,7 +39,7 @@ const HeroSection = () => {
               <span className="text-foreground/80 font-medium">Salesforce-Native Solution</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.2] text-foreground space-y-2">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.2] text-foreground space-y-2">
               <div>
                 <span className="gradient-text">Assessments. Risk. Compliance.</span>
               </div>
@@ -47,8 +47,8 @@ const HeroSection = () => {
                 All Automated.{" "}
                 <span className="relative inline-block">
                   All inside Salesforce.
-                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                    <path d="M2 6C50 2 150 2 198 6" stroke="hsl(168 76% 42%)" strokeWidth="3" strokeLinecap="round" />
+                  <svg className="absolute -bottom-4 left-0 w-full" viewBox="0 0 200 12" fill="none">
+                    <path d="M2 10C50 6 150 6 198 10" stroke="hsl(168 76% 42%)" strokeWidth="3" strokeLinecap="round" />
                   </svg>
                 </span>
               </div>
