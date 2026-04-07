@@ -48,14 +48,14 @@ const ContactSection = () => {
         </motion.div>
 
         {/* Two Column Layout - Form Left, Map + Info Right */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
-          {/* Form - Left Side */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+          {/* Form - Left Side - Increased Height */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="glass-strong rounded-2xl p-8 space-y-4"
+            className="glass-strong rounded-2xl p-6 md:p-8 space-y-4 h-fit md:min-h-[700px] flex flex-col"
           >
             <div>
               <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
@@ -74,45 +74,30 @@ const ContactSection = () => {
               <input type="text" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass("subject")} placeholder="How can we help?" />
             </div>
 
-            <div>
+            <div className="flex-grow">
               <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Message</label>
-              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={6} className={inputClass("message")} placeholder="Tell us about your compliance needs..." />
+              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={8} className={`${inputClass("message")} resize-none h-32 md:h-48`} placeholder="Tell us about your compliance needs..." />
               {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
             </div>
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 mt-auto"
             >
               <Send className="w-4 h-4" />
               Send
             </button>
           </motion.form>
 
-          {/* Right Side - Map + Contact Info */}
+          {/* Right Side - Info on Top, Map Below */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 flex flex-col"
           >
-            {/* Google Maps */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-primary/20" style={{ height: "300px" }}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="ComplianceVista Office - Santa Clara, CA"
-                style={{ border: "none" }}
-              />
-            </div>
-
-            {/* Contact Info Box */}
-            <div className="glass-strong rounded-2xl p-6">
+            {/* Contact Info Box - TOP */}
+            <div className="glass-strong rounded-2xl p-6 md:p-8">
               <h3 className="font-bold text-foreground uppercase tracking-wider text-sm mb-6">
                 Reach Out to Us for Confidential Inquiry
               </h3>
@@ -146,6 +131,21 @@ const ContactSection = () => {
                   <span className="text-sm text-primary group-hover:text-primary/80 transition-colors">info (at) ardira.com</span>
                 </a>
               </div>
+            </div>
+
+            {/* Google Maps - BOTTOM */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-primary/20 flex-grow" style={{ minHeight: "300px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ComplianceVista Office - Santa Clara, CA"
+                style={{ border: "none", minHeight: "300px" }}
+              />
             </div>
           </motion.div>
         </div>
