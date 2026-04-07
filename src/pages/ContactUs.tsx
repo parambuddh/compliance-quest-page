@@ -129,27 +129,27 @@ const ContactUs = () => {
           </motion.div>
 
           {/* Map Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="max-w-4xl mx-auto mt-24 mb-16">
             <h2 className="text-2xl font-bold text-foreground mb-6">Our Location</h2>
-            <div className="w-full" style={{ borderRadius: "1rem", overflow: "hidden", border: "2px solid rgba(80, 217, 69, 0.3)", boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}>
+            <div style={{ 
+              width: "100%", 
+              height: "450px", 
+              borderRadius: "1rem", 
+              overflow: "hidden", 
+              border: "2px solid rgba(80, 217, 69, 0.3)",
+              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+            }}>
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin" 
-                width="100%" 
-                height="450" 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
                 frameBorder="0"
-                allowFullScreen={true}
-                loading="lazy" 
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="ComplianceVista Office Location at 2040 Martin Ave"
-                style={{ display: "block" }}
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </main>
       <FooterSection />
