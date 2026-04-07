@@ -6,26 +6,31 @@ const reasons = [
     icon: Cloud,
     title: "100% native to Salesforce",
     description: "Built directly within your Salesforce ecosystem",
+    position: "left",
   },
   {
     icon: Database,
     title: "No external systems or data storage",
     description: "Keep all your data secure and centralized",
+    position: "center-top",
   },
   {
     icon: Zap,
     title: "Automates manual review workflows",
     description: "Eliminate tedious manual processes",
+    position: "right",
   },
   {
     icon: CheckCircle2,
     title: "Ensures consistent, repeatable, auditable processes",
     description: "Maintain compliance standards effortlessly",
+    position: "left-bottom",
   },
   {
     icon: Target,
     title: "Ideal for assessments across HR, Compliance, Vendor Risk, and Internal Audit",
     description: "Comprehensive solution for all your assessment needs",
+    position: "right-bottom",
   },
 ];
 
@@ -35,17 +40,17 @@ const WhyComplianceVistaSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.12,
         delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
         duration: 0.6,
         ease: "easeOut",
@@ -81,7 +86,7 @@ const WhyComplianceVistaSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
+          className="text-center mb-16 md:mb-20 lg:mb-24 px-4"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Why ComplianceVista
@@ -91,88 +96,193 @@ const WhyComplianceVistaSection = () => {
           </p>
         </motion.div>
 
-        {/* Benefits Grid */}
+        {/* Benefits - Unique Flowing Layout */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-4 max-w-6xl mx-auto"
+          className="max-w-6xl mx-auto px-4 relative"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {reasons.map((reason, index) => {
-            const IconComponent = reason.icon;
-            const isLast = index === reasons.length - 1;
-            const isLastInGrid = isLast && reasons.length % 3 !== 0;
-
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <motion.div
-                  className={`group h-full relative glass-light rounded-2xl p-5 md:p-6 lg:p-7 backdrop-blur-xl border border-white/10 hover:border-primary/40 transition-all duration-500 overflow-hidden ${
-                    isLast && !isLastInGrid ? "md:col-span-2 lg:col-span-1" : ""
-                  }`}
-                  whileHover={{
-                    y: -8,
-                    boxShadow: "0 20px 60px rgba(0, 200, 150, 0.15)",
-                  }}
-                >
-                  {/* Gradient background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Icon container */}
+          {/* Grid Layout for Benefits */}
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-6">
+            {/* Left Column - Top */}
+            <motion.div variants={itemVariants} className="flex flex-col items-center lg:col-span-1 lg:row-span-2 justify-start">
+              <motion.div
+                className="relative group mb-6 w-full max-w-xs"
+                whileHover={{ y: -12 }}
+              >
+                {/* Large Icon Circle */}
+                <div className="relative h-40 w-40 mx-auto">
                   <motion.div
-                    className="relative z-10 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 mb-4 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all duration-500"
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                  >
-                    <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-primary group-hover:text-secondary transition-colors duration-500" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <h3 className="text-base md:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                      {reason.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300 leading-relaxed">
-                      {reason.description}
-                    </p>
-                  </div>
-
-                  {/* Accent line */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-secondary"
-                    initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"
+                    animate={{
+                      boxShadow: [
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                        "0 0 50px rgba(0, 200, 150, 0.5)",
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                      ],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Cloud className="w-16 h-16 text-primary" />
+                  </div>
+                  <motion.div
+                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    01
+                  </motion.div>
+                </div>
+              </motion.div>
 
-                  {/* Number badge */}
-                  <div className="absolute top-4 right-4 md:top-5 md:right-5 text-xs md:text-sm font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300">
-                    {String(index + 1).padStart(2, "0")}
+              <motion.div className="text-center" whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
+                  {reasons[0].title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {reasons[0].description}
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Center Column - Top and Bottom */}
+            <motion.div variants={itemVariants} className="flex flex-col items-center lg:col-span-1 justify-start">
+              <motion.div
+                className="relative group mb-6 w-full max-w-xs"
+                whileHover={{ y: -12 }}
+              >
+                <div className="relative h-40 w-40 mx-auto">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"
+                    animate={{
+                      boxShadow: [
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                        "0 0 50px rgba(0, 200, 150, 0.5)",
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                      ],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Database className="w-16 h-16 text-primary" />
+                  </div>
+                  <motion.div
+                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    02
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div className="text-center" whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
+                  {reasons[1].title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {reasons[1].description}
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Column - Top */}
+            <motion.div variants={itemVariants} className="flex flex-col items-center lg:col-span-1 lg:row-span-2 justify-start">
+              <motion.div
+                className="relative group mb-6 w-full max-w-xs"
+                whileHover={{ y: -12 }}
+              >
+                <div className="relative h-40 w-40 mx-auto">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"
+                    animate={{
+                      boxShadow: [
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                        "0 0 50px rgba(0, 200, 150, 0.5)",
+                        "0 0 30px rgba(0, 200, 150, 0.3)",
+                      ],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Zap className="w-16 h-16 text-primary" />
+                  </div>
+                  <motion.div
+                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  >
+                    03
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div className="text-center" whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
+                  {reasons[2].title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {reasons[2].description}
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Bottom Row - 2 Items */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-6 mt-12 lg:mt-20 max-w-2xl mx-auto">
+            {[3, 4].map((idx) => (
+              <motion.div key={idx} variants={itemVariants} className="flex flex-col items-center">
+                <motion.div
+                  className="relative group mb-6 w-full max-w-xs"
+                  whileHover={{ y: -12 }}
+                >
+                  <div className="relative h-40 w-40 mx-auto">
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full"
+                      animate={{
+                        boxShadow: [
+                          "0 0 30px rgba(0, 200, 150, 0.3)",
+                          "0 0 50px rgba(0, 200, 150, 0.5)",
+                          "0 0 30px rgba(0, 200, 150, 0.3)",
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: idx * 0.5,
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      {idx === 3 ? (
+                        <CheckCircle2 className="w-16 h-16 text-primary" />
+                      ) : (
+                        <Target className="w-16 h-16 text-primary" />
+                      )}
+                    </div>
+                    <motion.div
+                      className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </motion.div>
                   </div>
                 </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 md:mt-16 lg:mt-20 text-center px-4"
-        >
-          <p className="text-sm md:text-base text-muted-foreground mb-6 md:mb-8">
-            Ready to transform your compliance management?
-          </p>
-          <motion.button
-            className="group relative bg-gradient-to-r from-primary to-secondary text-primary-foreground px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Explore All Benefits →</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </motion.button>
+                <motion.div className="text-center" whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">
+                    {reasons[idx].title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {reasons[idx].description}
+                  </p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
