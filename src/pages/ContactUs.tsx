@@ -136,17 +136,22 @@ const ContactUs = () => {
             className="max-w-2xl mx-auto"
           >
             <h2 className="text-2xl font-bold text-foreground mb-6">Our Location</h2>
-            <div className="rounded-2xl overflow-hidden border border-primary/20 bg-slate-900/20">
-              <iframe
-                title="ComplianceVista Office Location at 2040 Martin Ave, Santa Clara, CA"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.585!2d-121.978!3d37.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcad5f2e047f1%3A0x75db4b79e86ce8f5!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
-                width="100%"
-                height="500"
-                style={{ border: 0, display: "block" }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="rounded-2xl overflow-hidden border-2 border-primary/20 bg-slate-900/10 shadow-lg h-96">
+              <a 
+                href="https://maps.google.com/?q=2040+Martin+Ave+Santa+Clara+CA+95050" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-900/30 to-slate-900/10 hover:from-slate-900/40 hover:to-slate-900/20 transition-colors duration-300"
+              >
+                <div className="text-center">
+                  <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
+                  <p className="text-foreground font-semibold mb-2">2040 Martin Ave</p>
+                  <p className="text-muted-foreground mb-4">Santa Clara, CA 95050</p>
+                  <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all">
+                    View on Google Maps
+                  </button>
+                </div>
+              </a>
             </div>
           </motion.div>
         </div>
