@@ -142,11 +142,11 @@ const ContactUs = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: "300px" }}
+                  style={{ border: 0, minHeight: "400px" }}
                   loading="lazy"
                   allowFullScreen=""
                   referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDVKqvCJbJdjXzP3v64_g3jVg9-3iXfqFc&q=2040+Martin+Avenue+Santa+Clara+CA+95050`}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.5842693803393!2d-121.97789!3d37.35411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fccf7d8b5e5e5%3A0x5d9e5e5e5e5e5e5e!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1234567890"
                 />
               </div>
             </motion.div>
