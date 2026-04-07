@@ -137,17 +137,15 @@ const ContactUs = () => {
           >
             <h2 className="text-2xl font-bold text-foreground mb-6">Our Location</h2>
             <div className="rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl bg-white" style={{ minHeight: "500px" }}>
-              <iframe
-                title="ComplianceVista Office at 2040 Martin Ave, Santa Clara, CA 95050"
-                width="100%"
-                height="500"
-                frameBorder="0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.517!2d-121.96206!3d37.365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
-                allowFullScreen={true}
-                loading="lazy"
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin" 
+                width="100%" 
+                height="500" 
+                style={{border:0}} 
+                allowFullScreen="" 
+                loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                sandbox="allow-scripts allow-same-origin allow-presentation"
-                style={{ border: 0, display: "block", width: "100%", height: "100%" }}
+                title="ComplianceVista Office Location"
               />
             </div>
           </motion.div>
