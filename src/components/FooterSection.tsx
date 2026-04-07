@@ -19,7 +19,7 @@ const FooterSection = () => (
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-bold text-foreground mb-6 text-base">Quick Links</h4>
+          <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
           <ul className="space-y-3 text-sm">
             <li>
               <a href="#" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
@@ -46,7 +46,7 @@ const FooterSection = () => (
 
         {/* Contact Info */}
         <div>
-          <h4 className="font-bold text-foreground mb-6 text-base">Contact Info</h4>
+          <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
               <span className="text-primary">🌐</span>
