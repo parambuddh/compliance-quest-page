@@ -34,11 +34,11 @@ const FeaturesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeFeature = features[activeIndex];
 
-  // Auto-carousel with 3-second interval
+  // Auto-carousel with 2-second interval
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev === features.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 

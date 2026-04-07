@@ -128,13 +128,6 @@ const WhyComplianceVistaSection = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Cloud className="w-16 h-16 text-primary" />
                   </div>
-                  <motion.div
-                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    01
-                  </motion.div>
                 </div>
               </motion.div>
 
@@ -169,13 +162,6 @@ const WhyComplianceVistaSection = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Database className="w-16 h-16 text-primary" />
                   </div>
-                  <motion.div
-                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    02
-                  </motion.div>
                 </div>
               </motion.div>
 
@@ -210,13 +196,6 @@ const WhyComplianceVistaSection = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Zap className="w-16 h-16 text-primary" />
                   </div>
-                  <motion.div
-                    className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    03
-                  </motion.div>
                 </div>
               </motion.div>
 
@@ -262,13 +241,6 @@ const WhyComplianceVistaSection = () => {
                         <Target className="w-16 h-16 text-primary" />
                       )}
                     </div>
-                    <motion.div
-                      className="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    >
-                      {String(idx + 1).padStart(2, "0")}
-                    </motion.div>
                   </div>
                 </motion.div>
 
