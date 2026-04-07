@@ -135,14 +135,14 @@ const ContactUs = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="glass-strong rounded-2xl p-8 border border-primary/20 overflow-hidden flex flex-col"
+              className="glass-strong rounded-2xl p-8 border border-primary/20 overflow-hidden"
             >
               <h2 className="text-2xl font-bold text-foreground mb-4">Our Location</h2>
-              <div className="flex-1 rounded-lg overflow-hidden">
+              <div className="rounded-lg overflow-hidden h-96">
                 <iframe
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: "400px" }}
+                  style={{ border: "none", display: "block" }}
                   loading="lazy"
                   allowFullScreen=""
                   referrerPolicy="no-referrer-when-downgrade"
