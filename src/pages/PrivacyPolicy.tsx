@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Content Sections */}
-            <div className="prose prose-invert max-w-none space-y-8">
+            <div className="prose prose-invert max-w-none space-y-6 text-base">
               <section className="space-y-4">
                 <h2 className="text-2xl font-bold text-foreground">Privacy Notice</h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -32,6 +32,17 @@ const PrivacyPolicy = () => {
                     Terms of Use
                   </a>
                   , into which this Policy is incorporated by reference.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">This Policy Describes:</h2>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <li>The types of information we collect from you or that you may provide when you visit our website available at: compliancevista.com ("our Website")</li>
+                  <li>Our practices for collecting, using, maintaining, protecting, and disclosing that information</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  Please read this Policy carefully to understand our practices regarding your information and how we will treat it. If you do not agree with our policies and practices, then please do not use our Website. By using our Website, you agree to the terms of this Policy. This Policy may change from time to time (see below, "Changes to this Policy"). Your continued use of our Website after we make changes is deemed to be acceptance of those changes, so please check the Policy periodically for updates.
                 </p>
               </section>
 
