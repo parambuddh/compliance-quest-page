@@ -39,21 +39,23 @@ const HeroSection = () => {
               <span className="text-foreground/80 font-medium">Salesforce-Native Solution</span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-foreground">
-              <span className="gradient-text">Compliance Vista:</span>{" "}
-              <br />
-              Enterprise Governance{" "}
-              <span className="relative inline-block">
-                Simplified
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                  <path d="M2 6C50 2 150 2 198 6" stroke="hsl(168 76% 42%)" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.2] text-foreground space-y-2">
+              <div>
+                <span className="gradient-text">Assessments. Risk. Compliance.</span>
+              </div>
+              <div>
+                All Automated.{" "}
+                <span className="relative inline-block">
+                  All inside Salesforce.
+                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
+                    <path d="M2 6C50 2 150 2 198 6" stroke="hsl(168 76% 42%)" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </div>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Streamline compliance workflows, ensure governance adherence, and
-              manage risk directly within Salesforce.
+              ComplianceVista brings employee 360 reviews, vendor risk assessments, compliance checks, and audit workflows together in one Salesforce-native platform - powered by SurveyVista.
             </p>
 
             <div className="flex flex-wrap gap-4">
