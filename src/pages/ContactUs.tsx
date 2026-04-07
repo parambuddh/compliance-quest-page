@@ -68,7 +68,32 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Contact Form and Map - Two Column Layout */}
+        {/* Google Map Section - Full Width */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-20"
+        >
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Visit Our Office</h2>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/30" style={{ height: "500px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ComplianceVista Office - 2040 Martin Ave, Santa Clara, CA 95050"
+                style={{ border: "none", width: "100%", height: "100%" }}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Contact Form and Info - Two Column Layout */}
         <div className="max-w-6xl mx-auto px-4 mb-20">
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Form */}
@@ -132,25 +157,37 @@ const ContactUs = () => {
               </form>
             </motion.div>
 
-            {/* Map */}
+            {/* Quick Contact Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="rounded-2xl overflow-hidden border-2 border-red-500 bg-white shadow-lg h-fit"
+              className="glass-strong rounded-2xl p-8 border border-primary/20 space-y-6"
             >
-              <div className="w-full h-96">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="ComplianceVista Office Location"
-                  className="w-full h-full"
-                />
+              <div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Quick Contact</h3>
+                <p className="text-muted-foreground">Prefer to get in touch directly? Here's how you can reach us:</p>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-primary" /> Call Us
+                </h4>
+                <p className="text-muted-foreground">1.669.777.6838</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-primary" /> Email Us
+                </h4>
+                <p className="text-muted-foreground">support@ardira.com</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-primary" /> Visit Us
+                </h4>
+                <p className="text-muted-foreground">2040 Martin Ave<br />Santa Clara, CA 95050<br />United States</p>
               </div>
             </motion.div>
           </div>
