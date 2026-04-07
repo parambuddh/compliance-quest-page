@@ -22,8 +22,8 @@ const ContactUs = () => {
             </p>
           </motion.div>
 
+          {/* Contact Information Cards */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            {/* Contact Information Cards */}
             {[
               {
                 icon: Phone,
@@ -67,90 +67,88 @@ const ContactUs = () => {
             ))}
           </div>
 
-          {/* Contact Form & Map */}
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="glass-strong rounded-2xl p-8 border border-primary/20"
-              >
-                <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="your.email@example.com"
-                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+1 (555) 123-4567"
-                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      placeholder="Tell us what you'd like to discuss..."
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300 resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 mt-6"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </motion.div>
-
-              {/* Map Container */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl overflow-hidden border border-primary/20"
-              >
-                <iframe
-                  title="ComplianceVista Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.585!2d-121.978!3d37.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcad5f2e047f1%3A0x75db4b79e86ce8f5!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
-                  width="100%"
-                  height="600"
-                  style={{ border: 0, display: "block" }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+          {/* Contact Form Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto glass-strong rounded-2xl p-8 border border-primary/20 mb-16"
+          >
+            <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
                 />
-              </motion.div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Phone *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+1 (555) 123-4567"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Tell us what you'd like to discuss..."
+                  rows={4}
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900/30 border border-slate-600/50 text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300 resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 mt-6"
+              >
+                Send Message
+              </button>
+            </form>
+          </motion.div>
+
+          {/* Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto"
+          >
+            <h2 className="text-2xl font-bold text-foreground mb-6">Our Location</h2>
+            <div className="rounded-2xl overflow-hidden border border-primary/20 bg-slate-900/20">
+              <iframe
+                title="ComplianceVista Office Location at 2040 Martin Ave, Santa Clara, CA"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.585!2d-121.978!3d37.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcad5f2e047f1%3A0x75db4b79e86ce8f5!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050!5e0!3m2!1sen!2sus!4v1712529600000"
+                width="100%"
+                height="500"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-          </div>
+          </motion.div>
         </div>
       </main>
       <FooterSection />
