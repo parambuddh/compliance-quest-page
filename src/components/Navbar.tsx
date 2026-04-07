@@ -171,10 +171,10 @@ const Navbar = () => {
           <button
             className={`md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
               !scrolled
-                ? "bg-slate-800 text-slate-800"
+                ? "bg-slate-100/50 text-slate-900 hover:bg-slate-200/50"
                 : isOverColoredSection
-                ? "bg-white/30 text-white"
-                : "bg-primary/20 text-primary"
+                ? "bg-white/30 text-white hover:bg-white/40"
+                : "bg-primary/20 text-primary hover:bg-primary/30"
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
