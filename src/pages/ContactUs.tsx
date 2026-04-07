@@ -131,26 +131,25 @@ const ContactUs = () => {
           {/* Map Section */}
           <div style={{ 
             width: "100%",
-            maxWidth: "56rem",
-            margin: "4rem auto",
-            padding: "2rem",
-            backgroundColor: "#ffffff",
-            borderRadius: "1rem",
-            border: "2px solid rgba(80, 217, 69, 0.3)",
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+            background: "white",
+            border: "4px solid red",
+            padding: "40px 20px",
+            margin: "40px 0",
+            textAlign: "center"
           }}>
-            <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1.5rem", color: "#000000" }}>Our Location</h2>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
-              width="100%"
-              height="450"
-              frameBorder="0"
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Maps - ComplianceVista Office Location"
-              style={{ border: "none", borderRadius: "0.5rem", display: "block" }}
-            />
+            <h2 style={{ color: "black", fontSize: "24px", marginBottom: "20px", fontWeight: "bold" }}>Our Location</h2>
+            <div style={{ width: "100%", maxWidth: "900px", height: "500px", margin: "0 auto", borderRadius: "10px", overflow: "hidden" }}>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="2040 Martin Ave Santa Clara CA"
+              />
+            </div>
           </div>
         </div>
       </main>
