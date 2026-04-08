@@ -1,7 +1,10 @@
 import logo from "/ComplianceVista-logo.svg";
 import { Link } from "react-router-dom";
 
-const FooterSection = () => (
+const FooterSection = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
   <footer className="relative overflow-hidden bg-navy text-navy-foreground py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
@@ -88,7 +91,7 @@ const FooterSection = () => (
 
       <div className="border-t border-navy-foreground/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-navy-foreground/40">
-          © 2026 ComplianceVista. All Rights Reserved.
+          © {currentYear} ComplianceVista. All Rights Reserved.
         </p>
         <div className="flex gap-6 text-xs">
           <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
@@ -101,6 +104,7 @@ const FooterSection = () => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default FooterSection;

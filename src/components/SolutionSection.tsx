@@ -5,28 +5,28 @@ import { useRef, useState, useEffect } from "react";
 const solutions = [
   {
     icon: "chart",
-    image: "/company-images/CV key-capabilities, Features section img.jpg",
+    image: "/company-images/CV key-capabilities, Features section img.webp",
     title: "Unified Compliance Dashboard",
     desc: "Get a single-pane view of your entire compliance landscape. Monitor all regulatory requirements, policy adherence, and audit readiness from one centralized dashboard built natively in Salesforce.",
     benefits: ["Real-time compliance status", "Custom KPI tracking", "Executive reporting"],
   },
   {
     icon: FileCheck,
-    image: "/company-images/CV key-capabilities compliance-testing-img.jpg",
+    image: "/company-images/CV key-capabilities compliance-testing-img.webp",
     title: "Automated Audit Trails",
     desc: "Eliminate manual documentation with fully automated audit trails. Every action, approval, and change is captured automatically, making audit preparation effortless and comprehensive.",
     benefits: ["Complete audit history", "Automated evidence capture", "Report generation"],
   },
   {
     icon: AlertTriangle,
-    image: "/company-images/CV key-capabilities audit-risk-img.jpg",
+    image: "/company-images/CV key-capabilities audit-risk-img.webp",
     title: "Risk & Issue Management",
     desc: "Proactively identify, assess, and mitigate compliance risks. Our intelligent risk scoring engine helps you prioritize issues and track remediation efforts in real-time.",
     benefits: ["Risk scoring automation", "Remediation workflow", "Exception tracking"],
   },
   {
     icon: GitBranch,
-    image: "/company-images/CV key-capabilites, Vendor risk img.jpg",
+    image: "/company-images/CV key-capabilites, Vendor risk img.webp",
     title: "Workflow & Approval Automation",
     desc: "Design and deploy custom compliance workflows with multi-level approval chains. Automate reminders, escalations, and sign-off management to keep everything on track.",
     benefits: ["Custom approval chains", "Automated reminders", "Sign-off management"],
