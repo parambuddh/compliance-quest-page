@@ -84,26 +84,31 @@ const BenefitsSection = () => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative rounded-xl border border-primary/20 bg-gradient-to-br from-background/50 to-secondary/5 p-6 md:p-8 h-full overflow-hidden group-hover:border-primary/40 transition-all duration-300">
-                  {/* Subtle background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="relative rounded-2xl glass-strong p-6 md:p-8 h-full overflow-hidden transition-all duration-300 border border-white/20 hover:border-primary/40">
+                  {/* Number Badge */}
+                  <div className="absolute top-6 right-6 text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none">
+                    {String(idx + 1).padStart(2, '0')}
+                  </div>
 
                   {/* Icon */}
                   <motion.div
-                    className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform relative z-10"
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.4 }}
+                    className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
                   >
-                    <Icon className="w-5 h-5 text-primary" />
+                    <Icon className="w-7 h-7 text-primary" />
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-lg md:text-xl font-semibold gradient-text mb-2 relative z-10">
+                  <h3 className="text-xl md:text-2xl font-semibold gradient-text mb-3 relative z-10">
                     {benefit.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed relative z-10">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
                     {benefit.description}
                   </p>
+
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary via-secondary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </div>
               </motion.div>
             );

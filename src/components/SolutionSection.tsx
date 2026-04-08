@@ -87,7 +87,7 @@ const SolutionSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
-                  className="relative w-full h-full rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
+                  className="relative w-full h-96 rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
                 >
                   <img
                     src={active.image}
