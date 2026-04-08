@@ -43,12 +43,12 @@ const features = [
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
   const iconMap: { [key: string]: string } = {
-    clipboard: "/icons/SV-Clipboard.png",
-    dartboard: "/icons/SV-Dartboard.png",
-    chart: "/icons/SV-Chart.png",
-    lightning: "/icons/SV-LightningBolt.png",
-    magnifying: "/icons/SV-MagnifyingGlass.png",
-    circular: "/icons/SV-MobileAccess.png",
+    clipboard: "/icons/SV-Clipboard.webp",
+    dartboard: "/icons/SV-Dartboard.webp",
+    chart: "/icons/SV-Chart.webp",
+    lightning: "/icons/SV-LightningBolt.webp",
+    magnifying: "/icons/SV-MagnifyingGlass.webp",
+    circular: "/icons/SV-MobileAccess.webp",
   };
 
   return (
