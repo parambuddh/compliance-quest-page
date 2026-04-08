@@ -145,11 +145,14 @@ const FeaturesSection = () => {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-strong rounded-2xl md:rounded-3xl p-5 md:p-6 relative group flex flex-col"
+                className="rounded-xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-5 md:p-6 relative group flex flex-col h-full overflow-hidden group-hover:border-primary/40 transition-all duration-300"
               >
+                {/* Subtle background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
                 {/* Number badge */}
                 <motion.div
-                  className="absolute top-4 md:top-6 right-4 md:right-6 text-2xl md:text-4xl font-bold text-primary/15"
+                  className="absolute top-3 md:top-4 right-3 md:right-4 text-lg md:text-2xl font-bold text-primary/15 relative z-0"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
@@ -157,8 +160,8 @@ const FeaturesSection = () => {
                 </motion.div>
 
                 {/* Header Section - Icon and Title */}
-                <div className="mb-4 md:mb-5">
-                  <div className="flex items-start gap-2 md:gap-3 mb-3">
+                <div className="mb-3 md:mb-4 relative z-10">
+                  <div className="flex items-start gap-2 md:gap-3 mb-2">
                     <motion.div
                       className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg md:rounded-xl"
                       whileHover={{ rotate: 180 }}
@@ -176,14 +179,14 @@ const FeaturesSection = () => {
 
                 {/* Description Section */}
                 <motion.p
-                  className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4"
+                  className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-3 flex-grow relative z-10"
                 >
                   {feature.desc}
                 </motion.p>
 
                 {/* Benefits Section */}
                 <motion.div
-                  className="mt-auto"
+                  className="mt-auto relative z-10"
                 >
                   <div className="space-y-2">
                     {feature?.benefits && feature.benefits.length > 0 ? (
