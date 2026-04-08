@@ -1,171 +1,179 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
-
-const useCases = [
-  { icon: "chart", title: "Financial Services", desc: "Meet regulatory requirements including Basel III, CCAR, and stress testing compliance." },
-  { icon: "clipboard", title: "Healthcare", desc: "HIPAA compliance, patient data governance, and clinical trial oversight." },
-  { icon: "aibrain", title: "Technology / SaaS", desc: "SOC2 compliance, data residency management, and vendor risk assessment." },
-  { icon: "circular", title: "Manufacturing", desc: "Quality and safety compliance, ISO standards, and supply chain governance." },
-  { icon: "talkbubbles", title: "Education", desc: "FERPA compliance, institutional governance, and research data protection." },
-];
-
-const IconComponent = ({ iconType }: { iconType: string }) => {
-  const iconMap: { [key: string]: string } = {
-    chart: "/icons/SV-Chart.png",
-    clipboard: "/icons/SV-Clipboard.png",
-    aibrain: "/icons/SV-AIbrain.png",
-    circular: "/icons/SV-CircularArrows.png",
-    talkbubbles: "/icons/SV-TalkBubbles.png",
-  };
-
-  return (
-    <img
-      src={iconMap[iconType]}
-      alt={iconType}
-      className="w-8 h-8 object-contain drop-shadow-md"
-    />
-  );
-};
+import { CheckCircle, ArrowRight } from "lucide-react";
+import { Briefcase, AlertTriangle, Shield, Users } from "lucide-react";
 
 const UseCasesSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
+  const useCases = [
+    {
+      icon: Briefcase,
+      title: "Audit Management",
+      description: "Streamline internal and external audits with centralized evidence collection, audit trails, and findings management. Reduce audit preparation time by 60% and ensure nothing falls through the cracks.",
+      features: ["Evidence collection", "Audit trails", "Finding management"]
     },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-      },
+    {
+      icon: AlertTriangle,
+      title: "Vendor Risk Assessment",
+      description: "Evaluate and monitor third-party vendor compliance and security posture continuously. Minimize supply chain risk and maintain organizational standards across your entire vendor ecosystem.",
+      features: ["Vendor evaluation", "Risk monitoring", "Compliance tracking"]
     },
-  };
+    {
+      icon: Shield,
+      title: "Regulatory Compliance",
+      description: "Stay compliant across SOC2, ISO, GDPR, HIPAA, and custom frameworks with pre-built templates and automated reporting. Adapt quickly to regulatory changes without disrupting operations.",
+      features: ["Multi-framework", "Auto reporting", "Pre-built templates"]
+    },
+    {
+      icon: Users,
+      title: "Employee Assessment",
+      description: "Manage employee skills, certifications, and competency requirements in one place. Track training completion, ensure role-based qualifications, and maintain workforce compliance effortlessly.",
+      features: ["Skills management", "Certification tracking", "Compliance monitoring"]
+    }
+  ];
 
   return (
-    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/2 to-primary/2" />
+    <section id="use-cases" className="py-12 md:py-16 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/2 to-background" />
       <motion.div 
-        className="absolute top-20 -right-32 w-96 h-96 bg-secondary/8 rounded-full blur-3xl"
-        animate={{ 
-          x: [-40, 40, -40],
-          y: [0, 50, 0]
-        }}
-        transition={{ duration: 15, repeat: Infinity }}
+        className="absolute top-40 -right-40 w-96 h-96 bg-secondary/8 rounded-full blur-3xl"
+        animate={{ x: [0, -50, 0], y: [0, 20, 0] }}
+        transition={{ duration: 13, repeat: Infinity }}
       />
       <motion.div 
-        className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/8 rounded-full blur-3xl"
-        animate={{ 
-          x: [40, -40, 40],
-          y: [0, -50, 0]
-        }}
-        transition={{ duration: 18, repeat: Infinity }}
+        className="absolute bottom-40 -left-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl"
+        animate={{ x: [0, 50, 0], y: [0, -20, 0] }}
+        transition={{ duration: 14, repeat: Infinity }}
       />
       <div className="absolute inset-0 dot-pattern opacity-10" />
 
       <div className="container relative z-10">
-        {/* Section Heading */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 px-4"
         >
-          <div className="inline-block mb-6">
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
-              <span className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Industry Solutions
+          <div className="inline-block mb-4">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                Real-World Applications
               </span>
             </div>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-            Built for Every Industry
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text px-4">
+            Perfect for Every Scenario
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Tailored compliance solutions for your specific industry challenges and regulatory requirements.
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+            Enterprises trust ComplianceVista for comprehensive compliance management across all use cases
           </p>
         </motion.div>
 
-        {/* Grid Layout - Different from Features sticky scroll */}
-        <motion.div
-          ref={containerRef}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
-        >
-          {useCases.map((useCase, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.2 }
-              }}
-              className="group"
-            >
+        {/* Use Cases Grid */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto mb-8">
+          {useCases.map((useCase, idx) => {
+            const Icon = useCase.icon;
+            return (
               <motion.div
-                className="glass-strong rounded-2xl p-8 h-full relative overflow-hidden transition-all duration-300 hover:glow-primary"
-                whileHover={{ scale: 1.02 }}
+                key={idx}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative"
               >
-                {/* Gradient background accent on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                />
+                <div className="glass-strong rounded-2xl p-6 md:p-8 h-full relative overflow-hidden">
+                  {/* Number badge */}
+                  <div className="absolute top-4 right-4 text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
 
-                {/* Icon Container */}
-                <motion.div
-                  className="relative z-10 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <IconComponent iconType={useCase.icon} />
-                </motion.div>
+                  {/* Icon and title */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <motion.div
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                      animate={{ rotate: [0, 10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      <Icon className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {useCase.title}
+                      </h3>
+                    </div>
+                  </div>
 
-                {/* Number */}
-                <motion.div
-                  className="absolute top-6 right-6 text-4xl font-bold text-primary/10 group-hover:text-primary/20 transition-all duration-300"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </motion.div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">
-                    {useCase.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-all duration-300">
-                    {useCase.desc}
+                  {/* Description */}
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
+                    {useCase.description}
                   </p>
 
-                  {/* Separator line */}
+                  {/* Features */}
+                  <div className="space-y-2 mb-5">
+                    {useCase.features.map((feature, fidx) => (
+                      <motion.div
+                        key={fidx}
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 + fidx * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs md:text-sm text-muted-foreground">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <motion.button
+                    className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all"
+                    whileHover={{ x: 5 }}
+                  >
+                    Learn more
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.button>
+
+                  {/* Hover border */}
                   <motion.div
-                    className="mt-6 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
+                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-secondary"
                     initial={{ width: "0%" }}
-                    whileInView={{ width: "100%" }}
                     whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
                   />
                 </div>
               </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Stats section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-4 gap-4 max-w-6xl mx-auto mt-12"
+        >
+          {[
+            { number: "10K+", label: "Compliance Checks" },
+            { number: "98%", label: "Audit Pass Rate" },
+            { number: "60%", label: "Time Saved" },
+            { number: "100%", label: "Salesforce Native" }
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              className="glass-strong rounded-xl p-4 md:p-6 text-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                {stat.number}
+              </div>
+              <div className="text-xs md:text-sm text-muted-foreground">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </motion.div>

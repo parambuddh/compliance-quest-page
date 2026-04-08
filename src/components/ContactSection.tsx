@@ -33,7 +33,7 @@ const ContactSection = () => {
     }`;
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 mesh-bg" />
 
       <div className="container relative">

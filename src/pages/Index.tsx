@@ -22,9 +22,9 @@ const FeaturesSection = lazy(() =>
     throw err;
   })
 );
-const WhyComplianceVistaSection = lazy(() => 
-  import("@/components/WhyComplianceVistaSection").catch(err => {
-    console.error("Failed to load WhyComplianceVistaSection:", err);
+const BenefitsSection = lazy(() => 
+  import("@/components/BenefitsSection").catch(err => {
+    console.error("Failed to load BenefitsSection:", err);
     throw err;
   })
 );
@@ -96,7 +96,7 @@ const Index = () => {
           <FeaturesSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <WhyComplianceVistaSection />
+          <BenefitsSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <UseCasesSection />
