@@ -9,7 +9,7 @@ const FooterSection = () => {
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
     <div className="container relative">
-      <div className="grid lg:grid-cols-5 gap-12 mb-8 max-w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 max-w-full">
         {/* Company Info - Left (1 col) */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
@@ -21,10 +21,10 @@ const FooterSection = () => {
         </div>
 
         {/* Center - Empty (1 col) */}
-        <div className="lg:col-span-1"></div>
+        <div className="hidden lg:block lg:col-span-1"></div>
 
         {/* Right Column - Contact Info and Quick Links (2 cols) */}
-        <div className="lg:col-span-2 grid sm:grid-cols-2 gap-12">
+        <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Info */}
           <div>
             <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
@@ -55,45 +55,45 @@ const FooterSection = () => {
             <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#home" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#home" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#overview" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#overview" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#features" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#features" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#benefits" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#benefits" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Benefits
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#use-cases" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#use-cases" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Use Cases
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <Link to="/#contact" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-navy-foreground/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-navy-foreground/40">
+      <div className="border-t border-navy-foreground/10 pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
           © {currentYear} ComplianceVista. All Rights Reserved.
         </p>
-        <div className="flex gap-6 text-xs">
+        <div className="flex gap-6 text-xs order-1 md:order-2">
           <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
             Terms of Use
           </Link>
