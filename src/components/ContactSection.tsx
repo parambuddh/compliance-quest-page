@@ -110,30 +110,30 @@ const ContactSection = () => {
 
               <div className="space-y-4">
                 {/* Address */}
-                <div className="flex items-start gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-sm text-muted-foreground leading-relaxed">
-                    <p className="font-semibold text-foreground">2040 Martin Ave, Santa Clara, CA</p>
-                    <p>95050 United States</p>
+                  <div className="text-sm leading-relaxed">
+                    <p className="font-bold text-foreground">2040 Martin Ave, Santa Clara, CA</p>
+                    <p className="text-muted-foreground">95050 United States</p>
                   </div>
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">1.669.777.6838</span>
+                  <span className="text-sm font-bold text-foreground">1.669.777.6838</span>
                 </div>
 
                 {/* Email */}
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">info@surveyvista.com</span>
+                  <span className="text-sm font-bold text-foreground">info@surveyvista.com</span>
                 </div>
               </div>
 

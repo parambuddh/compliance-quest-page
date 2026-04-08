@@ -58,7 +58,7 @@ const ProblemSection = () => (
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <IconComponent iconType={p.icon} />
             </div>
-            <h3 className="font-bold text-foreground mb-2">{p.title}</h3>
+            <h3 className="text-lg font-bold text-foreground mb-3">{p.title}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
           </motion.div>
         ))}
