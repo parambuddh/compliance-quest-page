@@ -163,7 +163,7 @@ const FeaturesSection = () => {
                       <IconComponent iconType={feature.icon} />
                     </motion.div>
                     <motion.h3
-                      className="text-lg md:text-xl font-bold gradient-text pt-2"
+                      className="text-lg md:text-xl font-bold text-foreground pt-2"
                     >
                       {feature.title}
                     </motion.h3>

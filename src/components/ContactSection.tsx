@@ -138,11 +138,13 @@ const ContactSection = () => {
               </div>
 
               {/* Support Note */}
-              <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/20 flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-sm font-bold text-white">?</div>
-                <div className="text-sm text-muted-foreground">
-                  <p>For customer support, email us directly at</p>
-                  <p><span className="text-primary font-semibold">support@surveyvista.com</span></p>
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-bold text-primary">?</span>
+                </div>
+                <div className="text-sm">
+                  <p className="text-muted-foreground">For customer support, email us directly at</p>
+                  <p><span className="text-foreground font-bold">support@ardira.com</span></p>
                 </div>
               </div>
             </div>
