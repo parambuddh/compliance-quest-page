@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 const ContactSection = () => {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -12,6 +12,8 @@ const ContactSection = () => {
     if (!form.name.trim()) e.name = "Name is required";
     if (!form.email.trim()) e.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Invalid email";
+    if (!form.phone.trim()) e.phone = "Phone is required";
+    else if (!/^[\d\s\-+()]+$/.test(form.phone)) e.phone = "Invalid phone number";
     if (!form.message.trim()) e.message = "Message is required";
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -21,7 +23,7 @@ const ContactSection = () => {
     ev.preventDefault();
     if (!validate()) return;
     toast.success("Thank you! We'll be in touch shortly.");
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setForm({ name: "", email: "", phone: "", message: "" });
     setErrors({});
   };
 
@@ -70,8 +72,9 @@ const ContactSection = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Subject</label>
-              <input type="text" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass("subject")} placeholder="How can we help?" />
+              <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Phone (Required)</label>
+              <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass("phone")} placeholder="Enter your phone number" />
+              {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
             </div>
 
             <div className="flex-grow">
@@ -128,7 +131,7 @@ const ContactSection = () => {
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-sm text-primary group-hover:text-primary/80 transition-colors">info (at) ardira.com</span>
+                  <span className="text-sm text-primary group-hover:text-primary/80 transition-colors">info@ardira.com</span>
                 </a>
               </div>
             </div>
