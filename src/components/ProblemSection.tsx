@@ -15,10 +15,17 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
     circular: "/icons/SV-CircularArrows.webp",
   };
 
+  const altTextMap: { [key: string]: string } = {
+    clipboard: "Clipboard icon representing scattered compliance data challenges",
+    magnifying: "Magnifying glass icon representing manual audit trail problems",
+    email: "Email icon representing risk visibility gaps in compliance",
+    circular: "Circular arrows icon representing workflow inefficiency issues",
+  };
+
   return (
     <img
       src={iconMap[iconType]}
-      alt={iconType}
+      alt={altTextMap[iconType] || iconType}
       className="w-6 h-6 object-contain drop-shadow-md"
     />
   );

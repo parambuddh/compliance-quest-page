@@ -91,7 +91,7 @@ const SolutionSection = () => {
                 >
                   <img
                     src={active.image}
-                    alt={active.title}
+                    alt={`Compliance Vista ${active.title} - ${active.desc.substring(0, 80)}...`}
                     className="w-full h-full object-cover"
                   />
                 </motion.div>

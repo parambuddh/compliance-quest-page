@@ -51,10 +51,19 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
     circular: "/icons/SV-MobileAccess.webp",
   };
 
+  const altTextMap: { [key: string]: string } = {
+    clipboard: "Clipboard icon for Compliance Vista policy management feature",
+    dartboard: "Dartboard icon for role-based access control security",
+    chart: "Chart icon for compliance reporting and regulatory frameworks",
+    lightning: "Lightning bolt icon for deadline tracking and automated reminders",
+    magnifying: "Magnifying glass icon for audit management and evidence tracking",
+    circular: "Mobile device icon for on-the-go compliance management",
+  };
+
   return (
     <img
       src={iconMap[iconType]}
-      alt={iconType}
+      alt={altTextMap[iconType] || iconType}
       className="w-8 h-8 object-contain drop-shadow-md"
     />
   );
