@@ -31,7 +31,7 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section id="benefits" className="py-12 md:py-16 relative overflow-hidden">
+    <section id="benefits" className="py-10 md:py-12 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/2 to-background" />
       <motion.div 

@@ -90,7 +90,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-12 md:py-16 lg:py-24 relative overflow-hidden">
+    <section id="features" className="py-10 md:py-12 lg:py-16 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
       <motion.div 
@@ -138,14 +138,14 @@ const FeaturesSection = () => {
         {/* Carousel Container - 2 Cards Display */}
         <div className="max-w-6xl mx-auto px-4">
           {/* Features Grid - 2 cards side by side */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10 min-h-[500px] md:min-h-[450px]">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10 min-h-[350px] md:min-h-[320px]">
             {visibleFeatures.map((feature, idx) => (
               <motion.div
                 key={activeIndex + idx}
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-8 relative group"
+                className="glass-strong rounded-2xl md:rounded-3xl p-5 md:p-6 relative group flex flex-col"
               >
                 {/* Number badge */}
                 <motion.div
@@ -157,17 +157,17 @@ const FeaturesSection = () => {
                 </motion.div>
 
                 {/* Header Section - Icon and Title */}
-                <div className="mb-6 md:mb-8">
-                  <div className="flex items-start gap-3 md:gap-4 mb-4">
+                <div className="mb-4 md:mb-5">
+                  <div className="flex items-start gap-2 md:gap-3 mb-3">
                     <motion.div
-                      className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl md:rounded-2xl"
+                      className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg md:rounded-xl"
                       whileHover={{ rotate: 180 }}
                       transition={{ duration: 0.4 }}
                     >
                       <IconComponent iconType={feature.icon} />
                     </motion.div>
                     <motion.h3
-                      className="text-xl md:text-2xl font-bold gradient-text pt-2"
+                      className="text-lg md:text-xl font-bold gradient-text pt-1"
                     >
                       {feature.title}
                     </motion.h3>
@@ -176,29 +176,27 @@ const FeaturesSection = () => {
 
                 {/* Description Section */}
                 <motion.p
-                  className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6"
+                  className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4"
                 >
                   {feature.desc}
                 </motion.p>
 
                 {/* Benefits Section */}
                 <motion.div
-                  className="mb-0"
+                  className="mt-auto"
                 >
-                  <div className="space-y-2 md:space-y-3">
+                  <div className="space-y-2">
                     {feature?.benefits && feature.benefits.length > 0 ? (
                       feature.benefits.map((benefit, bidx) => (
                         <motion.div
                           key={bidx}
-                          className="flex items-start gap-2 text-xs md:text-sm"
+                          className="flex items-start gap-2 text-xs"
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.2 + bidx * 0.1 }}
                         >
-                          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckCircle className="w-2.5 h-2.5 text-white" />
-                          </div>
-                          <span className="font-medium text-foreground">{benefit}</span>
+                          <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="font-medium text-foreground leading-tight">{benefit}</span>
                         </motion.div>
                       ))
                     ) : null}
@@ -209,7 +207,7 @@ const FeaturesSection = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap">
+          <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap mt-6 md:mt-8">
             {/* Previous Button */}
             <motion.button
               onClick={goToPrevious}
@@ -245,13 +243,6 @@ const FeaturesSection = () => {
             >
               <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-primary" />
             </motion.button>
-          </div>
-
-          {/* Counter Display */}
-          <div className="text-center mt-6 md:mt-8">
-            <span className="text-xs md:text-sm text-muted-foreground">
-              Group <span className="font-semibold text-primary">{carouselIndex + 1}</span> of <span className="font-semibold">3</span>
-            </span>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ const HeroSection = () => {
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 dot-pattern opacity-40" />
 
-      <div className="container relative z-10 py-16 md:py-24">
+      <div className="container relative z-10 py-12 md:py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
