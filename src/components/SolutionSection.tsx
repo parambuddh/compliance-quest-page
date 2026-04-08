@@ -100,16 +100,16 @@ const SolutionSection = () => {
 
             {/* Text */}
             <div className="w-full md:w-1/2 flex flex-col md:min-h-[300px]">
-              <div className="flex-1 overflow-y-auto pr-2 md:pr-0 max-h-96 md:max-h-none space-y-6 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent">
+              <div className="flex-1 pr-0 md:pr-0 max-h-none space-y-6">
                 <motion.div
                   key={activeIndex}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="space-y-6"
+                  className="rounded-2xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-6 md:p-8 space-y-6"
                 >
                   <h3 className="text-3xl font-bold gradient-text">{active.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">{active.desc}</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed text-justify">{active.desc}</p>
                   <ul className="space-y-4">
                     {active.benefits.map((b, j) => (
                       <li key={j} className="flex items-center gap-3 text-base text-foreground">

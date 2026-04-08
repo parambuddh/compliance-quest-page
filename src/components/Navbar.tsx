@@ -30,7 +30,7 @@ const Navbar = () => {
       
       // Only detect section on the home page
       if (!isIndependentPage) {
-        const sections = ["contact", "features", "benefits", "use-cases", "overview", "home"];
+        const sections = ["contact", "faq", "use-cases", "benefits", "features", "overview", "home"];
         for (const id of sections) {
           const el = document.getElementById(id);
           if (el && el.getBoundingClientRect().top <= 120) {
