@@ -17,8 +17,8 @@ const FooterSection = () => (
           </p>
         </div>
 
-        {/* Right Column - Contact Info and Quick Links */}
-        <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+        {/* Right Column - Contact Info and Quick Links Together */}
+        <div className="lg:col-span-2 grid sm:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
             <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
