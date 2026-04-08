@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Briefcase, AlertTriangle, Shield, Users } from "lucide-react";
 
 const UseCasesSection = () => {
@@ -99,7 +99,7 @@ const UseCasesSection = () => {
                       <Icon className="w-6 h-6 text-primary" />
                     </motion.div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-xl md:text-2xl font-bold gradient-text group-hover:opacity-80 transition-opacity">
                         {useCase.title}
                       </h3>
                     </div>
@@ -127,15 +127,6 @@ const UseCasesSection = () => {
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <motion.button
-                    className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all"
-                    whileHover={{ x: 5 }}
-                  >
-                    Learn more
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-
                   {/* Hover border */}
                   <motion.div
                     className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-secondary"
@@ -149,34 +140,7 @@ const UseCasesSection = () => {
           })}
         </div>
 
-        {/* Stats section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-4 gap-4 max-w-6xl mx-auto mt-12"
-        >
-          {[
-            { number: "10K+", label: "Compliance Checks" },
-            { number: "98%", label: "Audit Pass Rate" },
-            { number: "60%", label: "Time Saved" },
-            { number: "100%", label: "Salesforce Native" }
-          ].map((stat, idx) => (
-            <motion.div
-              key={idx}
-              className="glass-strong rounded-xl p-4 md:p-6 text-center"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
-                {stat.number}
-              </div>
-              <div className="text-xs md:text-sm text-muted-foreground">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );

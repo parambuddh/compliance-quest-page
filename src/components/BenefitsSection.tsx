@@ -6,32 +6,27 @@ const BenefitsSection = () => {
     {
       icon: Shield,
       title: "Minimize Risk",
-      description: "Proactively identify and mitigate compliance risks across your organization with real-time monitoring and automated risk assessments. Reduce vulnerability windows and ensure consistent policy adherence across teams, departments, and jurisdictions.",
-      gradient: "from-blue-500 to-cyan-500"
+      description: "Proactively identify and mitigate compliance risks with real-time monitoring and automated assessments across your entire organization."
     },
     {
       icon: Zap,
       title: "Increase Operational Efficiency",
-      description: "Automate manual compliance workflows and eliminate repetitive tasks. Cut compliance management cycle time by streamlining approvals, evidence collection, and reporting—freeing your team to focus on strategic initiatives.",
-      gradient: "from-yellow-500 to-orange-500"
+      description: "Automate manual workflows and cut compliance cycle time significantly. Free your team to focus on strategic initiatives instead of repetitive tasks."
     },
     {
       icon: Eye,
       title: "Improve Visibility",
-      description: "Gain complete transparency into your compliance landscape with centralized dashboards and real-time analytics. Track compliance status across all departments, identify gaps instantly, and make data-driven decisions.",
-      gradient: "from-purple-500 to-pink-500"
+      description: "Gain complete transparency into your compliance landscape with centralized dashboards and real-time analytics for every department."
     },
     {
       icon: TrendingUp,
       title: "Drive Business Growth",
-      description: "Build compliance into your competitive strategy—accelerate market entry, win enterprise deals, and expand into regulated industries with confidence. Position your organization as a trusted, compliant leader.",
-      gradient: "from-green-500 to-emerald-500"
+      description: "Build compliance into your competitive strategy and accelerate market entry into regulated industries with confidence and authority."
     },
     {
       icon: Star,
       title: "Build Trust & Reputation",
-      description: "Demonstrate commitment to governance and ethical business practices to customers, partners, and stakeholders. Strong compliance reputation opens doors to premium partnerships and enterprise opportunities.",
-      gradient: "from-red-500 to-rose-500"
+      description: "Demonstrate commitment to governance and ethical practices to customers, partners, and stakeholders for premium opportunities."
     }
   ];
 
@@ -86,41 +81,29 @@ const BenefitsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative glass-strong rounded-2xl p-6 md:p-8 h-full overflow-hidden">
-                  {/* Icon background glow */}
-                  <motion.div
-                    className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-3xl transition-opacity duration-300`}
-                  />
+                <div className="relative rounded-xl border border-primary/20 bg-gradient-to-br from-background/50 to-secondary/5 p-6 md:p-8 h-full overflow-hidden group-hover:border-primary/40 transition-all duration-300">
+                  {/* Subtle background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                   {/* Icon */}
                   <motion.div
-                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
+                    className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform relative z-10"
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.4 }}
                   >
-                    <Icon className="w-7 h-7 text-white" />
+                    <Icon className="w-5 h-5 text-white" />
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg md:text-xl font-semibold gradient-text mb-2 relative z-10">
                     {benefit.title}
                   </h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed relative z-10">
                     {benefit.description}
                   </p>
-
-                  {/* Bottom accent line */}
-                  <motion.div
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${benefit.gradient}`}
-                    initial={{ width: "0%" }}
-                    whileInView={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
                 </div>
               </motion.div>
             );

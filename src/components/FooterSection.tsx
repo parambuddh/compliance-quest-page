@@ -2,11 +2,11 @@ import logo from "/ComplianceVista-logo.svg";
 import { Link } from "react-router-dom";
 
 const FooterSection = () => (
-  <footer className="relative overflow-hidden bg-navy text-navy-foreground py-16">
+  <footer className="relative overflow-hidden bg-navy text-navy-foreground py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
     <div className="container relative">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-12 max-w-4xl">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-8 max-w-4xl">
         {/* Company Info */}
         <div>
           <div className="flex items-center gap-2.5 mb-6">
@@ -70,7 +70,7 @@ const FooterSection = () => (
         </div>
       </div>
 
-      <div className="border-t border-navy-foreground/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="border-t border-navy-foreground/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-navy-foreground/40">
           © 2026 ComplianceVista. All Rights Reserved.
         </p>

@@ -8,6 +8,8 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Overview", href: "#overview" },
   { label: "Features", href: "#features" },
+  { label: "Benefits", href: "#benefits" },
+  { label: "Use Cases", href: "#use-cases" },
   { label: "Contact Us", href: "#contact" },
 ];
 
@@ -28,7 +30,7 @@ const Navbar = () => {
       
       // Only detect section on the home page
       if (!isIndependentPage) {
-        const sections = ["contact", "features", "overview", "home"];
+        const sections = ["contact", "features", "benefits", "use-cases", "overview", "home"];
         for (const id of sections) {
           const el = document.getElementById(id);
           if (el && el.getBoundingClientRect().top <= 120) {
