@@ -101,38 +101,49 @@ const ContactSection = () => {
           >
             {/* Contact Info Box - TOP */}
             <div className="glass-strong rounded-2xl p-6 md:p-8">
-              <h3 className="font-bold text-foreground uppercase tracking-wider text-sm mb-6">
-                Reach Out to Us for Confidential Inquiry
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
+                Quick Contact
               </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                Get in touch with a SurveyVista representative to see a demo or simply learn more about our products.
+              </p>
 
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-bold text-foreground mb-3">US HQ</h4>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="text-sm text-muted-foreground leading-relaxed">
-                      <p>2040 Martin Ave</p>
-                      <p>Santa Clara, CA 95050</p>
-                      <p>United States</p>
-                    </div>
+              <div className="space-y-4">
+                {/* Address */}
+                <div className="flex items-start gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="font-semibold text-foreground">2040 Martin Ave, Santa Clara, CA</p>
+                    <p>95050 United States</p>
                   </div>
                 </div>
 
-                <a href="tel:+16697776838" className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Phone className="w-5 h-5 text-primary" />
+                {/* Phone */}
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-sm text-muted-foreground group-hover:text-primary transition-colors">1.669.777.6838</span>
-                </a>
+                  <span className="text-sm font-semibold text-foreground">1.669.777.6838</span>
+                </div>
 
-                <a href="mailto:info@ardira.com" className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5 text-primary" />
+                {/* Email */}
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-secondary/60 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-sm text-primary group-hover:text-primary/80 transition-colors">info@ardira.com</span>
-                </a>
+                  <span className="text-sm font-semibold text-foreground">info@surveyvista.com</span>
+                </div>
+              </div>
+
+              {/* Support Note */}
+              <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/20 flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-sm font-bold text-white">?</div>
+                <div className="text-sm text-muted-foreground">
+                  <p>For customer support, email us directly at</p>
+                  <p><span className="text-primary font-semibold">support@surveyvista.com</span></p>
+                </div>
               </div>
             </div>
 

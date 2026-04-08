@@ -74,7 +74,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2 flex-wrap">
               {["100% Native Salesforce", "Enterprise Security", "Real-time Tracking"].map((t, i) => (
                 <span key={i} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground glass rounded-full px-3 py-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
