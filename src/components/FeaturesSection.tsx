@@ -3,12 +3,42 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
 
 const features = [
-  { icon: "clipboard", title: "Policy Management", desc: "Centralized repository with version control and policy lifecycle management." },
-  { icon: "dartboard", title: "Access Control", desc: "Role-based permissions and segregation of duties for enterprise security." },
-  { icon: "chart", title: "Compliance Reporting", desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks." },
-  { icon: "lightning", title: "Deadline Tracking", desc: "Automated compliance reminders and deadline management with escalations." },
-  { icon: "magnifying", title: "Audit Management", desc: "Evidence collection, audit trail management, and finding resolution." },
-  { icon: "circular", title: "Mobile Access", desc: "Manage compliance on-the-go with full mobile Salesforce experience." },
+  { 
+    icon: "clipboard", 
+    title: "Policy Management", 
+    desc: "Centralized repository with version control and policy lifecycle management.",
+    benefits: ["Version control", "Centralized storage", "Lifecycle tracking"]
+  },
+  { 
+    icon: "dartboard", 
+    title: "Access Control", 
+    desc: "Role-based permissions and segregation of duties for enterprise security.",
+    benefits: ["Role-based access", "Duty segregation", "Audit trails"]
+  },
+  { 
+    icon: "chart", 
+    title: "Compliance Reporting", 
+    desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks.",
+    benefits: ["Pre-built reports", "Multi-framework", "Custom exports"]
+  },
+  { 
+    icon: "lightning", 
+    title: "Deadline Tracking", 
+    desc: "Automated compliance reminders and deadline management with escalations.",
+    benefits: ["Auto reminders", "Escalations", "Real-time updates"]
+  },
+  { 
+    icon: "magnifying", 
+    title: "Audit Management", 
+    desc: "Evidence collection, audit trail management, and finding resolution.",
+    benefits: ["Evidence tracking", "Audit trails", "Finding manager"]
+  },
+  { 
+    icon: "circular", 
+    title: "Mobile Access", 
+    desc: "Manage compliance on-the-go with full mobile Salesforce experience.",
+    benefits: ["Mobile app", "Full sync", "Offline support"]
+  },
 ];
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
@@ -157,20 +187,22 @@ const FeaturesSection = () => {
                 Key Benefits
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                {activeFeature.benefits.map((benefit, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="flex items-start gap-3 p-3 md:p-4 rounded-lg bg-primary/5 border border-primary/10 hover:border-primary/30 transition-colors"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + idx * 0.1 }}
-                  >
-                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
-                    </div>
-                    <span className="text-xs md:text-sm font-medium text-foreground">{benefit}</span>
-                  </motion.div>
-                ))}
+                {activeFeature?.benefits && activeFeature.benefits.length > 0 ? (
+                  activeFeature.benefits.map((benefit, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="flex items-start gap-3 p-3 md:p-4 rounded-lg bg-primary/5 border border-primary/10 hover:border-primary/30 transition-colors"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + idx * 0.1 }}
+                    >
+                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckCircle className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
+                      </div>
+                      <span className="text-xs md:text-sm font-medium text-foreground">{benefit}</span>
+                    </motion.div>
+                  ))
+                ) : null}
               </div>
             </motion.div>
 
