@@ -131,8 +131,8 @@ const UseCasesSection = () => {
                 {/* Icon Container */}
                 <motion.div
                   className="relative z-10 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <IconComponent iconType={useCase.icon} />
                 </motion.div>
