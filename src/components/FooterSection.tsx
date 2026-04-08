@@ -8,11 +8,11 @@ const FooterSection = () => (
     <div className="container relative">
       <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-12 mb-8 max-w-full">
         {/* Company Info */}
-        <div>
+        <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
             <img src={logo} alt="Compliance Vista" className="h-10" />
           </div>
-          <p className="text-sm text-navy-foreground/60 leading-relaxed text-justify">
+          <p className="text-sm text-navy-foreground/60 leading-relaxed text-justify max-w-xs">
             Enterprise governance simplified. A Salesforce-native compliance management solution by Ardira Technologies.
           </p>
         </div>

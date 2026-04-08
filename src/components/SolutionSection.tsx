@@ -79,7 +79,7 @@ const SolutionSection = () => {
 
           <div className="flex flex-col md:flex-row gap-8 items-stretch max-w-6xl mx-auto">
             {/* Visual */}
-            <div className="w-full md:w-1/2 flex justify-center items-center">
+            <div className="w-full md:w-1/2 flex justify-center items-stretch">
               <div className="relative group w-full">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl scale-105" />
                 <motion.div
@@ -87,7 +87,7 @@ const SolutionSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
-                  className="relative w-full h-96 rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
+                  className="relative w-full h-full rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
                 >
                   <img
                     src={active.image}

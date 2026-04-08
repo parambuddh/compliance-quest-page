@@ -145,66 +145,59 @@ const FeaturesSection = () => {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="rounded-xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-5 md:p-6 relative group flex flex-col h-full overflow-hidden group-hover:border-primary/40 transition-all duration-300"
+                className="group relative"
               >
-                {/* Subtle background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="glass-strong rounded-2xl p-6 md:p-8 h-full relative overflow-hidden">
+                  {/* Number badge */}
+                  <div className="absolute top-4 right-4 text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+                    {String(features.indexOf(feature) + 1).padStart(2, "0")}
+                  </div>
 
-                {/* Number badge */}
-                <motion.div
-                  className="absolute top-3 md:top-4 right-3 md:right-4 text-lg md:text-2xl font-bold text-primary/15 relative z-0"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  {String(features.indexOf(feature) + 1).padStart(2, "0")}
-                </motion.div>
-
-                {/* Header Section - Icon and Title */}
-                <div className="mb-3 md:mb-4 relative z-10">
-                  <div className="flex items-start gap-2 md:gap-3 mb-2">
+                  {/* Icon and title */}
+                  <div className="flex items-start gap-4 mb-4">
                     <motion.div
-                      className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg md:rounded-xl"
-                      whileHover={{ rotate: 180 }}
-                      transition={{ duration: 0.4 }}
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                      animate={{ rotate: [0, 10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity }}
                     >
                       <IconComponent iconType={feature.icon} />
                     </motion.div>
                     <motion.h3
-                      className="text-lg md:text-xl font-bold gradient-text pt-1"
+                      className="text-lg md:text-xl font-bold gradient-text pt-2"
                     >
                       {feature.title}
                     </motion.h3>
                   </div>
+
+                  {/* Description Section */}
+                  <motion.p
+                    className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-4"
+                  >
+                    {feature.desc}
+                  </motion.p>
+
+                  {/* Benefits Section */}
+                  <motion.div
+                    className="mt-auto"
+                  >
+                    <div className="space-y-2">
+                      {feature?.benefits && feature.benefits.length > 0 ? (
+                        feature.benefits.map((benefit, bidx) => (
+                          <motion.div
+                            key={bidx}
+                            className="flex items-start gap-2 text-xs"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2 + bidx * 0.1 }}
+                          >
+                            <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="font-medium text-foreground leading-tight">{benefit}</span>
+                          </motion.div>
+                        ))
+                      ) : null}
+                    </div>
+                  </motion.div>
                 </div>
-
-                {/* Description Section */}
-                <motion.p
-                  className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-3 flex-grow relative z-10"
-                >
-                  {feature.desc}
-                </motion.p>
-
-                {/* Benefits Section */}
-                <motion.div
-                  className="mt-auto relative z-10"
-                >
-                  <div className="space-y-2">
-                    {feature?.benefits && feature.benefits.length > 0 ? (
-                      feature.benefits.map((benefit, bidx) => (
-                        <motion.div
-                          key={bidx}
-                          className="flex items-start gap-2 text-xs"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 + bidx * 0.1 }}
-                        >
-                          <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="font-medium text-foreground leading-tight">{benefit}</span>
-                        </motion.div>
-                      ))
-                    ) : null}
-                  </div>
-                </motion.div>
               </motion.div>
             ))}
           </div>
