@@ -13,7 +13,7 @@ const FooterSection = () => (
             <img src={logo} alt="Compliance Vista" className="h-10" />
           </div>
           <p className="text-sm text-navy-foreground/60 leading-relaxed text-justify max-w-xs">
-            Enterprise governance simplified. A Salesforce-native compliance management solution by Ardira Technologies.
+            Enterprise governance simplified. Salesforce-native compliance by Ardira.
           </p>
         </div>
 

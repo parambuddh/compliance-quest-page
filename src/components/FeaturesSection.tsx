@@ -137,8 +137,8 @@ const FeaturesSection = () => {
 
         {/* Carousel Container - 2 Cards Display */}
         <div className="max-w-6xl mx-auto px-4">
-          {/* Features Grid - 2 cards side by side */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
+          {/* Features Grid - 2 cards side by side, full width on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
             {visibleFeatures.map((feature, idx) => (
               <motion.div
                 key={activeIndex + idx}
@@ -171,7 +171,7 @@ const FeaturesSection = () => {
 
                   {/* Description Section */}
                   <motion.p
-                    className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4"
+                    className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 font-semibold"
                   >
                     {feature.desc}
                   </motion.p>
@@ -191,7 +191,7 @@ const FeaturesSection = () => {
                             transition={{ delay: 0.2 + bidx * 0.1 }}
                           >
                             <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="font-medium text-foreground leading-tight">{benefit}</span>
+                            <span className="text-foreground leading-tight">{benefit}</span>
                           </motion.div>
                         ))
                       ) : null}
