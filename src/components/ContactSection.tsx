@@ -108,9 +108,9 @@ const ContactSection = () => {
                 Get in touch with a SurveyVista representative to see a demo or simply learn more about our products.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {/* Address */}
-                <div className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                <div className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
@@ -121,7 +121,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
@@ -129,7 +129,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
@@ -138,7 +138,7 @@ const ContactSection = () => {
               </div>
 
               {/* Support Note */}
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20">
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-sm font-bold text-primary">?</span>
                 </div>

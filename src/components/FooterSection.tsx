@@ -55,34 +55,34 @@ const FooterSection = () => {
             <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/#home" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#home' : '/#home'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#overview" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#overview' : '/#overview'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Overview
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#features" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#features' : '/#features'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Features
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#benefits" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#benefits' : '/#benefits'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Benefits
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#use-cases" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#use-cases' : '/#use-cases'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Use Cases
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#contact" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <a href={window.location.pathname === '/' ? '#contact' : '/#contact'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Contact Us
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
