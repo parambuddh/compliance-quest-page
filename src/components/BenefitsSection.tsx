@@ -93,8 +93,8 @@ const BenefitsSection = () => {
                   {/* Icon */}
                   <motion.div
                     className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
+                    animate={{ rotate: [0, 10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   >
                     <Icon className="w-7 h-7 text-primary" />
                   </motion.div>
