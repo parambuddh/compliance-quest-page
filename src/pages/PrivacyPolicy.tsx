@@ -32,9 +32,6 @@ const PrivacyPolicy = () => {
             {/* Header */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl font-bold gradient-text">Privacy Policy</h1>
-              <p className="text-muted-foreground text-lg">
-                Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-              </p>
             </div>
 
             {/* Content Sections */}

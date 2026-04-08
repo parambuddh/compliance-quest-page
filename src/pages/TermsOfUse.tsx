@@ -34,9 +34,6 @@ const TermsOfUse = () => {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h1 className="text-4xl md:text-5xl font-bold gradient-text">Terms of Use</h1>
-                  <p className="text-muted-foreground text-lg">
-                    Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-                  </p>
                 </div>
                 <a
                   href="https://surveyvista.com/ardira-appexchange-app-terms-and-conditions/"

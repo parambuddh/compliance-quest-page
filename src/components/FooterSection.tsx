@@ -6,8 +6,8 @@ const FooterSection = () => (
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
     <div className="container relative">
-      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-12 mb-8 max-w-full">
-        {/* Company Info */}
+      <div className="grid lg:grid-cols-5 gap-12 mb-8 max-w-full">
+        {/* Company Info - Left (1 col) */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
             <img src={logo} alt="Compliance Vista" className="h-10" />
@@ -17,7 +17,10 @@ const FooterSection = () => (
           </p>
         </div>
 
-        {/* Right Column - Contact Info and Quick Links Together */}
+        {/* Center - Empty (1 col) */}
+        <div className="lg:col-span-1"></div>
+
+        {/* Right Column - Contact Info and Quick Links (2 cols) */}
         <div className="lg:col-span-2 grid sm:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
