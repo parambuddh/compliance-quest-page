@@ -15,7 +15,7 @@ const FooterSection = () => {
           <div className="flex items-center gap-2.5 mb-6">
             <img src={logo} alt="Compliance Vista" className="h-10" />
           </div>
-          <p className="text-sm text-navy-foreground/60 leading-relaxed text-justify max-w-xs">
+          <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs">
             Enterprise governance simplified. Salesforce-native compliance by Ardira.
           </p>
         </div>
@@ -24,7 +24,7 @@ const FooterSection = () => {
         <div className="hidden lg:block lg:col-span-1"></div>
 
         {/* Right Column - Contact Info and Quick Links (2 cols) */}
-        <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+        <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {/* Contact Info */}
           <div>
             <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
@@ -89,7 +89,7 @@ const FooterSection = () => {
         </div>
       </div>
 
-      <div className="border-t border-navy-foreground/10 pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
           © {currentYear} ComplianceVista. All Rights Reserved.
         </p>

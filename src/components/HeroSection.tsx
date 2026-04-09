@@ -26,7 +26,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="space-y-12"
+            className="space-y-8"
           >
             {/* Badge */}
             <motion.div
