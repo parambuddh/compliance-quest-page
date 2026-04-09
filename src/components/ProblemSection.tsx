@@ -9,10 +9,10 @@ const problems = [
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
   const iconMap: { [key: string]: string } = {
-    clipboard: "/icons/SV-Clipboard.webp",
-    magnifying: "/icons/SV-MagnifyingGlass.webp",
-    email: "/icons/SV-Email.webp",
-    circular: "/icons/SV-CircularArrows.webp",
+    clipboard: "/icons/SV-Clipboard.png",
+    magnifying: "/icons/SV-MagnifyingGlass.png",
+    email: "/icons/SV-Email.png",
+    circular: "/icons/SV-CircularArrows.png",
   };
 
   const altTextMap: { [key: string]: string } = {
