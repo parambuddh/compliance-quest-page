@@ -44,7 +44,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden relative flex flex-col"
+            className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative flex flex-col"
           >
             {/* Close Button */}
             <button
@@ -73,16 +73,16 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
 
             {/* Calendly Iframe */}
             {!isLoading && (
-              <div className="flex-1 overflow-hidden">
+              <div className="w-full">
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                   width="100%"
-                  height="100%"
+                  height="900"
                   frameBorder="0"
                   title="Schedule a demo"
-                  style={{ minHeight: "700px" }}
                   allowFullScreen
-                  scrolling="yes"
+                  scrolling="no"
+                  style={{ display: "block" }}
                 />
               </div>
             )}
