@@ -3,8 +3,8 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
-// reCAPTCHA V3 Configuration - Replace with official key
-const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Demo key - replace with production key
+// reCAPTCHA V3 Configuration
+const RECAPTCHA_SITE_KEY = "6LdpZq4sAAAAACc87ym0oRUjKpiJ5nIsi_LWPxTh"; // Official site key
 
 declare global {
   interface Window {
