@@ -67,6 +67,15 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-10 md:py-14 relative overflow-hidden">
+      <style>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       <div className="absolute inset-0 mesh-bg" />
 
       <div className="container relative">
@@ -138,7 +147,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 flex flex-col md:overflow-y-auto md:max-h-[calc(100vh-80px)] pr-2"
+            className="space-y-6 flex flex-col md:overflow-y-auto md:max-h-[calc(100vh-80px)] scrollbar-hide"
           >
             {/* Contact Info Box - TOP */}
             <div className="glass-strong rounded-2xl p-6 md:p-8">
