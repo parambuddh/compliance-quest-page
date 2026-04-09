@@ -38,11 +38,9 @@ const RecaptchaBadge = () => {
         id="recaptcha-badge-container"
         style={{
           position: "fixed",
-          bottom: "8px",
-          left: "8px",
-          zIndex: 30,
-          transform: "scale(0.75)",
-          transformOrigin: "bottom left",
+          bottom: "20px",
+          left: "20px",
+          zIndex: 40,
         }}
       />
     </>

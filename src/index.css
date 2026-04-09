@@ -142,11 +142,9 @@
   display: none;
 }
 
-/* Hide Google's injected reCAPTCHA badge - we show notice in the form */
+/* Ensure reCAPTCHA badge doesn't overlap scroll-to-top button */
 .grecaptcha-badge {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  z-index: 30 !important;
 }
 
 /* Prevent horizontal overflow on mobile */
