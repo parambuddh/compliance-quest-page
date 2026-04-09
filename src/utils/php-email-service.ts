@@ -22,8 +22,14 @@ interface EmailResponse {
  */
 export const sendLeadEmail = async (formData: LeadFormData): Promise<EmailResponse> => {
   try {
-    // Determine the PHP endpoint URL based on environment
-    const phpEndpoint = import.meta.env.VITE_PHP_ENDPOINT || '/php/send-email.php';
+    // For local development: point to PHP server on 3000
+    // For production: use relative path /php/send-email.php
+    const isDevelopment = window.location.hostname === 'localhost';
+    const phpEndpoint = isDevelopment 
+      ? 'http://localhost:3000/php/send-email.php'
+      : import.meta.env.VITE_PHP_ENDPOINT || '/php/send-email.php';
+
+    console.log('Sending email to:', phpEndpoint);
 
     const response = await fetch(phpEndpoint, {
       method: 'POST',

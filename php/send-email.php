@@ -73,6 +73,10 @@ $headers = [
 $mailHeaders = implode("\r\n", $headers);
 $success = mail($recipientEmail, $subject, $htmlBody, $mailHeaders);
 
+// Log the submission for debugging
+$logEntry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Company: $company | Success: " . ($success ? 'YES' : 'NO') . "\n";
+@file_put_contents(__DIR__ . '/email-submissions.log', $logEntry, FILE_APPEND);
+
 if ($success) {
     http_response_code(200);
     echo json_encode([
