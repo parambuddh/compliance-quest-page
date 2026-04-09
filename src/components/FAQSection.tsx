@@ -93,8 +93,11 @@ const FAQSection = () => {
                   value={faq.id}
                   className="border border-border/50 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-lg bg-card"
                 >
-                  <AccordionTrigger className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 hover:bg-surface-light/50 transition-colors duration-200 [&[data-state=open]]:bg-primary/8 group">
-                    <div className="flex items-center gap-4 text-left flex-1">
+                  <AccordionTrigger 
+                    className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 hover:bg-surface-light/50 transition-colors duration-200 [&[data-state=open]]:bg-primary/8 group"
+                    aria-label={`Question ${index + 1}: ${faq.question}`}
+                  >
+                    <div className="flex items-center gap-4 text-left flex-1" aria-hidden="true">
                       <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-200">
                         <span className="text-primary font-bold text-sm sm:text-lg">{index + 1}</span>
                       </div>

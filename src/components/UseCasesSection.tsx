@@ -83,9 +83,13 @@ const UseCasesSection = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden">
+                <div 
+                  className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden"
+                  aria-label={`${useCase.title}: ${useCase.description}`}
+                  role="article"
+                >
                   {/* Number badge */}
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors" aria-hidden="true">
                     {String(idx + 1).padStart(2, "0")}
                   </div>
 

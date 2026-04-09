@@ -27,7 +27,12 @@ const Navbar = () => {
   const isIndependentPage = location.pathname !== "/";
 
   useEffect(() => {
+    let lastScrollTime = 0;
     const onScroll = () => {
+      const now = Date.now();
+      if (now - lastScrollTime < 100) return; // Only run every 100ms
+      lastScrollTime = now;
+
       setScrolled(window.scrollY > 50);
       
       // Detect if navbar is over a colored section (green sections)

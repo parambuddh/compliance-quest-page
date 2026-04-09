@@ -158,6 +158,26 @@ img, iframe, video {
   max-width: 100%;
 }
 
+/* Performance Optimizations for Mobile */
+@media (max-width: 768px) {
+  /* Disable heavy floating animations on mobile to stop "Forced Reflows" and save CPU */
+  .float-animation {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Improve rendering performance by deferring off-screen section drawing */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px;
+  }
+
+  /* Keep hero section visible immediately */
+  #home {
+    content-visibility: visible;
+  }
+}
+
 /* Better touch targets on mobile */
 @media (max-width: 640px) {
   button, a, input, textarea, select {

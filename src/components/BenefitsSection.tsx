@@ -84,9 +84,13 @@ const BenefitsSection = () => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative rounded-xl sm:rounded-2xl glass-strong p-4 sm:p-6 md:p-8 h-full overflow-hidden transition-all duration-300 border border-white/20 hover:border-primary/40">
+                <div 
+                  className="relative rounded-xl sm:rounded-2xl glass-strong p-4 sm:p-6 md:p-8 h-full overflow-hidden transition-all duration-300 border border-white/20 hover:border-primary/40"
+                  aria-label={`${benefit.title}: ${benefit.description}`}
+                  role="article"
+                >
                   {/* Number Badge */}
-                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none">
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none" aria-hidden="true">
                     {String(idx + 1).padStart(2, '0')}
                   </div>
 
