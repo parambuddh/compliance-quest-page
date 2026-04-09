@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { sendLeadEmail } from "../utils/php-email-service";
 
 interface GetNowModalProps {
   isOpen: boolean;
@@ -54,11 +55,35 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
 
     setIsSubmitting(true);
 
-    // Redirect to Salesforce AppExchange
-    setTimeout(() => {
-      window.location.href =
-        "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3";
-    }, 500);
+    try {
+      // Send email via PHP backend
+      const result = await sendLeadEmail({
+        name: formData.name,
+        email: formData.email,
+        contactNumber: formData.contactNumber,
+        company: formData.company,
+      });
+
+      if (result.success) {
+        console.log("Email sent successfully!");
+      } else {
+        console.warn("Email sending warning:", result.message);
+        // Continue even if email fails
+      }
+
+      // Redirect to Salesforce AppExchange
+      setTimeout(() => {
+        window.location.href =
+          "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3";
+      }, 1000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Still redirect even if there's an error
+      setTimeout(() => {
+        window.location.href =
+          "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3";
+      }, 1000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
