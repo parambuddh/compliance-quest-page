@@ -91,8 +91,8 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
-        {/* Two Column Layout - Form Left (Sticky), Map + Info Right (Scrollable) */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto md:min-h-screen">
+        {/* Two Column Layout - Form Left (Sticky), Info + Map Right (Fixed Height) */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto items-start">
           {/* Form - Left Side - Sticky Position, Static Size */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
@@ -142,15 +142,15 @@ const ContactSection = () => {
             </p>
           </motion.form>
 
-          {/* Right Side - Info on Top (Fixed), Map Below (Scrollable) */}
+          {/* Right Side - Info + Map (Fixed Height, No Scroll) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:max-h-[calc(100vh-80px)] gap-6"
+            className="flex flex-col gap-6"
           >
             {/* Contact Info Box - TOP (Fixed, does not scroll) */}
-            <div className="glass-strong rounded-2xl p-6 md:p-8 flex-shrink-0">
+            <div className="glass-strong rounded-2xl p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-6">
                 Quick Contact
               </h3>
@@ -199,8 +199,8 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Google Maps - BOTTOM (Scrollable Area) */}
-            <div className="flex-grow overflow-y-auto scrollbar-hide rounded-2xl overflow-hidden shadow-2xl border border-primary/20 flex-shrink" style={{ minHeight: "300px" }}>
+            {/* Google Maps - BOTTOM (Fixed Height, No Scroll) */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-primary/20 h-80" style={{ minHeight: "320px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
                 width="100%"
@@ -210,7 +210,7 @@ const ContactSection = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="ComplianceVista Office - Santa Clara, CA"
-                style={{ border: "none", minHeight: "300px", height: "100%" }}
+                style={{ border: "none", width: "100%", height: "100%", minHeight: "320px" }}
               />
             </div>
           </motion.div>
