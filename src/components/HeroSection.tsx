@@ -2,9 +2,11 @@ import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import GetNowModal from "./GetNowModal";
+import CalendlyModal from "./CalendlyModal";
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -20,7 +22,7 @@ const HeroSection = () => {
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 dot-pattern opacity-40" />
 
-      <div className="container relative z-10 py-12 md:py-16">
+      <div className="container relative z-10 py-10 md:py-14">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -60,7 +62,7 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={() => scrollTo("contact")}
+                onClick={() => setIsCalendlyOpen(true)}
                 className="group relative bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="relative z-10">Book a Demo</span>
@@ -138,6 +140,7 @@ const HeroSection = () => {
       </div>
 
       <GetNowModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <CalendlyModal isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </section>
   );
 };

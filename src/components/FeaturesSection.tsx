@@ -99,7 +99,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-10 md:py-12 lg:py-16 relative overflow-hidden">
+    <section id="features" className="py-8 md:py-10 lg:py-14 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
       <motion.div 

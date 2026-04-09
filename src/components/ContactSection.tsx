@@ -66,7 +66,7 @@ const ContactSection = () => {
     }`;
 
   return (
-    <section id="contact" className="py-12 md:py-16 relative overflow-hidden">
+    <section id="contact" className="py-10 md:py-14 relative overflow-hidden">
       <div className="absolute inset-0 mesh-bg" />
 
       <div className="container relative">
@@ -82,15 +82,15 @@ const ContactSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
-        {/* Two Column Layout - Form Left, Map + Info Right */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-          {/* Form - Left Side - Increased Height */}
+        {/* Two Column Layout - Form Left (Sticky), Map + Info Right (Scrollable) */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto md:min-h-screen">
+          {/* Form - Left Side - Sticky Position */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="glass-strong rounded-2xl p-6 md:p-8 space-y-4 h-fit md:min-h-[700px] flex flex-col"
+            className="sticky top-20 glass-strong rounded-2xl p-6 md:p-8 space-y-4 h-fit md:max-h-[calc(100vh-120px)] overflow-y-auto flex flex-col"
           >
             <div>
               <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
@@ -133,12 +133,12 @@ const ContactSection = () => {
             </p>
           </motion.form>
 
-          {/* Right Side - Info on Top, Map Below */}
+          {/* Right Side - Info on Top, Map Below - Scrollable on Mobile, Auto Height on Desktop */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 flex flex-col"
+            className="space-y-6 flex flex-col md:overflow-y-auto md:max-h-[calc(100vh-80px)] pr-2"
           >
             {/* Contact Info Box - TOP */}
             <div className="glass-strong rounded-2xl p-6 md:p-8">

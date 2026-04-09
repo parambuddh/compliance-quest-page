@@ -21,25 +21,25 @@ const TermsOfUse = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-32 pb-16 bg-gradient-to-b from-surface-light to-background">
-        <div className="container max-w-6xl">
+      <main className="min-h-screen pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-b from-surface-light to-background">
+        <div className="container max-w-4xl md:max-w-6xl px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
             {/* Header */}
             <div className="space-y-4 relative">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div>
-                  <h1 className="text-4xl md:text-5xl font-bold gradient-text">Terms of Use</h1>
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">Terms of Use</h1>
                 </div>
                 <a
                   href="https://surveyvista.com/ardira-appexchange-app-terms-and-conditions/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline font-semibold whitespace-nowrap mt-2"
+                  className="text-primary hover:underline font-semibold whitespace-normal md:whitespace-nowrap md:mt-2 text-sm md:text-base"
                 >
                   Ardira AppExchange App Terms and Conditions
                 </a>
@@ -47,9 +47,9 @@ const TermsOfUse = () => {
             </div>
 
             {/* Content Sections */}
-            <div className="prose prose-invert max-w-none space-y-8 text-justify">
+            <div className="prose prose-invert max-w-none space-y-6 md:space-y-8 text-justify">
               <section className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   The website located at www.compliancevista.com, (the "Website") is published, owned, and operated by Ardira Corporation, its affiliates and related entities ("ComplianceVista", "the Company," "we," "us," and "our"). These Terms of Use (the "Terms") govern your access to and use of the Website.
                 </p>
               </section>
@@ -61,26 +61,26 @@ const TermsOfUse = () => {
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Purpose of the Website</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Purpose of the Website</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   The Website are provided solely for informational purposes and the purposes of enabling communication between you and the Company. The information provided is intended to be general in nature and does not necessarily address all the terms, exclusions, and conditions applicable to our products and services.
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   We do not warrant the accuracy, completeness, or usefulness of this information at any particular time. Any reliance you place on such information is strictly at your own risk. The Company disclaims all liability and responsibility arising from any reliance placed on such content by you or any other visitor to our Website, or by anyone who may be informed of any of its contents. Any information you provide or that is collected by the Company through the Website shall be handled in accordance with the Website's Privacy Policy, which is hereby incorporated by reference.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Use of the Website</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Use of the Website</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   The Company grants you a non-exclusive right to access and use the Website and the data, material, content or information herein (collectively, the "Content") solely for your personal use. Your right to access and use the Website shall be limited to non-commercial purposes unless you are otherwise expressly authorized by the Company to use the Website for commercial purposes. You agree to use the Website only for lawful purposes, comply with all rules governing any transactions on and through the Website and comply with applicable laws.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Prohibited Uses</h2>
-                <p className="text-muted-foreground leading-relaxed mb-3">You agree that you will not:</p>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Prohibited Uses</h2>
+                <p className="text-muted-foreground leading-relaxed mb-3 text-sm md:text-base">You agree that you will not:</p>
+                <ul className="list-disc list-inside space-y-2 text-muted-foreground text-sm md:text-base">
                   <li>Use the Website in any manner that could damage, disable, overburden, or impair the Website or interfere with any other party's use and enjoyment of them;</li>
                   <li>Attempt to gain unauthorized access to any Website account, computer systems or networks associated with the Company or the Website;</li>
                   <li>Obtain or attempt to obtain any materials or information through the Website by any means not intentionally made available or provided by the Company;</li>
@@ -92,15 +92,15 @@ const TermsOfUse = () => {
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Third Party Sites</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Third Party Sites</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   The Website may contain links to Website controlled or operated by persons and companies other than the Company ("Linked Sites"). Linked Sites are not under the control of the Company, and the Company is not responsible for the contents of any Linked Site, including without limitation any link contained on a Linked Site, or any changes or updates to a Linked Site. The Company is not responsible if the Linked Site is not working correctly or for any viruses, malware, or other harms resulting from your use of a Linked Site. The Company is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement by the Company of the site or any association with its operators. You are responsible for viewing and abiding by the privacy policies and terms of use posted on the Linked Sites. You are solely responsible for any dealings with third parties who support the Company or are identified in the Website, including any delivery of and payment for goods and services.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Intellectual Property Notices</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Intellectual Property Notices</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   The Website and Content are protected by copyrights, trademarks, or are subject to other proprietary rights. Accordingly, you are not permitted to use the Website or Content in any manner, except as expressly permitted by the Company in these Terms. The Website or Content may not be copied, reproduced, modified, published, uploaded, posted, transmitted, performed, or distributed in any way, and you agree not to modify, rent, lease, loan, sell, distribute, transmit, broadcast, or create derivatives with the express written consent of the Company or applicable owner.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
@@ -116,36 +116,36 @@ const TermsOfUse = () => {
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Disclaimer</h2>
-                <p className="text-muted-foreground leading-relaxed font-semibold">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Disclaimer</h2>
+                <p className="text-muted-foreground leading-relaxed font-semibold text-sm md:text-base">
                   ALL INFORMATION OR SERVICES PROVIDED BY THE COMPANY TO YOU VIA THE WEBSITE, INCLUDING, WITHOUT LIMITATION, ALL CONTENT, ARE PROVIDED "AS IS" AND "WHERE IS" AND WITHOUT ANY WARRANTIES OF ANY KIND. THE COMPANY AND ITS THIRD-PARTY LICENSORS EXPRESSLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. NOTWITHSTANDING ANY PROVISION CONTAINED HEREIN TO THE CONTRARY, THE COMPANY AND ITS THIRD-PARTY LICENSORS MAKE NO REPRESENTATION, WARRANTY OR COVENANT CONCERNING THE ACCURACY, QUALITY, SUITABILITY, COMPLETENESS, SEQUENCE, TIMELINESS, SECURITY OR AVAILABILITY OF THE WEBSITE OR ANY CONTENT POSTED ON OR OTHERWISE ACCESSIBLE VIA THE WEBSITE. YOU SPECIFICALLY ACKNOWLEDGE THAT THE COMPANY AND ITS THIRD-PARTY LICENSORS ARE NOT LIABLE FOR THE DEFAMATORY, OBSCENE OR UNLAWFUL CONDUCT OF OTHER THIRD PARTIES OR USERS OF THE WEBSITE AND THAT THE RISK OF INJURY FROM THE FOREGOING RESTS ENTIRELY WITH YOU. NEITHER THE COMPANY NOR ANY OF ITS THIRD-PARTY LICENSORS REPRESENT, WARRANT OR COVENANT THAT THE WEBSITE WILL BE SECURE, UNINTERRUPTED OR ERROR-FREE. THE COMPANY FURTHER MAKES NO WARRANTY THAT THE WEBSITE WILL BE FREE OF VIRUSES, WORMS OR TROJAN HORSES OR THAT IT WILL FUNCTION OR OPERATE IN CONJUNCTION WITH ANY OTHER PRODUCT OR SOFTWARE. YOU EXPRESSLY AGREE THAT USE OF THE WEBSITE IS AT YOUR SOLE RISK AND THAT THE COMPANY, ITS AFFILIATES AND THEIR THIRD-PARTY LICENSORS SHALL NOT BE RESPONSIBLE FOR ANY TERMINATION, INTERRUPTION OF SERVICES, DELAYS, ERRORS, FAILURES OF PERFORMANCE, DEFECTS, LINE FAILURES, OR OMISSIONS ASSOCIATED WITH THE WEBSITE OR YOUR USE THEREOF. YOUR SOLE REMEDY AGAINST THE COMPANY FOR DISSATISFACTION WITH THE WEBSITE OR THE CONTENT IS TO CEASE YOUR USE OF THE WEBSITE AND/OR THE CONTENT.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Limitation of Liability</h2>
-                <p className="text-muted-foreground leading-relaxed font-semibold">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Limitation of Liability</h2>
+                <p className="text-muted-foreground leading-relaxed font-semibold text-sm md:text-base">
                   UNDER NO CIRCUMSTANCES SHALL THE COMPANY OR ANY OF ITS THIRD-PARTY LICENSORS BE LIABLE TO YOU OR TO ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, SPECIAL OR EXEMPLARY DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS, LOSS OF USE, LOSS OF DATA, LOSS OF INFORMATION OR PROGRAMS ON YOUR DATA HANDLING SYSTEM, TRANSACTION LOSSES, OPPORTUNITY COSTS, INTERRUPTION OF BUSINESS OR COSTS OF PROCURING SUBSTITUTE GOODS) RESULTING FROM, ARISING OUT OF OR IN ANY WAY RELATING TO THE WEBSITE, OR THE CONTENT, DATA, CONTENT OR INFORMATION ACCESSED VIA THE WEBSITE OR ANY HYPERLINKED WEBSITE, OR ANY DISRUPTION OR DELAY IN THE PERFORMANCE OF THE WEBSITE, REGARDLESS OF THE FORM OF THE CLAIM OR ACTION, WHETHER BASED ON CONTRACT, TORT, STRICT LIABILITY, STATUTE OR OTHERWISE, AND REGARDLESS OF WHETHER OR NOT SUCH DAMAGES WERE FORESEEN, UNFORESEEN OR FORESEEABLE, EVEN IF THE COMPANY OR ITS THIRD-PARTY LICENSORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Indemnity</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Indemnity</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   You agree to defend, indemnify and hold harmless the Company and its affiliates, licensors and service providers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of the Website, including, but not limited to, any use of the Website Content, services, or products other than as expressly authorized in these Terms or your use of any information obtained from the Website.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Termination and Restriction of Access</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Termination and Restriction of Access</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   In its sole discretion, the Company may terminate or suspend your access to the Website for breach of these Terms. The Company shall not be liable for any losses or damages arising from any such termination of service.
                 </p>
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">Arbitration</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Arbitration</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   At its sole discretion, the Company may require you to submit any disputes arising from use of the Website, or breach of these Terms, including disputes arising from or concerning their interpretation, violation, invalidity, non-performance, or termination, to final and binding arbitration under the Rules of Arbitration of the American Arbitration Association applying Ohio law. By using the Website, you hereby consent to submission of any dispute to be final and binding arbitration.
                 </p>
               </section>

@@ -1,15 +1,26 @@
 import logo from "/ComplianceVista-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FooterSection = () => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
+
+  const navigateToSection = (sectionId: string) => {
+    if (window.location.pathname === '/') {
+      // If already on home page, scroll to section
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // If on another page, navigate to home with hash
+      navigate(`/#${sectionId}`);
+    }
+  };
 
   return (
   <footer className="relative overflow-hidden bg-navy text-navy-foreground py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
     <div className="container relative">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 max-w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-10 mb-8 max-w-full">
         {/* Company Info - Left (1 col) */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
@@ -30,34 +41,34 @@ const FooterSection = () => {
             <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href={window.location.pathname === '/' ? '#home' : '/#home'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('home')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a href={window.location.pathname === '/' ? '#overview' : '/#overview'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('overview')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Overview
-                </a>
+                </button>
               </li>
               <li>
-                <a href={window.location.pathname === '/' ? '#features' : '/#features'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('features')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Features
-                </a>
+                </button>
               </li>
               <li>
-                <a href={window.location.pathname === '/' ? '#benefits' : '/#benefits'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('benefits')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Benefits
-                </a>
+                </button>
               </li>
               <li>
-                <a href={window.location.pathname === '/' ? '#use-cases' : '/#use-cases'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('use-cases')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Use Cases
-                </a>
+                </button>
               </li>
               <li>
-                <a href={window.location.pathname === '/' ? '#contact' : '/#contact'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <button onClick={() => navigateToSection('contact')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Contact Us
-                </a>
+                </button>
               </li>
             </ul>
           </div>

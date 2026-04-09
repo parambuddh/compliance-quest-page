@@ -27,7 +27,7 @@ const CertificationsSection = () => (
         </h2>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}

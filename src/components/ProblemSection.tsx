@@ -32,7 +32,7 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
 };
 
 const ProblemSection = () => (
-  <section id="overview" className="py-12 md:py-16 relative overflow-hidden">
+  <section id="overview" className="py-10 md:py-14 relative overflow-hidden">
     {/* Background */}
     <div className="absolute inset-0 bg-gradient-to-br from-surface-accent via-background to-primary/5" />
     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />

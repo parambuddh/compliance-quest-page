@@ -58,7 +58,7 @@ const WhyComplianceVistaSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-background to-surface-light">
+    <section className="py-14 md:py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-background to-surface-light">
       {/* Background elements */}
       <motion.div
         className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
