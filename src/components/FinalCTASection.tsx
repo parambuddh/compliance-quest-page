@@ -1,9 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import CalendlyModal from "./CalendlyModal";
 
 const FinalCTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
@@ -72,7 +74,7 @@ const FinalCTASection = () => {
           >
             {/* Primary Button */}
             <motion.button
-              onClick={() => scrollTo("contact")}
+              onClick={() => setIsCalendlyOpen(true)}
               className="group relative px-8 py-4 rounded-full font-semibold text-base overflow-hidden shadow-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -99,6 +101,8 @@ const FinalCTASection = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <CalendlyModal isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </section>
   );
 };

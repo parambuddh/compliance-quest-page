@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "/ComplianceVista-logo.svg";
+import CalendlyModal from "./CalendlyModal";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -20,6 +21,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isOverColoredSection, setIsOverColoredSection] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   // Determine if we're on an independent page (not the home page)
   const isIndependentPage = location.pathname !== "/";
@@ -157,7 +159,7 @@ const Navbar = () => {
               </button>
             ))}
             <button
-              onClick={() => handleClick("#contact")}
+              onClick={() => setIsCalendlyOpen(true)}
               className={`ml-4 ${
                 !scrolled
                   ? "bg-gradient-to-r from-primary to-secondary text-white"
@@ -229,7 +231,10 @@ const Navbar = () => {
                 </motion.button>
               ))}
               <motion.button
-                onClick={() => handleClick("#contact")}
+                onClick={() => {
+                  setMobileOpen(false);
+                  setIsCalendlyOpen(true);
+                }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.08, duration: 0.3, ease: "easeOut" }}
@@ -263,6 +268,8 @@ const Navbar = () => {
           </motion.button>
         )}
       </AnimatePresence>
+
+      <CalendlyModal isOpen={isCalendlyOpen} onClose={() => setIsCalendlyOpen(false)} />
     </motion.header>
   );
 };
