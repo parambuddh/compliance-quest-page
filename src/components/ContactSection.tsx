@@ -135,16 +135,16 @@ const ContactSection = () => {
                   </div>
                   <span className="text-sm font-bold text-foreground">info@surveyvista.com</span>
                 </div>
-              </div>
 
-              {/* Support Note */}
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-bold text-primary">?</span>
-                </div>
-                <div className="text-sm">
-                  <p className="text-muted-foreground">For customer support, email us directly at</p>
-                  <p><span className="text-foreground font-bold">support@ardira.com</span></p>
+                {/* Support Note */}
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 hover:bg-gradient-to-br hover:from-primary/8 hover:to-secondary/8 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm font-bold text-primary">?</span>
+                  </div>
+                  <div className="text-sm">
+                    <p className="text-muted-foreground">For customer support, email us directly at</p>
+                    <p><span className="text-foreground font-bold">support@ardira.com</span></p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -25,31 +25,6 @@ const FooterSection = () => {
 
         {/* Right Column - Contact Info and Quick Links (2 cols) */}
         <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <span className="text-primary">🌐</span>
-                <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
-                  www.compliancevista.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary">✉️</span>
-                <a href="mailto:support@ardira.com" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
-                  support@ardira.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary">📱</span>
-                <a href="tel:1.669.777.6838" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
-                  1.669.777.6838
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Quick Links */}
           <div>
             <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
@@ -82,6 +57,31 @@ const FooterSection = () => {
               <li>
                 <a href={window.location.pathname === '/' ? '#contact' : '/#contact'} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
                   Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-2">
+                <span className="text-primary">🌐</span>
+                <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                  www.compliancevista.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">✉️</span>
+                <a href="mailto:support@ardira.com" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                  support@ardira.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">📱</span>
+                <a href="tel:1.669.777.6838" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                  1.669.777.6838
                 </a>
               </li>
             </ul>
