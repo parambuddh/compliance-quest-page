@@ -26,6 +26,8 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
     <img
       src={iconMap[iconType]}
       alt={altTextMap[iconType] || iconType}
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 object-contain drop-shadow-md"
     />
   );

@@ -3,15 +3,15 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
-// reCAPTCHA V3 Configuration
-const RECAPTCHA_SITE_KEY = "6LdpZq4sAAAAACc87ym0oRUjKpiJ5nIsi_LWPxTh"; // Official site key
+import { useRecaptcha } from "../hooks/useRecaptcha";
 
 
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -32,9 +32,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     try {
       // Execute reCAPTCHA V3
-      const token = await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, {
-        action: "contact_form"
-      });
+      const token = await executeRecaptcha("contact_form");
 
       // Send form data to PHP backend
       const API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact.php';
@@ -111,25 +109,25 @@ const ContactSection = () => {
           >
             <div>
               <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
-              <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass("name")} placeholder="John Doe" />
+              <input type="text" value={form.name} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass("name")} placeholder="John Doe" />
               {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
             </div>
 
             <div>
               <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Email (Required)</label>
-              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} placeholder="john@company.com" />
+              <input type="email" value={form.email} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} placeholder="john@company.com" />
               {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
             </div>
 
             <div>
               <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Phone (Required)</label>
-              <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass("phone")} placeholder="Enter your phone number" />
+              <input type="tel" value={form.phone} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass("phone")} placeholder="Enter your phone number" />
               {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
             </div>
 
             <div className="flex-grow">
               <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Message</label>
-              <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={8} className={`${inputClass("message")} resize-none h-24 sm:h-32 md:h-48`} placeholder="Tell us about your compliance needs..." />
+              <textarea value={form.message} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={8} className={`${inputClass("message")} resize-none h-24 sm:h-32 md:h-48`} placeholder="Tell us about your compliance needs..." />
               {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
             </div>
 

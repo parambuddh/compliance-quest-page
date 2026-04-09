@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://compliance-quest-page.vercel.app/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://compliancevista.com/</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/464e52a4-0bf6-4558-b8ad-831715defbfc/id-preview-cd934e28--fd5ad6b0-298b-4034-af1f-29eef74356ba.lovable.app-1775021933753.png</image:loc>
-    </image:image>
   </url>
   <url>
-    <loc>https://compliance-quest-page.vercel.app/terms-of-use</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://compliancevista.com/#features</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://compliance-quest-page.vercel.app/privacy-policy</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://compliancevista.com/#benefits</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://compliancevista.com/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
