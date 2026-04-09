@@ -19,7 +19,12 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
       setIsLoading(true);
       // Simulate loading time
       const timer = setTimeout(() => setIsLoading(false), 1000);
+      // Hide body scrollbar when modal opens
+      document.body.style.overflow = "hidden";
       return () => clearTimeout(timer);
+    } else {
+      // Restore body scrollbar when modal closes
+      document.body.style.overflow = "unset";
     }
   }, [isOpen]);
 
@@ -68,7 +73,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
 
             {/* Calendly Iframe */}
             {!isLoading && (
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-hidden">
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                   width="100%"
@@ -76,6 +81,8 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
                   frameBorder="0"
                   title="Schedule a demo"
                   style={{ minHeight: "700px" }}
+                  allowFullScreen
+                  scrolling="yes"
                 />
               </div>
             )}
