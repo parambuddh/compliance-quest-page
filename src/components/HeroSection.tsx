@@ -26,14 +26,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="space-y-8"
+            className="space-y-5"
           >
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm mb-2"
+              className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm mt-8 mb-0"
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-foreground/80 font-medium">Salesforce-Native Solution</span>
