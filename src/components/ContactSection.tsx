@@ -37,7 +37,7 @@ const ContactSection = () => {
       });
 
       // Send form data to PHP backend
-      const API_URL = import.meta.env.VITE_CONTACT_API_URL || 'http://localhost:8000/backend/contact.php';
+      const API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact.php';
       
       const payload = {
         ...form,
