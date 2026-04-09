@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# GTM and Email Setup - Local files (not tracked)
+GTM_INSTALLATION_GUIDE.md
+GTM_QUICK_VERIFICATION.md
+GMAIL_SETUP_GUIDE.md
+MAIL_SERVER_SETUP.md
+.env.local
