@@ -73,16 +73,16 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
 
             {/* Calendly Iframe */}
             {!isLoading && (
-              <div className="w-full">
+              <div className="w-full px-4 pb-4">
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                   width="100%"
-                  height="900"
+                  height="1200"
                   frameBorder="0"
                   title="Schedule a demo"
                   allowFullScreen
                   scrolling="no"
-                  style={{ display: "block" }}
+                  style={{ display: "block", borderRadius: "12px" }}
                 />
               </div>
             )}
