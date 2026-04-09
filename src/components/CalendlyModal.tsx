@@ -77,7 +77,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                   width="100%"
-                  height="1200"
+                  height="1400"
                   frameBorder="0"
                   title="Schedule a demo"
                   allowFullScreen
