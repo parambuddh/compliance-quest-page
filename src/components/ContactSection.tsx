@@ -3,9 +3,21 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
+// reCAPTCHA V3 Configuration - Replace with official key
+const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Demo key - replace with production key
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);;
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -19,12 +31,33 @@ const ContactSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (ev: React.FormEvent) => {
+  const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    toast.success("Thank you! We'll be in touch shortly.");
-    setForm({ name: "", email: "", phone: "", message: "" });
-    setErrors({});
+
+    setIsSubmitting(true);
+    try {
+      // Execute reCAPTCHA V3
+      const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+        action: "contact_form"
+      });
+
+      // Here you would typically send the token to your backend for verification
+      // For now, we'll simulate the submission
+      console.log("reCAPTCHA Token:", token);
+
+      // Simulate backend verification delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      toast.success("Thank you! We'll be in touch shortly.");
+      setForm({ name: "", email: "", phone: "", message: "" });
+      setErrors({});
+    } catch (error) {
+      console.error("reCAPTCHA error:", error);
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass = (name: string) =>
@@ -85,11 +118,19 @@ const ContactSection = () => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 mt-auto"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground py-4 rounded-full font-semibold overflow-hidden shadow-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2 mt-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-xl"
             >
               <Send className="w-4 h-4" />
-              Send
+              {isSubmitting ? "Submitting..." : "Send"}
             </button>
+
+            {/* reCAPTCHA Badge Notice */}
+            <p className="text-xs text-muted-foreground text-center mt-4">
+              This site is protected by reCAPTCHA and the Google
+              <br />
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Terms of Service</a> apply.
+            </p>
           </motion.form>
 
           {/* Right Side - Info on Top, Map Below */}
