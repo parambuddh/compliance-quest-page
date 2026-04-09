@@ -41,32 +41,32 @@ const FooterSection = () => {
             <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li>
-                <button onClick={() => navigateToSection('home')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('home')} aria-label="Navigate to Home section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateToSection('overview')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('overview')} aria-label="Navigate to Overview section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Overview
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateToSection('features')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('features')} aria-label="Navigate to Features section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Features
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateToSection('benefits')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('benefits')} aria-label="Navigate to Benefits section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Benefits
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateToSection('use-cases')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('use-cases')} aria-label="Navigate to Use Cases section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Use Cases
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateToSection('contact')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
+                <button onClick={() => navigateToSection('contact')} aria-label="Navigate to Contact Us section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Contact Us
                 </button>
               </li>
@@ -78,20 +78,20 @@ const FooterSection = () => {
             <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
-                <span className="text-primary">🌐</span>
-                <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <span className="text-primary" aria-hidden="true">🌐</span>
+                <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Compliance Vista main website" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   www.compliancevista.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-primary">✉️</span>
-                <a href="mailto:support@ardira.com" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <span className="text-primary" aria-hidden="true">✉️</span>
+                <a href="mailto:support@ardira.com" aria-label="Email support at support@ardira.com" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   support@ardira.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-primary">📱</span>
-                <a href="tel:1.669.777.6838" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
+                <span className="text-primary" aria-hidden="true">📱</span>
+                <a href="tel:1.669.777.6838" aria-label="Call support at 1.669.777.6838" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   1.669.777.6838
                 </a>
               </li>

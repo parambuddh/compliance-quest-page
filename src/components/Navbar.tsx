@@ -30,18 +30,6 @@ const Navbar = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      // Only detect section on the home page
-      if (!isIndependentPage) {
-        const sections = ["contact", "faq", "use-cases", "benefits", "features", "overview", "home"];
-        for (const id of sections) {
-          const el = document.getElementById(id);
-          if (el && el.getBoundingClientRect().top <= 120) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
-
       // Detect if navbar is over a colored section (green sections)
       const finalCtaElement = document.getElementById("final-cta");
       const heroElement = document.getElementById("home");
@@ -63,9 +51,37 @@ const Navbar = () => {
       
       setIsOverColoredSection(overColored);
     };
+
+    // Use Intersection Observer for active section detection (High Performance)
+    const observerOptions = {
+      root: null,
+      rootMargin: "-120px 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
     
+    if (!isIndependentPage) {
+      const sections = ["home", "overview", "features", "benefits", "use-cases", "contact"];
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
+    };
   }, [isIndependentPage]);
 
   const handleClick = (href: string) => {
@@ -117,6 +133,7 @@ const Navbar = () => {
         >
           <button
             onClick={handleLogoClick}
+            aria-label="Compliance Vista - Return to Home"
             className="flex items-center gap-2 transition-all duration-500"
           >
             <img
@@ -262,6 +279,7 @@ const Navbar = () => {
             className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Scroll to top"
             title="Scroll to top"
           >
             <ArrowUp size={20} />
