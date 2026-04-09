@@ -129,14 +129,14 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
         >
-          <div className="inline-block mb-4 md:mb-6">
+          <div className="inline-block">
             <div className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
               <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Powerful Capabilities
               </span>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4 mt-4">
             Enterprise Features
           </h2>
           <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">

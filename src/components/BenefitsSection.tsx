@@ -55,14 +55,14 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16 px-4"
         >
-          <div className="inline-block mb-4">
+          <div className="inline-block">
             <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
               <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Why Choose Us
               </span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text px-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text px-4 mt-4">
             Key Benefits
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">

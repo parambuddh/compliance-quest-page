@@ -69,10 +69,10 @@ const SolutionSection = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="inline-block text-sm font-semibold tracking-wider uppercase text-secondary bg-secondary/10 rounded-full px-4 py-2 mb-5">
+            <span className="inline-block text-sm font-semibold tracking-wider uppercase text-secondary bg-secondary/10 rounded-full px-4 py-2">
               Our Solution
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text mt-4">
               How Compliance Vista Solves This
             </h2>
           </motion.div>
