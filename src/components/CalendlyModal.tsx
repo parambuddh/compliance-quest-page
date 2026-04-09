@@ -44,7 +44,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative flex flex-col"
+            className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden relative flex flex-col"
           >
             {/* Close Button */}
             <button
@@ -56,7 +56,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
             </button>
 
             {/* Header */}
-            <div className="px-8 pt-8 pb-4 border-b border-gray-200 dark:border-slate-700">
+            <div className="px-8 pt-8 pb-4 border-b border-gray-200 dark:border-slate-700 flex-shrink-0">
               <h2 className="text-3xl font-bold gradient-text">Schedule a Demo</h2>
               <p className="text-sm text-muted-foreground mt-1">Book a time that works best for you</p>
             </div>
@@ -71,9 +71,30 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
               </div>
             )}
 
-            {/* Calendly Iframe */}
+            {/* Scrollable Content Container */}
             {!isLoading && (
-              <div className="w-full px-4 pb-4">
+              <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-4"
+                style={{
+                  scrollbarWidth: "thin",
+                  scrollbarColor: "#cbd5e1 #f1f5f9"
+                }}
+              >
+                <style>{`
+                  .scrollbar-hide::-webkit-scrollbar {
+                    width: 6px;
+                  }
+                  .scrollbar-hide::-webkit-scrollbar-track {
+                    background: transparent;
+                    border-radius: 12px;
+                  }
+                  .scrollbar-hide::-webkit-scrollbar-thumb {
+                    background: #cbd5e1;
+                    border-radius: 3px;
+                  }
+                  .scrollbar-hide::-webkit-scrollbar-thumb:hover {
+                    background: #94a3b8;
+                  }
+                `}</style>
                 <iframe
                   src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                   width="100%"
