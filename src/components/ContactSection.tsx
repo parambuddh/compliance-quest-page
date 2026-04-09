@@ -6,13 +6,7 @@ import { motion } from "framer-motion";
 // reCAPTCHA V3 Configuration
 const RECAPTCHA_SITE_KEY = "6LdpZq4sAAAAACc87ym0oRUjKpiJ5nIsi_LWPxTh"; // Official site key
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
+
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -38,16 +32,30 @@ const ContactSection = () => {
     setIsSubmitting(true);
     try {
       // Execute reCAPTCHA V3
-      const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+      const token = await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, {
         action: "contact_form"
       });
 
-      // Here you would typically send the token to your backend for verification
-      // For now, we'll simulate the submission
-      console.log("reCAPTCHA Token:", token);
+      // Send form data to PHP backend
+      const API_URL = import.meta.env.VITE_CONTACT_API_URL || 'http://localhost:8000/backend/contact.php';
+      
+      const payload = {
+        ...form,
+        recaptcha_token: token,
+        source_url: window.location.href
+      };
 
-      // Simulate backend verification delay
-      await new Promise(resolve => setTimeout(resolve, 500));
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to send message");
+      }
 
       toast.success("Thank you! We'll be in touch shortly.");
       setForm({ name: "", email: "", phone: "", message: "" });

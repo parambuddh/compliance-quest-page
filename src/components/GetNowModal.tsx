@@ -54,11 +54,31 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
 
     setIsSubmitting(true);
 
-    // Redirect to Salesforce AppExchange
-    setTimeout(() => {
+    try {
+      const API_URL = import.meta.env.VITE_CONTACT_API_URL || 'http://localhost:8000/backend/contact.php';
+      
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contactNumber,
+        message: `Company/Organization: ${formData.company}`,
+        source_url: window.location.href
+      };
+
+      // Fire and forget post (we don't wait for success to avoid delaying user's redirect)
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(console.error);
+
+      // Redirect to Salesforce AppExchange
       window.location.href =
         "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3";
-    }, 500);
+    } catch (error) {
+      console.error(error);
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
