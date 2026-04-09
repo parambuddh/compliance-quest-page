@@ -93,13 +93,13 @@ const ContactSection = () => {
 
         {/* Two Column Layout - Form Left (Sticky), Map + Info Right (Scrollable) */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto md:min-h-screen">
-          {/* Form - Left Side - Sticky Position */}
+          {/* Form - Left Side - Sticky Position, Static Size */}
           <motion.form
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="sticky top-20 glass-strong rounded-2xl p-6 md:p-8 space-y-4 h-fit md:max-h-[calc(100vh-120px)] overflow-y-auto flex flex-col"
+            className="sticky top-20 glass-strong rounded-2xl p-6 md:p-8 space-y-4 h-fit flex flex-col"
           >
             <div>
               <label className="block text-xs font-semibold text-foreground/70 mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
