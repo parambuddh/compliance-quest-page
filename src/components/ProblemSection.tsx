@@ -32,27 +32,27 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
 };
 
 const ProblemSection = () => (
-  <section id="overview" className="py-10 md:py-14 relative overflow-hidden">
+  <section id="overview" className="py-8 sm:py-10 md:py-14 relative overflow-hidden">
     {/* Background */}
     <div className="absolute inset-0 bg-gradient-to-br from-surface-accent via-background to-primary/5" />
     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-    <div className="container relative">
+    <div className="container relative px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        className="text-center mb-8 sm:mb-10 md:mb-14"
       >
         <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-4">
           The Challenge
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">
           Enterprise Compliance Challenges
         </h2>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
         {problems.map((p, i) => (
           <motion.div
             key={i}
@@ -60,13 +60,13 @@ const ProblemSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group glass-strong rounded-2xl p-6 hover:glow-primary transition-all duration-300 hover:-translate-y-1 cursor-default"
+            className="group glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:glow-primary transition-all duration-300 hover:-translate-y-1 cursor-default"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/15 to-secondary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
               <IconComponent iconType={p.icon} />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-3">{p.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">{p.title}</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
           </motion.div>
         ))}
       </div>

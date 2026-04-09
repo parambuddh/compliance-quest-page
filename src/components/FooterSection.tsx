@@ -16,15 +16,15 @@ const FooterSection = () => {
   };
 
   return (
-  <footer className="relative overflow-hidden bg-navy text-navy-foreground py-8">
+  <footer className="relative overflow-hidden bg-navy text-navy-foreground py-6 sm:py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-    <div className="container relative">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-10 mb-8 max-w-full">
+    <div className="container relative px-4 sm:px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-8 max-w-full">
         {/* Company Info - Left (1 col) */}
-        <div className="lg:col-span-1">
+        <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
-            <img src={logo} alt="Compliance Vista" className="h-10" />
+            <img src={logo} alt="Compliance Vista" className="h-8 sm:h-10" />
           </div>
           <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs">
             Enterprise governance simplified. Salesforce-native compliance by Ardira.
@@ -35,11 +35,11 @@ const FooterSection = () => {
         <div className="hidden lg:block lg:col-span-1"></div>
 
         {/* Right Column - Contact Info and Quick Links (2 cols) */}
-        <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="sm:col-span-2 lg:col-span-2 grid grid-cols-2 gap-6 sm:gap-8">
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white mb-6 text-base">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li>
                 <button onClick={() => navigateToSection('home')} className="text-navy-foreground/60 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
                   Home
@@ -75,8 +75,8 @@ const FooterSection = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-white mb-6 text-base">Contact Info</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
                 <span className="text-primary">🌐</span>
                 <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
@@ -100,11 +100,11 @@ const FooterSection = () => {
         </div>
       </div>
 
-      <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
         <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
           © {currentYear} ComplianceVista. All Rights Reserved.
         </p>
-        <div className="flex gap-6 text-xs order-1 md:order-2">
+        <div className="flex gap-4 sm:gap-6 text-[10px] sm:text-xs order-1 md:order-2">
           <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
             Terms of Use
           </Link>

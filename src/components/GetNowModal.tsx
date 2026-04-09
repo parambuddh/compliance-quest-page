@@ -91,12 +91,12 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
           >
-            <div className="w-full max-w-md bg-background rounded-3xl border border-white/10 shadow-2xl overflow-hidden pointer-events-auto"
+            <div className="w-full max-w-md mx-4 bg-background rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl overflow-hidden pointer-events-auto"
             >
           {/* Header */}
-            <div className="relative h-auto bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center p-8 border-b border-white/10">
+            <div className="relative h-auto bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center p-5 sm:p-8 border-b border-white/10">
               <div className="text-center">
-                <h2 className="text-2xl font-bold text-foreground select-none">Get ComplianceVista Now</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground select-none">Get ComplianceVista Now</h2>
               </div>
               <button
                 onClick={onClose}
@@ -107,7 +107,7 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
             </div>
 
             {/* Form Content */}
-            <form onSubmit={handleSubmit} className="p-8 space-y-5">
+            <form onSubmit={handleSubmit} className="p-5 sm:p-8 space-y-4 sm:space-y-5">
               {/* Name Field */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">

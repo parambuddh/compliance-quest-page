@@ -120,7 +120,7 @@ const FeaturesSection = () => {
       />
       <div className="absolute inset-0 dot-pattern opacity-20" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ const FeaturesSection = () => {
               </span>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4 mt-4">
             Enterprise Features
           </h2>
           <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
@@ -145,9 +145,9 @@ const FeaturesSection = () => {
         </motion.div>
 
         {/* Carousel Container - 2 Cards Display */}
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           {/* Features Grid - 2 cards side by side, full width on mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
             {visibleFeatures.map((feature, idx) => (
               <motion.div
                 key={activeIndex + idx}
@@ -156,16 +156,16 @@ const FeaturesSection = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group relative"
               >
-                <div className="glass-strong rounded-2xl p-6 md:p-8 h-full relative overflow-hidden">
+                <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden">
                   {/* Number badge */}
-                  <div className="absolute top-4 right-4 text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
                     {String(features.indexOf(feature) + 1).padStart(2, "0")}
                   </div>
 
                   {/* Icon and title */}
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <motion.div
-                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
                       animate={{ rotate: [0, 10, 0] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >

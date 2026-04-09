@@ -35,7 +35,7 @@ const BenefitsSection = () => {
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/2 to-background" />
       <motion.div 
-        className="absolute top-20 -left-40 w-96 h-96 bg-primary/8 rounded-full blur-3xl"
+        className="absolute top-20 -left-40 w-64 sm:w-96 h-64 sm:h-96 bg-primary/8 rounded-full blur-3xl"
         animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
         transition={{ duration: 15, repeat: Infinity }}
       />
@@ -46,7 +46,7 @@ const BenefitsSection = () => {
       />
       <div className="absolute inset-0 dot-pattern opacity-10" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const BenefitsSection = () => {
               </span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text px-4 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 gradient-text px-4 mt-4">
             Key Benefits
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
@@ -71,7 +71,7 @@ const BenefitsSection = () => {
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
             return (
@@ -84,15 +84,15 @@ const BenefitsSection = () => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative rounded-2xl glass-strong p-6 md:p-8 h-full overflow-hidden transition-all duration-300 border border-white/20 hover:border-primary/40">
+                <div className="relative rounded-xl sm:rounded-2xl glass-strong p-4 sm:p-6 md:p-8 h-full overflow-hidden transition-all duration-300 border border-white/20 hover:border-primary/40">
                   {/* Number Badge */}
-                  <div className="absolute top-6 right-6 text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none">
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none">
                     {String(idx + 1).padStart(2, '0')}
                   </div>
 
                   {/* Icon */}
                   <motion.div
-                    className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform relative z-10"
                     animate={{ rotate: [0, 10, 0] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
@@ -100,7 +100,7 @@ const BenefitsSection = () => {
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl md:text-2xl font-semibold gradient-text mb-3 relative z-10">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold gradient-text mb-2 sm:mb-3 relative z-10">
                     {benefit.title}
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">

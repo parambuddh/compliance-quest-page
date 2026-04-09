@@ -19,7 +19,7 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="final-cta" className="py-10 md:py-14 relative overflow-hidden">
+    <section ref={sectionRef} id="final-cta" className="py-8 sm:py-10 md:py-14 relative overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-secondary" />
 
@@ -50,23 +50,23 @@ const FinalCTASection = () => {
       {/* Dot pattern */}
       <div className="absolute inset-0 dot-pattern opacity-10" />
 
-      <div className="container relative text-center max-w-3xl mx-auto z-10">
+      <div className="container relative text-center max-w-3xl mx-auto z-10 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+          <h2 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight drop-shadow-lg">
             Ready to Simplify Enterprise Compliance?
           </h2>
-          <p className="relative text-white/85 mb-10 text-base md:text-lg leading-relaxed drop-shadow-md">
+          <p className="relative text-white/85 mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg leading-relaxed drop-shadow-md">
             Join 500+ enterprise customers managing compliance with confidence.
           </p>
 
           {/* Buttons container */}
           <motion.div
-            className="relative flex flex-wrap justify-center gap-4"
+            className="relative flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -75,7 +75,7 @@ const FinalCTASection = () => {
             {/* Primary Button */}
             <motion.button
               onClick={() => setIsCalendlyOpen(true)}
-              className="group relative px-8 py-4 rounded-full font-semibold text-base overflow-hidden shadow-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base overflow-hidden shadow-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -89,7 +89,7 @@ const FinalCTASection = () => {
             {/* Secondary Button */}
             <motion.button
               onClick={() => scrollTo("contact")}
-              className="group relative px-8 py-4 rounded-full font-semibold text-base overflow-hidden shadow-xl bg-transparent border-2 border-white text-white hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base overflow-hidden shadow-xl bg-transparent border-2 border-white text-white hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >

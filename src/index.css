@@ -141,3 +141,33 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Hide Google's injected reCAPTCHA badge - we show notice in the form */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure images/iframes don't overflow */
+img, iframe, video {
+  max-width: 100%;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a, input, textarea, select {
+    min-height: 36px;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

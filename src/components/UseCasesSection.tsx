@@ -46,7 +46,7 @@ const UseCasesSection = () => {
       />
       <div className="absolute inset-0 dot-pattern opacity-10" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ const UseCasesSection = () => {
               </span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 gradient-text px-4">
             Perfect for Every Scenario
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
@@ -71,7 +71,7 @@ const UseCasesSection = () => {
         </motion.div>
 
         {/* Use Cases Grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto mb-8">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8">
           {useCases.map((useCase, idx) => {
             const Icon = useCase.icon;
             return (
@@ -83,35 +83,35 @@ const UseCasesSection = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="glass-strong rounded-2xl p-6 md:p-8 h-full relative overflow-hidden">
+                <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden">
                   {/* Number badge */}
-                  <div className="absolute top-4 right-4 text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
                     {String(idx + 1).padStart(2, "0")}
                   </div>
 
                   {/* Icon and title */}
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <motion.div
-                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
                       animate={{ rotate: [0, 10, 0] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >
                       <Icon className="w-6 h-6 text-primary" />
                     </motion.div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold gradient-text group-hover:opacity-80 transition-opacity">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold gradient-text group-hover:opacity-80 transition-opacity">
                         {useCase.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-5">
                     {useCase.description}
                   </p>
 
                   {/* Features */}
-                  <div className="space-y-2 mb-5">
+                  <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5">
                     {useCase.features.map((feature, fidx) => (
                       <motion.div
                         key={fidx}

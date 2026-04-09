@@ -44,24 +44,24 @@ const FAQSection = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   return (
-    <section id="faq" className="py-14 md:py-16 relative overflow-hidden">
+    <section id="faq" className="py-10 sm:py-12 md:py-14 lg:py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-surface-light" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      <div className="container relative">
+      <div className="container relative px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           <span className="inline-block text-sm font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full px-4 py-2">
             FAQ
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 mt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-3 sm:mb-4 mt-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Find answers to common questions about Compliance Vista and how it can help your organization manage compliance at scale.
           </p>
         </motion.div>
@@ -91,19 +91,19 @@ const FAQSection = () => {
               >
                 <AccordionItem
                   value={faq.id}
-                  className="border border-border/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-lg bg-card"
+                  className="border border-border/50 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-lg bg-card"
                 >
-                  <AccordionTrigger className="px-8 py-6 hover:bg-surface-light/50 transition-colors duration-200 [&[data-state=open]]:bg-primary/8 group">
+                  <AccordionTrigger className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 hover:bg-surface-light/50 transition-colors duration-200 [&[data-state=open]]:bg-primary/8 group">
                     <div className="flex items-center gap-4 text-left flex-1">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-200">
-                        <span className="text-primary font-bold text-lg">{index + 1}</span>
+                      <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-200">
+                        <span className="text-primary font-bold text-sm sm:text-lg">{index + 1}</span>
                       </div>
-                      <span className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-200">
+                      <span className="font-semibold text-sm sm:text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200">
                         {faq.question}
                       </span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="px-8 pb-6 pt-2 text-base text-muted-foreground leading-relaxed">
+                  <AccordionContent className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 pt-1 sm:pt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -119,7 +119,7 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="text-center mt-14"
         >
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6">
             Didn't find what you're looking for?
           </p>
           <a
