@@ -10,7 +10,7 @@ const RecaptchaBadge = () => {
         visibility: visible !important;
         position: fixed !important;
         bottom: 20px !important;
-        right: 20px !important;
+        left: 20px !important;
         z-index: 999 !important;
       }
       
@@ -57,7 +57,7 @@ const RecaptchaBadge = () => {
         style={{
           position: "fixed",
           bottom: "20px",
-          right: "20px",
+          left: "20px",
           zIndex: 999,
         }}
       />
