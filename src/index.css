@@ -190,14 +190,12 @@ img, iframe, video {
   }
 }
 
-/* Custom reCAPTCHA Badge Styling - Bottom Left & Scaled Down */
+/* Custom reCAPTCHA Badge Styling - Bottom Left */
 .grecaptcha-badge {
   visibility: visible !important;
   bottom: 24px !important;
   left: 24px !important;
   right: auto !important;
-  transform: scale(0.85); /* Make it slightly smaller so it doesn't interfere */
-  transform-origin: bottom left;
   z-index: 40 !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
   border-radius: 8px !important;
