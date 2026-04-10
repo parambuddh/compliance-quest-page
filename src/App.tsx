@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -8,6 +9,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import TermsOfUse from "./pages/TermsOfUse.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +22,14 @@ const queryClient = new QueryClient({
 
 const App = () => {
   console.log("App component rendering");
-  
+  const { loadRecaptcha } = useRecaptcha();
+
+  useEffect(() => {
+    // Load reCAPTCHA immediately on app mount to display the badge globally,
+    // mirroring the behavior of the parent surveyvista.com site.
+    loadRecaptcha();
+  }, [loadRecaptcha]);
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
