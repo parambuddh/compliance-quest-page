@@ -19,7 +19,8 @@ const FooterSection = () => {
   <footer className="relative overflow-hidden bg-navy text-navy-foreground py-6 sm:py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-    <div className="container relative px-4 sm:px-6">
+    <div className="container relative">
+      <div className="container">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-8 max-w-full">
         {/* Company Info - Left (1 col) */}
         <div className="sm:col-span-2 lg:col-span-1">
@@ -112,6 +113,7 @@ const FooterSection = () => {
             Privacy Policy
           </Link>
         </div>
+      </div>
       </div>
     </div>
   </footer>
