@@ -56,7 +56,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $smtpUser = getenv('SMTP_USER') ?: 'zeon6080@gmail.com';
 $smtpPass = getenv('SMTP_PASS') ?: 'jtwb crev jxzb vvoe';
 
-$logoUrl = "https://surveyvista.com/wp-content/uploads/2024/09/logo.png"; // Fallback safe URL
+$logoUrl = "https://compliance-quest-page.vercel.app/ComplianceVista-logo.svg"; // ComplianceVista official logo
 
 // Send the "Sales Team" email to your temp testing recipients
 $testRecipients = ['parambuddh26@gmail.com', 'gajeramilan518@gmail.com'];

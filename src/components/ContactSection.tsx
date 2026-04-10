@@ -34,8 +34,8 @@ const ContactSection = () => {
       // Execute reCAPTCHA V3
       const token = await executeRecaptcha("contact_form");
 
-      // Send form data to PHP backend
-      const API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact.php';
+      // Send form data to Node.js backend (Nodemailer)
+      const API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact.js';
       
       const payload = {
         ...form,
