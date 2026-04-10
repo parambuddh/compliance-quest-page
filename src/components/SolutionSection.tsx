@@ -69,9 +69,13 @@ const SolutionSection = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-wider uppercase text-secondary bg-secondary/10 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
-              Our Solution
-            </span>
+            <div className="inline-block mb-4">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
+                <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                  Our Solution
+                </span>
+              </div>
+            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mt-3 sm:mt-4">
               How Compliance Vista Solves This
             </h2>

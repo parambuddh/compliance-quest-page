@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -12,6 +12,35 @@ const ContactSection = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
+  
+  const formRef = useRef<HTMLFormElement>(null);
+  const [rightSideHeight, setRightSideHeight] = useState<string>("auto");
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (formRef.current && window.innerWidth >= 768) {
+        setRightSideHeight(`${formRef.current.offsetHeight}px`);
+      } else {
+        setRightSideHeight("auto");
+      }
+    };
+
+    updateHeight();
+    
+    const resizeObserver = new ResizeObserver(() => {
+      updateHeight();
+    });
+
+    if (formRef.current) {
+      resizeObserver.observe(formRef.current);
+    }
+
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -91,9 +120,13 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10 md:mb-14"
         >
-          <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 mb-4">
-            Contact
-          </span>
+          <div className="inline-block mb-4">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                Contact
+              </span>
+            </div>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">Get in Touch</h2>
         </motion.div>
 
@@ -101,6 +134,7 @@ const ContactSection = () => {
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-10 max-w-6xl mx-auto items-start">
           {/* Form - Left Side - Sticky Position, Static Size */}
           <motion.form
+            ref={formRef}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -127,7 +161,7 @@ const ContactSection = () => {
 
             <div className="flex-grow">
               <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Message</label>
-              <textarea value={form.message} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={8} className={`${inputClass("message")} resize-none h-24 sm:h-32 md:h-48`} placeholder="Tell us about your compliance needs..." />
+              <textarea value={form.message} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} className={`${inputClass("message")} resize-none h-24 sm:h-32 md:h-40`} placeholder="Tell us about your compliance needs..." />
               {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
             </div>
 
@@ -148,14 +182,15 @@ const ContactSection = () => {
             </p>
           </motion.form>
 
-          {/* Right Side - Info + Map (Fixed Height, No Scroll) */}
+          {/* Right Side - Info + Map (Fixed Height matching form, Scrolls silently) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 md:overflow-y-auto scrollbar-hide"
+            style={{ maxHeight: rightSideHeight }}
           >
-            {/* Contact Info Box - TOP (Fixed, does not scroll) */}
+            {/* Contact Info Box - TOP */}
             <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Quick Contact
@@ -205,7 +240,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Google Maps - BOTTOM (Fixed Height, No Scroll) */}
+            {/* Google Maps - BOTTOM */}
             <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-primary/20 h-56 sm:h-64 md:h-80" style={{ minHeight: "224px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
