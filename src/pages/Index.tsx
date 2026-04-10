@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FooterSection from "@/components/FooterSection";
@@ -59,28 +59,6 @@ const SectionSkeleton = () => (
 );
 
 const Index = () => {
-  const [loadingError, setLoadingError] = useState<Error | null>(null);
-
-  if (loadingError) {
-    return (
-      <div style={{
-        padding: "20px",
-        textAlign: "center",
-        fontFamily: "sans-serif",
-      }}>
-        <Navbar />
-        <div style={{
-          margin: "50px 20px",
-          color: "#d32f2f"
-        }}>
-          <h2>Section Loading Error</h2>
-          <p>{loadingError.message}</p>
-        </div>
-        <FooterSection />
-      </div>
-    );
-  }
-
   return (
     <>
       <Navbar />

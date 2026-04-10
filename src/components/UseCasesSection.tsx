@@ -1,29 +1,54 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
-import { Briefcase, AlertTriangle, Shield, Users } from "lucide-react";
+
+const IconComponent = ({ iconType }: { iconType: string }) => {
+  const iconMap: { [key: string]: string } = {
+    clipboard: "/icons/SV-Clipboard.webp",
+    magnifying: "/icons/SV-MagnifyingGlass.webp",
+    dartboard: "/icons/SV-Dartboard.webp",
+    talkbubbles: "/icons/SV-TalkBubbles.webp",
+  };
+
+  const altTextMap: { [key: string]: string } = {
+    clipboard: "Clipboard icon for audit management use case",
+    magnifying: "Magnifying glass icon for vendor risk assessment",
+    dartboard: "Dartboard icon for regulatory compliance targeting",
+    talkbubbles: "Talk bubbles icon for employee assessment and feedback",
+  };
+
+  return (
+    <img
+      src={iconMap[iconType]}
+      alt={altTextMap[iconType] || iconType}
+      loading="lazy"
+      decoding="async"
+      className="w-7 h-7 object-contain drop-shadow-md"
+    />
+  );
+};
 
 const UseCasesSection = () => {
   const useCases = [
     {
-      icon: Briefcase,
+      icon: "clipboard",
       title: "Audit Management",
       description: "Streamline internal and external audits with centralized evidence collection, audit trails, and findings management. Reduce audit preparation time by 60% and ensure nothing falls through the cracks.",
       features: ["Evidence collection", "Audit trails", "Finding management"]
     },
     {
-      icon: AlertTriangle,
+      icon: "magnifying",
       title: "Vendor Risk Assessment",
       description: "Evaluate and monitor third-party vendor compliance and security posture continuously. Minimize supply chain risk and maintain organizational standards across your entire vendor ecosystem.",
       features: ["Vendor evaluation", "Risk monitoring", "Compliance tracking"]
     },
     {
-      icon: Shield,
+      icon: "dartboard",
       title: "Regulatory Compliance",
       description: "Stay compliant across SOC2, ISO, GDPR, HIPAA, and custom frameworks with pre-built templates and automated reporting. Adapt quickly to regulatory changes without disrupting operations.",
       features: ["Multi-framework", "Auto reporting", "Pre-built templates"]
     },
     {
-      icon: Users,
+      icon: "talkbubbles",
       title: "Employee Assessment",
       description: "Manage employee skills, certifications, and competency requirements in one place. Track training completion, ensure role-based qualifications, and maintain workforce compliance effortlessly.",
       features: ["Skills management", "Certification tracking", "Compliance monitoring"]
@@ -31,7 +56,7 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <section id="use-cases" className="py-8 md:py-10 relative overflow-hidden">
+    <section id="use-cases" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/2 to-background" />
       <motion.div 
@@ -73,7 +98,6 @@ const UseCasesSection = () => {
         {/* Use Cases Grid */}
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8">
           {useCases.map((useCase, idx) => {
-            const Icon = useCase.icon;
             return (
               <motion.div
                 key={idx}
@@ -100,7 +124,7 @@ const UseCasesSection = () => {
                       animate={{ rotate: [0, 10, 0] }}
                       transition={{ duration: 3, repeat: Infinity }}
                     >
-                      <Icon className="w-6 h-6 text-primary" />
+                      <IconComponent iconType={useCase.icon} />
                     </motion.div>
                     <div>
                       <h3 className="text-lg sm:text-xl md:text-2xl font-bold gradient-text group-hover:opacity-80 transition-opacity">

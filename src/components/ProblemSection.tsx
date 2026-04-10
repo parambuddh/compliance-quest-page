@@ -9,10 +9,10 @@ const problems = [
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
   const iconMap: { [key: string]: string } = {
-    clipboard: "/icons/SV-Clipboard.png",
-    magnifying: "/icons/SV-MagnifyingGlass.png",
-    email: "/icons/SV-Email.png",
-    circular: "/icons/SV-CircularArrows.png",
+    clipboard: "/icons/SV-Clipboard.webp",
+    magnifying: "/icons/SV-MagnifyingGlass.webp",
+    email: "/icons/SV-Email.webp",
+    circular: "/icons/SV-CircularArrows.webp",
   };
 
   const altTextMap: { [key: string]: string } = {
@@ -34,7 +34,7 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
 };
 
 const ProblemSection = () => (
-  <section id="overview" className="py-8 sm:py-10 md:py-14 relative overflow-hidden">
+  <section id="overview" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
     {/* Background */}
     <div className="absolute inset-0 bg-gradient-to-br from-surface-accent via-background to-primary/5" />
     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />

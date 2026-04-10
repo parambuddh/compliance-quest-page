@@ -72,7 +72,7 @@ const ContactSection = () => {
     }`;
 
   return (
-    <section id="contact" className="py-8 sm:py-10 md:py-14 relative overflow-hidden">
+    <section id="contact" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
       <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;

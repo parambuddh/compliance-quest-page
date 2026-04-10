@@ -43,12 +43,12 @@ const features = [
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
   const iconMap: { [key: string]: string } = {
-    clipboard: "/icons/SV-Clipboard.png",
-    dartboard: "/icons/SV-Dartboard.png",
-    chart: "/icons/SV-Chart.png",
-    lightning: "/icons/SV-LightningBolt.png",
-    magnifying: "/icons/SV-MagnifyingGlass.png",
-    circular: "/icons/SV-CircularArrows.png",
+    clipboard: "/icons/SV-Clipboard.webp",
+    dartboard: "/icons/SV-Dartboard.webp",
+    chart: "/icons/SV-Chart.webp",
+    lightning: "/icons/SV-LightningBolt.webp",
+    magnifying: "/icons/SV-MagnifyingGlass.webp",
+    circular: "/icons/SV-CircularArrows.webp",
   };
 
   const altTextMap: { [key: string]: string } = {
@@ -101,7 +101,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section id="features" className="py-8 md:py-10 lg:py-14 relative overflow-hidden">
+    <section id="features" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
       <motion.div 

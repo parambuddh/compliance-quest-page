@@ -1,37 +1,64 @@
 import { motion } from "framer-motion";
-import { Shield, Zap, Eye, TrendingUp, Star } from "lucide-react";
+
+const IconComponent = ({ iconType }: { iconType: string }) => {
+  const iconMap: { [key: string]: string } = {
+    dartboard: "/icons/SV-Dartboard.webp",
+    lightning: "/icons/SV-LightningBolt.webp",
+    magnifying: "/icons/SV-MagnifyingGlass.webp",
+    chart: "/icons/SV-Chart.webp",
+    clipboard: "/icons/SV-Clipboard.webp",
+  };
+
+  const altTextMap: { [key: string]: string } = {
+    dartboard: "Dartboard icon representing risk minimization through compliance",
+    lightning: "Lightning bolt icon representing operational efficiency gains",
+    magnifying: "Magnifying glass icon representing improved compliance visibility",
+    chart: "Chart icon representing business growth through compliance",
+    clipboard: "Clipboard icon representing trust and reputation building",
+  };
+
+  return (
+    <img
+      src={iconMap[iconType]}
+      alt={altTextMap[iconType] || iconType}
+      loading="lazy"
+      decoding="async"
+      className="w-8 h-8 object-contain drop-shadow-md"
+    />
+  );
+};
 
 const BenefitsSection = () => {
   const benefits = [
     {
-      icon: Shield,
+      icon: "dartboard",
       title: "Minimize Risk",
       description: "Proactively identify and mitigate compliance risks with real-time monitoring and automated assessments across your entire organization."
     },
     {
-      icon: Zap,
+      icon: "lightning",
       title: "Increase Operational Efficiency",
       description: "Automate manual workflows and cut compliance cycle time significantly. Free your team to focus on strategic initiatives instead of repetitive tasks."
     },
     {
-      icon: Eye,
+      icon: "magnifying",
       title: "Improve Visibility",
       description: "Gain complete transparency into your compliance landscape with centralized dashboards and real-time analytics for every department."
     },
     {
-      icon: TrendingUp,
+      icon: "chart",
       title: "Drive Business Growth",
       description: "Build compliance into your competitive strategy and accelerate market entry into regulated industries with confidence and authority."
     },
     {
-      icon: Star,
+      icon: "clipboard",
       title: "Build Trust & Reputation",
       description: "Demonstrate commitment to governance and ethical practices to customers, partners, and stakeholders for premium opportunities."
     }
   ];
 
   return (
-    <section id="benefits" className="py-8 md:py-10 relative overflow-hidden">
+    <section id="benefits" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/2 to-background" />
       <motion.div 
@@ -73,7 +100,6 @@ const BenefitsSection = () => {
         {/* Benefits Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {benefits.map((benefit, idx) => {
-            const Icon = benefit.icon;
             return (
               <motion.div
                 key={idx}
@@ -100,7 +126,7 @@ const BenefitsSection = () => {
                     animate={{ rotate: [0, 10, 0] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
-                    <Icon className="w-7 h-7 text-primary" />
+                    <IconComponent iconType={benefit.icon} />
                   </motion.div>
 
                   {/* Content */}

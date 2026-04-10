@@ -19,7 +19,7 @@ const FinalCTASection = () => {
   };
 
   return (
-    <section ref={sectionRef} id="final-cta" className="py-8 sm:py-10 md:py-14 relative overflow-hidden">
+    <section ref={sectionRef} id="final-cta" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-secondary" />
 

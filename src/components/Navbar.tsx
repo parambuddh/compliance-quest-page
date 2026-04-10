@@ -22,18 +22,16 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isOverColoredSection, setIsOverColoredSection] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Determine if we're on an independent page (not the home page)
   const isIndependentPage = location.pathname !== "/";
 
   useEffect(() => {
-    let lastScrollTime = 0;
     const onScroll = () => {
-      const now = Date.now();
-      if (now - lastScrollTime < 100) return; // Only run every 100ms
-      lastScrollTime = now;
-
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+      setShowScrollTop(currentScrollY > 300);
       
       // Detect if navbar is over a colored section (green sections)
       const finalCtaElement = document.getElementById("final-cta");
@@ -57,7 +55,10 @@ const Navbar = () => {
       setIsOverColoredSection(overColored);
     };
 
-    // Use Intersection Observer for active section detection (High Performance)
+    // Use Intersection Observer for active section detection
+    const sectionIds = ["home", "overview", "features", "benefits", "use-cases", "faq", "contact", "final-cta"];
+    const observedIds = new Set<string>();
+
     const observerOptions = {
       root: null,
       rootMargin: "-120px 0px -50% 0px",
@@ -73,13 +74,42 @@ const Navbar = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-    if (!isIndependentPage) {
-      const sections = ["home", "overview", "features", "benefits", "use-cases", "contact"];
-      sections.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
+
+    // Function to observe any sections that exist in the DOM
+    const observeSections = () => {
+      sectionIds.forEach((id) => {
+        if (!observedIds.has(id)) {
+          const el = document.getElementById(id);
+          if (el) {
+            observer.observe(el);
+            observedIds.add(id);
+          }
+        }
       });
+    };
+
+    if (!isIndependentPage) {
+      // Observe sections that already exist
+      observeSections();
+
+      // Watch for lazy-loaded sections appearing in the DOM
+      const mutationObserver = new MutationObserver(() => {
+        if (observedIds.size < sectionIds.length) {
+          observeSections();
+        }
+      });
+
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        observer.disconnect();
+        mutationObserver.disconnect();
+      };
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -275,7 +305,7 @@ const Navbar = () => {
 
       {/* Scroll to Top Button - Fixed Position */}
       <AnimatePresence>
-        {scrolled && window.scrollY > 300 && (
+        {scrolled && showScrollTop && (
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             initial={{ opacity: 0, scale: 0 }}
