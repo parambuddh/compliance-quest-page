@@ -36,7 +36,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4 lg:p-12"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -44,69 +44,39 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden relative flex flex-col"
+            className="w-full max-w-[1060px] h-[700px] max-h-full relative flex items-center justify-center"
           >
-            {/* Close Button */}
+            {/* Close Button styling matching typical external modal close buttons */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 z-10 p-2 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+              className="absolute -top-10 right-0 z-20 p-2 rounded-full text-white hover:bg-white/20 transition-colors"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <X className="w-8 h-8" />
             </button>
-
-            {/* Header */}
-            <div className="px-8 pt-8 pb-4 border-b border-gray-200 dark:border-slate-700 flex-shrink-0">
-              <h2 className="text-3xl font-bold gradient-text">Schedule a Demo</h2>
-              <p className="text-sm text-muted-foreground mt-1">Book a time that works best for you</p>
-            </div>
 
             {/* Loading State */}
             {isLoading && (
-              <div className="flex-1 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center z-0">
                 <div className="text-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4" />
-                  <p className="text-muted-foreground">Loading calendar...</p>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4" />
                 </div>
               </div>
             )}
 
-            {/* Scrollable Content Container */}
-            {!isLoading && (
-              <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-4"
-                style={{
-                  scrollbarWidth: "thin",
-                  scrollbarColor: "#cbd5e1 #f1f5f9"
-                }}
-              >
-                <style>{`
-                  .scrollbar-hide::-webkit-scrollbar {
-                    width: 6px;
-                  }
-                  .scrollbar-hide::-webkit-scrollbar-track {
-                    background: transparent;
-                    border-radius: 12px;
-                  }
-                  .scrollbar-hide::-webkit-scrollbar-thumb {
-                    background: #cbd5e1;
-                    border-radius: 3px;
-                  }
-                  .scrollbar-hide::-webkit-scrollbar-thumb:hover {
-                    background: #94a3b8;
-                  }
-                `}</style>
-                <iframe
-                  src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
-                  width="100%"
-                  height="1400"
-                  frameBorder="0"
-                  title="Schedule a demo"
-                  allowFullScreen
-                  scrolling="no"
-                  style={{ display: "block", borderRadius: "12px" }}
-                />
-              </div>
-            )}
+            {/* Scrollable Calendar Container */}
+            <div className="w-full h-full overflow-hidden bg-transparent">
+              <iframe
+                src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Schedule a demo"
+                allowFullScreen
+                scrolling="no"
+                style={{ display: "block" }}
+              />
+            </div>
           </motion.div>
         </motion.div>
       )}
