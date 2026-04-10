@@ -9,7 +9,7 @@ interface CalendlyModalProps {
 
 // IMPORTANT: Update this with your actual Calendly URL
 // Format: https://calendly.com/your-username or https://calendly.com/your-username/meeting-type
-const CALENDLY_URL = "https://calendly.com/gajeramilan518";
+const CALENDLY_URL = "https://calendly.com/d/zzy-699-f8v/book-a-demo";
 
 const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
   const [isLoading, setIsLoading] = useState(true);
