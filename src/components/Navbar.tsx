@@ -61,7 +61,7 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-120px 0px -50% 0px",
+      rootMargin: "-15% 0px -40% 0px",
       threshold: 0,
     };
 

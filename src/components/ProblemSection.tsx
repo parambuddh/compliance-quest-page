@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const problems = [
-  { icon: "clipboard", title: "Scattered Compliance Data", desc: "Multiple systems, no unified view of compliance status across the organization." },
-  { icon: "magnifying", title: "Manual Audit Trails", desc: "Time-consuming, error-prone documentation that risks regulatory findings." },
-  { icon: "email", title: "Risk Visibility Gaps", desc: "Hard to identify non-compliance in real-time before it becomes a problem." },
-  { icon: "circular", title: "Workflow Inefficiency", desc: "Disconnected approvals and sign-offs slowing down compliance processes." },
+  { icon: "clipboard", title: "Scattered Compliance Data", desc: "Compliance data sits in Excel, emails, shared drives, and different tools. There is no single, real-time view of compliance across the organization." },
+  { icon: "magnifying", title: "Manual Audit Trails", desc: "Teams spend days collecting documents, chasing responses, and compiling evidence, increasing the risk of errors and audit findings." },
+  { icon: "email", title: "Risk Visibility Gaps", desc: "Without real-time visibility, compliance gaps are often discovered only during audits or after an incident." },
+  { icon: "circular", title: "Workflow Inefficiency", desc: "Approvals happen over email and across disconnected systems delaying audits, vendor onboarding, and risk assessments." },
 ];
 
 const IconComponent = ({ iconType }: { iconType: string }) => {

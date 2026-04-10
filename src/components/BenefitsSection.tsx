@@ -97,8 +97,8 @@ const BenefitsSection = () => {
           </p>
         </motion.div>
 
-        {/* Benefits Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
+        {/* Benefits Grid - Using flexbox to allow centering of the last two cards */}
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {benefits.map((benefit, idx) => {
             return (
               <motion.div
@@ -107,7 +107,7 @@ const BenefitsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1.34rem)]"
               >
                 {/* Card */}
                 <div 
