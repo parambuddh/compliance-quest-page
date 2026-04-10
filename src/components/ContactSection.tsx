@@ -187,15 +187,11 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-6 md:overflow-y-auto scrollbar-hide rounded-xl sm:rounded-2xl p-0.5"
-            style={{ 
-              maxHeight: rightSideHeight,
-              maskImage: "linear-gradient(to bottom, transparent, black 20px, black calc(100% - 20px), transparent)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20px, black calc(100% - 20px), transparent)"
-            }}
+            className="flex flex-col gap-6 md:overflow-y-auto overflow-hidden scrollbar-hide glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8"
+            style={{ maxHeight: rightSideHeight }}
           >
             {/* Contact Info Box - TOP */}
-            <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Quick Contact
               </h3>
@@ -245,7 +241,7 @@ const ContactSection = () => {
             </div>
 
             {/* Google Maps - BOTTOM */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-primary/20 h-56 sm:h-64 md:h-80" style={{ minHeight: "224px" }}>
+            <div className="rounded-xl overflow-hidden shadow-lg border border-primary/10 h-56 sm:h-64 md:h-80 w-full" style={{ minHeight: "224px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
                 width="100%"
