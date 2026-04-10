@@ -187,8 +187,12 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-6 md:overflow-y-auto scrollbar-hide"
-            style={{ maxHeight: rightSideHeight }}
+            className="flex flex-col gap-6 md:overflow-y-auto scrollbar-hide rounded-xl sm:rounded-2xl p-0.5"
+            style={{ 
+              maxHeight: rightSideHeight,
+              maskImage: "linear-gradient(to bottom, transparent, black 20px, black calc(100% - 20px), transparent)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20px, black calc(100% - 20px), transparent)"
+            }}
           >
             {/* Contact Info Box - TOP */}
             <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
