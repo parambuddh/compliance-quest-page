@@ -65,7 +65,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
             )}
 
             {/* Scrollable Calendar Container */}
-            <div className="w-full h-full overflow-hidden bg-white rounded-xl shadow-2xl">
+            <div className="w-full h-full overflow-hidden bg-transparent">
               <iframe
                 src={`${CALENDLY_URL}?embed_domain=${window.location.hostname}&embed_type=Inline`}
                 width="100%"
@@ -73,7 +73,7 @@ const CalendlyModal = ({ isOpen, onClose }: CalendlyModalProps) => {
                 frameBorder="0"
                 title="Schedule a demo"
                 allowFullScreen
-                scrolling="yes"
+                scrolling="no"
                 style={{ display: "block" }}
               />
             </div>
