@@ -56,8 +56,8 @@ const FAQSection = () => {
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           <div className="inline-block mb-4">
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
-              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 FAQ
               </span>
             </div>
@@ -117,24 +117,6 @@ const FAQSection = () => {
               </motion.div>
             ))}
           </Accordion>
-        </motion.div>
-
-        {/* Additional Help CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-14"
-        >
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6">
-            Didn't find what you're looking for?
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-full overflow-hidden shadow-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1"
-          >
-            Contact Our Team
-          </a>
         </motion.div>
       </div>
     </section>

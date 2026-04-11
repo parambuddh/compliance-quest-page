@@ -85,19 +85,6 @@ const FinalCTASection = () => {
                 <ArrowRight className="w-5 h-5" />
               </div>
             </motion.button>
-
-            {/* Secondary Button */}
-            <motion.button
-              onClick={() => scrollTo("contact")}
-              className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base overflow-hidden shadow-xl bg-transparent border-2 border-white text-white hover:shadow-lg hover:shadow-white/30 transition-all duration-300 hover:-translate-y-1"
-              whileHover={{ scale: 1.06, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              {/* Content */}
-              <div className="relative font-bold drop-shadow-sm">
-                Schedule a Call
-              </div>
-            </motion.button>
           </motion.div>
         </motion.div>
       </div>

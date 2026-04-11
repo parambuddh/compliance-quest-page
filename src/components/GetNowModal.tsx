@@ -72,17 +72,16 @@ const GetNowModal = ({ isOpen, onClose }: GetNowModalProps) => {
         body: JSON.stringify(payload)
       }).catch(console.error);
 
-      // Redirect to Salesforce AppExchange
-      window.location.href =
-        "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3";
+      // Open Salesforce AppExchange in a new tab (better UX than window.location.href)
+      window.open(
+        "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N4V00000J6DYBUA3",
+        "_blank"
+      );
         
-      // Reset state so that if the user clicks the browser "Back" button from AppExchange,
-      // the modal doesn't stuck open in a "Redirecting..." state (bfcache handling).
-      setTimeout(() => {
-        setIsSubmitting(false);
-        onClose();
-        setFormData({ name: "", email: "", contactNumber: "", company: "" });
-      }, 1000);
+      // Reset form and close modal
+      setIsSubmitting(false);
+      onClose();
+      setFormData({ name: "", email: "", contactNumber: "", company: "" });
     } catch (error) {
       console.error(error);
       setIsSubmitting(false);

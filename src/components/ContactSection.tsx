@@ -121,8 +121,8 @@ const ContactSection = () => {
           className="text-center mb-8 sm:mb-10 md:mb-14"
         >
           <div className="inline-block mb-4">
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
-              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Contact
               </span>
             </div>
@@ -142,19 +142,19 @@ const ContactSection = () => {
             className="md:sticky md:top-20 glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4 h-fit flex flex-col"
           >
             <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Name (Required)</label>
+              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Name <span className="text-destructive">*</span></label>
               <input type="text" value={form.name} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass("name")} placeholder="John Doe" />
               {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
             </div>
 
             <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Email (Required)</label>
+              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Your Email <span className="text-destructive">*</span></label>
               <input type="email" value={form.email} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} placeholder="john@company.com" />
               {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
             </div>
 
             <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Phone (Required)</label>
+              <label className="block text-[10px] sm:text-xs font-semibold text-foreground/70 mb-1 sm:mb-1.5 uppercase tracking-wider">Phone <span className="text-destructive">*</span></label>
               <input type="tel" value={form.phone} onFocus={loadRecaptcha} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass("phone")} placeholder="Enter your phone number" />
               {errors.phone && <p className="text-xs text-destructive mt-1">{errors.phone}</p>}
             </div>
