@@ -118,24 +118,6 @@ const FAQSection = () => {
             ))}
           </Accordion>
         </motion.div>
-
-        {/* Additional Help CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-14"
-        >
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6">
-            Didn't find what you're looking for?
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold rounded-full overflow-hidden shadow-xl transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1"
-          >
-            Contact Our Team
-          </a>
-        </motion.div>
       </div>
     </section>
   );
