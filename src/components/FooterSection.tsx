@@ -16,11 +16,11 @@ const FooterSection = () => {
   };
 
   return (
-  <footer className="relative overflow-hidden bg-navy text-navy-foreground py-6 sm:py-8">
+  <footer className="relative overflow-hidden bg-navy text-navy-foreground pt-6 sm:pt-8 pb-0">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-    <div className="container relative">
-      <div className="container py-4 sm:py-6">
+    <div className="container relative pb-0">
+      <div className="container pt-4 sm:pt-6 pb-1">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-0 mb-8 sm:mb-10">
           {/* Company Info - Left (Col 1) */}
           <div className="flex flex-col items-start md:col-span-1">
@@ -105,7 +105,7 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
+        <div className="border-t border-navy-foreground/10 py-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
             © {currentYear} ComplianceVista. All Rights Reserved.
           </p>
