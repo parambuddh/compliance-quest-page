@@ -47,8 +47,8 @@ const ProblemSection = () => (
         className="text-center mb-8 sm:mb-10 md:mb-14"
       >
         <div className="inline-block mb-4">
-          <div className="px-4 py-2 rounded-full bg-gradient-to-r from-secondary/10 to-primary/10 border border-secondary/30">
-            <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+          <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+            <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               The Challenge
             </span>
           </div>
