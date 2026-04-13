@@ -61,7 +61,7 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-8% 0px -40% 0px",
+      rootMargin: "-15% 0px -80% 0px", // Narrower band near top for precision
       threshold: 0,
     };
 
@@ -122,19 +122,27 @@ const Navbar = () => {
   const handleClick = (href: string) => {
     setMobileOpen(false);
     
+    // Manual scroll calculation for pixel-perfect offset (120px buffer)
+    const scrollToSection = (targetId: string) => {
+      const element = document.querySelector(targetId);
+      if (element) {
+        const offset = 120; // Matches our scroll-padding-top
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    };
+
     // If on an independent page and clicking a section link, navigate to home first then scroll
     if (isIndependentPage && href.startsWith("#")) {
       navigate("/", { replace: false });
-      // Use setTimeout to ensure navigation completes before scrolling
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
+      setTimeout(() => scrollToSection(href), 100);
     } else if (href.startsWith("#")) {
-      // On home page, just scroll
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      scrollToSection(href);
     }
   };
 
