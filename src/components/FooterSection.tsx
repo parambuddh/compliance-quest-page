@@ -79,22 +79,22 @@ const FooterSection = () => {
 
           {/* Contact Info - Right (Col 5) */}
           <div className="flex flex-col md:items-end md:col-span-1">
-            <div className="w-fit md:text-right">
+            <div className="w-fit">
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li className="flex items-center gap-2 md:justify-end">
+                <li className="flex items-center gap-2">
                   <span className="text-primary" aria-hidden="true">🌐</span>
                   <a href="https://compliance-quest-page.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Compliance Vista main website" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                     www.compliancevista.com
                   </a>
                 </li>
-                <li className="flex items-center gap-2 md:justify-end">
+                <li className="flex items-center gap-2">
                   <span className="text-primary" aria-hidden="true">✉️</span>
                   <a href="mailto:support@ardira.com" aria-label="Email support at support@ardira.com" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                     support@ardira.com
                   </a>
                 </li>
-                <li className="flex items-center gap-2 md:justify-end">
+                <li className="flex items-center gap-2">
                   <span className="text-primary" aria-hidden="true">📱</span>
                   <a href="tel:1.669.777.6838" aria-label="Call support at 1.669.777.6838" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                     1.669.777.6838

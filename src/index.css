@@ -55,6 +55,11 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* Ensures sections aren't hidden behind the fixed navbar */
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
   }
 
   body {
