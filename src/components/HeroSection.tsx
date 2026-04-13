@@ -102,6 +102,8 @@ const HeroSection = () => {
                   src="/company-images/cv-hero-new.webp"
                   alt="Compliance Vista Enterprise Dashboard - Unified compliance management and audit automation platform for Salesforce"
                   fetchPriority="high"
+                  width={384}
+                  height={384}
                   className="w-full h-full object-cover"
                 />
               </div>

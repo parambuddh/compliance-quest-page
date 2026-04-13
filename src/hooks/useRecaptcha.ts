@@ -7,9 +7,13 @@ export const useRecaptcha = () => {
 
   const loadRecaptcha = useCallback(() => {
     if (isLoaded || document.querySelector(`script[src*="recaptcha/api.js"]`)) {
-      setIsLoaded(true);
+      if (window.grecaptcha) setIsLoaded(true);
       return;
     }
+
+    // Guard against concurrent injection calls
+    if ((window as any).___recaptcha_injected) return;
+    (window as any).___recaptcha_injected = true;
 
     const script = document.createElement("script");
     script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;

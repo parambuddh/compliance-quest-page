@@ -66,6 +66,8 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
       alt={altTextMap[iconType] || iconType}
       loading="lazy"
       decoding="async"
+      width={32}
+      height={32}
       className="w-8 h-8 object-contain drop-shadow-md"
     />
   );

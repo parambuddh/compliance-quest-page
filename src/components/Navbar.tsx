@@ -174,7 +174,9 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Compliance Vista"
-              className={`transition-all duration-500 h-10 ${!scrolled ? "" : isOverColoredSection ? "brightness-150" : ""}`}
+              width={180}
+              height={40}
+              className={`transition-all duration-500 h-10 w-auto ${!scrolled ? "" : isOverColoredSection ? "brightness-150" : ""}`}
             />
           </button>
 

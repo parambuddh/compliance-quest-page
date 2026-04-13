@@ -25,7 +25,7 @@ const FooterSection = () => {
         {/* Company Info - Left (1 col) */}
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-6">
-            <img src={logo} alt="Compliance Vista" className="h-8 sm:h-10" />
+            <img src={logo} alt="Compliance Vista" width={180} height={40} className="h-8 sm:h-10 w-auto" />
           </div>
           <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs">
             Enterprise governance simplified. Salesforce-native compliance by Ardira.

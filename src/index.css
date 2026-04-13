@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Font loading moved to index.html for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -169,13 +169,19 @@ img, iframe, video {
   /* Improve rendering performance by deferring off-screen section drawing */
   section {
     content-visibility: auto;
-    contain-intrinsic-size: 1px 5000px;
+    contain-intrinsic-size: 1px 1000px; /* More realistic mobile section height to improve CLS */
   }
 
   /* Keep hero section visible immediately */
   #home {
     content-visibility: visible;
   }
+}
+
+/* Layer promotion for smoother animations without forced reflows */
+.float-animation, .glow-primary, .glow-secondary {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 /* Better touch targets on mobile */
