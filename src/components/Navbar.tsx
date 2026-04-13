@@ -53,69 +53,57 @@ const Navbar = () => {
       }
       
       setIsOverColoredSection(overColored);
-    };
 
-    // Use Intersection Observer for active section detection
-    const sectionIds = ["home", "overview", "features", "benefits", "use-cases", "faq", "contact", "final-cta"];
-    const observedIds = new Set<string>();
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "-5% 0px -75% 0px", // Lowered band to catch the 120px scroll offset
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Function to observe any sections that exist in the DOM
-    const observeSections = () => {
-      sectionIds.forEach((id) => {
-        if (!observedIds.has(id)) {
+      // Reliable scroll-based section detection
+      if (!isIndependentPage) {
+        // Evaluate in reverse order (bottom to top) to find the deepest section currently in view
+        const sectionIds = ["final-cta", "contact", "faq", "use-cases", "benefits", "features", "overview", "home"];
+        let currentSection = "home";
+        
+        for (const id of sectionIds) {
           const el = document.getElementById(id);
           if (el) {
-            observer.observe(el);
-            observedIds.add(id);
+            const rect = el.getBoundingClientRect();
+            // 200px defines the "trigger line" from the top of the viewport.
+            // When a section's top crosses above this line, it becomes active.
+            // We use 200 to account for navbar height and some buffer.
+            if (rect.top <= 200) {
+              currentSection = id;
+              break;
+            }
           }
         }
-      });
+
+        // Map sections that don't have a direct navbar link to the closest relevant link
+        if (currentSection === "faq") {
+          currentSection = "use-cases";
+        } else if (currentSection === "final-cta") {
+          currentSection = "contact";
+        }
+
+        // Special case: if scrolled to the absolute bottom
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+          // Find the last actual nav link to highlight
+          const navIds = ["contact", "use-cases", "benefits", "features", "overview", "home"];
+          for (const id of navIds) {
+             if (document.getElementById(id)) {
+                currentSection = id;
+                break;
+             }
+          }
+        }
+
+        setActiveSection(currentSection);
+      }
     };
 
-    if (!isIndependentPage) {
-      // Observe sections that already exist
-      observeSections();
-
-      // Watch for lazy-loaded sections appearing in the DOM
-      const mutationObserver = new MutationObserver(() => {
-        if (observedIds.size < sectionIds.length) {
-          observeSections();
-        }
-      });
-
-      mutationObserver.observe(document.body, {
-        childList: true,
-        subtree: true,
-      });
-
-      window.addEventListener("scroll", onScroll, { passive: true });
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-        observer.disconnect();
-        mutationObserver.disconnect();
-      };
-    }
-
     window.addEventListener("scroll", onScroll, { passive: true });
+    
+    // Trigger once on mount to handle initial scroll position correctly on page load/refresh
+    setTimeout(onScroll, 100);
+
     return () => {
       window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
     };
   }, [isIndependentPage]);
 
