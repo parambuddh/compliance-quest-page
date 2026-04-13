@@ -55,11 +55,11 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 11.5rem; /* Matches user reference 'Image 2' for airy framing */
+    scroll-padding-top: 7.5rem; /* Recalibrated to bring sections closer to the navbar */
   }
 
   section[id] {
-    scroll-margin-top: 11.5rem;
+    scroll-margin-top: 7.5rem;
   }
 
   body {
