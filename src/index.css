@@ -55,11 +55,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 7.5rem; /* Recalibrated to bring sections closer to the navbar */
-  }
-
-  section[id] {
-    scroll-margin-top: 7.5rem;
+    scroll-padding-top: 7.5rem; /* Standard offset to account for fixed navbar */
   }
 
   body {
