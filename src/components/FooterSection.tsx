@@ -21,9 +21,9 @@ const FooterSection = () => {
 
     <div className="container relative">
       <div className="container py-4 sm:py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-8 sm:mb-10">
-          {/* Company Info - Left */}
-          <div className="flex flex-col items-start">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-0 mb-8 sm:mb-10">
+          {/* Company Info - Left (Col 1) */}
+          <div className="flex flex-col items-start md:col-span-1">
             <div className="flex items-center gap-2.5 mb-6">
               <img src={logo} alt="Compliance Vista" width={180} height={40} className="h-8 sm:h-10 w-auto" />
             </div>
@@ -32,8 +32,11 @@ const FooterSection = () => {
             </p>
           </div>
 
-          {/* Quick Links - Center */}
-          <div className="flex flex-col md:items-center">
+          {/* Spacer (Col 2) */}
+          <div className="hidden md:block md:col-span-1"></div>
+
+          {/* Quick Links - Center (Col 3) */}
+          <div className="flex flex-col md:items-center md:col-span-1">
             <div className="w-fit">
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h4>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
@@ -71,8 +74,11 @@ const FooterSection = () => {
             </div>
           </div>
 
-          {/* Contact Info - Right */}
-          <div className="flex flex-col md:items-end">
+          {/* Spacer (Col 4) */}
+          <div className="hidden md:block md:col-span-1"></div>
+
+          {/* Contact Info - Right (Col 5) */}
+          <div className="flex flex-col md:items-end md:col-span-1">
             <div className="w-fit md:text-right">
               <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
@@ -98,21 +104,20 @@ const FooterSection = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
-        <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
-          © {currentYear} ComplianceVista. All Rights Reserved.
-        </p>
-        <div className="flex gap-4 sm:gap-6 text-[10px] sm:text-xs order-1 md:order-2">
-          <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
-            Terms of Use
-          </Link>
-          <Link to="/privacy-policy" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
-            Privacy Policy
-          </Link>
+        <div className="border-t border-navy-foreground/10 pt-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
+            © {currentYear} ComplianceVista. All Rights Reserved.
+          </p>
+          <div className="flex gap-4 sm:gap-6 text-[10px] sm:text-xs order-1 md:order-2">
+            <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
+              Terms of Use
+            </Link>
+            <Link to="/privacy-policy" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </footer>
