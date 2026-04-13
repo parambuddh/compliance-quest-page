@@ -55,11 +55,11 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem; /* Ensures sections aren't hidden behind the fixed navbar */
+    scroll-padding-top: 11.5rem; /* Matches user reference 'Image 2' for airy framing */
   }
 
   section[id] {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 11.5rem;
   }
 
   body {
