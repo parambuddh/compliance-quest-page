@@ -3,260 +3,254 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
 
 const features = [
-  { 
-    icon: "clipboard", 
-    title: "Policy Management", 
-    desc: "Centralized repository with version control and policy lifecycle management.",
-    benefits: ["Version control", "Centralized storage", "Lifecycle tracking"]
-  },
-  { 
-    icon: "dartboard", 
-    title: "Access Control", 
-    desc: "Role-based permissions and segregation of duties for enterprise security.",
-    benefits: ["Role-based access", "Duty segregation", "Audit trails"]
-  },
-  { 
-    icon: "chart", 
-    title: "Compliance Reporting", 
-    desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks.",
-    benefits: ["Pre-built reports", "Multi-framework", "Custom exports"]
-  },
-  { 
-    icon: "lightning", 
-    title: "Deadline Tracking", 
-    desc: "Automated compliance reminders and deadline management with escalations.",
-    benefits: ["Auto reminders", "Escalations", "Real-time updates"]
-  },
-  { 
-    icon: "magnifying", 
-    title: "Audit Management", 
-    desc: "Evidence collection, audit trail management, and finding resolution.",
-    benefits: ["Evidence tracking", "Audit trails", "Finding manager"]
-  },
-  { 
-    icon: "circular", 
-    title: "Mobile Access", 
-    desc: "Manage compliance on-the-go with full mobile Salesforce experience.",
-    benefits: ["Mobile app", "Full sync", "Offline support"]
-  },
+	{
+		icon: "clipboard",
+		title: "Policy Management",
+		desc: "Centralized repository with version control and policy lifecycle management.",
+		benefits: ["Version control", "Centralized storage", "Lifecycle tracking"],
+	},
+	{
+		icon: "dartboard",
+		title: "Access Control",
+		desc: "Role-based permissions and segregation of duties for enterprise security.",
+		benefits: ["Role-based access", "Duty segregation", "Audit trails"],
+	},
+	{
+		icon: "chart",
+		title: "Compliance Reporting",
+		desc: "Pre-built reports for SOC2, ISO, GDPR and custom regulatory frameworks.",
+		benefits: ["Pre-built reports", "Multi-framework", "Custom exports"],
+	},
+	{
+		icon: "lightning",
+		title: "Deadline Tracking",
+		desc: "Automated compliance reminders and deadline management with escalations.",
+		benefits: ["Auto reminders", "Escalations", "Real-time updates"],
+	},
+	{
+		icon: "magnifying",
+		title: "Audit Management",
+		desc: "Evidence collection, audit trail management, and finding resolution.",
+		benefits: ["Evidence tracking", "Audit trails", "Finding manager"],
+	},
+	{
+		icon: "circular",
+		title: "Mobile Access",
+		desc: "Manage compliance on-the-go with full mobile Salesforce experience.",
+		benefits: ["Mobile app", "Full sync", "Offline support"],
+	},
 ];
 
 const IconComponent = ({ iconType }: { iconType: string }) => {
-  const iconMap: { [key: string]: string } = {
-    clipboard: "/icons/SV-Clipboard.webp",
-    dartboard: "/icons/SV-Dartboard.webp",
-    chart: "/icons/SV-Chart.webp",
-    lightning: "/icons/SV-LightningBolt.webp",
-    magnifying: "/icons/SV-MagnifyingGlass.webp",
-    circular: "/icons/SV-CircularArrows.webp",
-  };
+	const iconMap: { [key: string]: string } = {
+		clipboard: "/icons/SV-Clipboard.webp",
+		dartboard: "/icons/SV-Dartboard.webp",
+		chart: "/icons/SV-Chart.webp",
+		lightning: "/icons/SV-LightningBolt.webp",
+		magnifying: "/icons/SV-MagnifyingGlass.webp",
+		circular: "/icons/SV-CircularArrows.webp",
+	};
 
-  const altTextMap: { [key: string]: string } = {
-    clipboard: "Clipboard icon for Compliance Vista policy management feature",
-    dartboard: "Dartboard icon for role-based access control security",
-    chart: "Chart icon for compliance reporting and regulatory frameworks",
-    lightning: "Lightning bolt icon for deadline tracking and automated reminders",
-    magnifying: "Magnifying glass icon for audit management and evidence tracking",
-    circular: "Mobile device icon for on-the-go compliance management",
-  };
+	const altTextMap: { [key: string]: string } = {
+		clipboard: "Clipboard icon for Compliance Vista policy management feature",
+		dartboard: "Dartboard icon for role-based access control security",
+		chart: "Chart icon for compliance reporting and regulatory frameworks",
+		lightning: "Lightning bolt icon for deadline tracking and automated reminders",
+		magnifying: "Magnifying glass icon for audit management and evidence tracking",
+		circular: "Mobile device icon for on-the-go compliance management",
+	};
 
-  return (
-    <img
-      src={iconMap[iconType]}
-      alt={altTextMap[iconType] || iconType}
-      loading="lazy"
-      decoding="async"
-      width={32}
-      height={32}
-      className="w-8 h-8 object-contain drop-shadow-md"
-    />
-  );
+	return (
+		<img
+			src={iconMap[iconType]}
+			alt={altTextMap[iconType] || iconType}
+			loading="lazy"
+			decoding="async"
+			width={32}
+			height={32}
+			className="w-8 h-8 object-contain drop-shadow-md"
+		/>
+	);
 };
 
 const FeaturesSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  
-  // Show 2 cards at a time, so carouselIndex goes from 0 to 2 (3 groups total)
-  const carouselIndex = Math.floor(activeIndex / 2);
-  const visibleFeatures = [features[activeIndex], features[activeIndex + 1]].filter(Boolean);
+	const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-carousel with 3-second interval, advancing by 2 each time
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => {
-        const nextIndex = prev + 2;
-        return nextIndex >= features.length ? 0 : nextIndex;
-      });
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+	// Show 2 cards at a time, so carouselIndex goes from 0 to 2 (3 groups total)
+	const carouselIndex = Math.floor(activeIndex / 2);
+	const visibleFeatures = [features[activeIndex], features[activeIndex + 1]].filter(Boolean);
 
-  const goToPrevious = () => {
-    setActiveIndex((prev) => (prev === 0 ? Math.max(0, features.length - 2) : prev - 2));
-  };
+	// Auto-carousel with 3-second interval, advancing by 2 each time
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setActiveIndex((prev) => {
+				const nextIndex = prev + 2;
+				return nextIndex >= features.length ? 0 : nextIndex;
+			});
+		}, 3000);
+		return () => clearInterval(interval);
+	}, []);
 
-  const goToNext = () => {
-    setActiveIndex((prev) => {
-      const nextIndex = prev + 2;
-      return nextIndex >= features.length ? 0 : nextIndex;
-    });
-  };
+	const goToPrevious = () => {
+		setActiveIndex((prev) => (prev === 0 ? Math.max(0, features.length - 2) : prev - 2));
+	};
 
-  return (
-    <section id="features" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
-      <motion.div 
-        className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
-        animate={{ 
-          x: [0, 30, -20, 0],
-          y: [0, -40, 20, 0]
-        }}
-        transition={{ duration: 12, repeat: Infinity }}
-      />
-      <motion.div 
-        className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl"
-        animate={{ 
-          x: [0, -30, 20, 0],
-          y: [0, 40, -20, 0]
-        }}
-        transition={{ duration: 15, repeat: Infinity }}
-      />
-      <div className="absolute inset-0 dot-pattern opacity-20" />
+	const goToNext = () => {
+		setActiveIndex((prev) => {
+			const nextIndex = prev + 2;
+			return nextIndex >= features.length ? 0 : nextIndex;
+		});
+	};
 
-      <div className="container relative z-10 px-4 sm:px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
-        >
-          <div className="inline-block">
-            <div className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
-              <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Powerful Capabilities
-              </span>
-            </div>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4 mt-4">
-            Enterprise Features
-          </h2>
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-            Comprehensive compliance management tools designed for modern enterprises.
-          </p>
-        </motion.div>
+	return (
+		<section id="features" className="py-10 sm:py-12 md:py-14 relative overflow-hidden">
+			{/* Background elements */}
+			<div className="absolute inset-0 bg-gradient-to-br from-background via-primary/3 to-secondary/3" />
+			<motion.div
+				className="absolute -top-40 -right-40 w-80 h-80 bg-secondary/8 rounded-full blur-3xl"
+				animate={{
+					x: [0, 30, -20, 0],
+					y: [0, -40, 20, 0],
+				}}
+				transition={{ duration: 12, repeat: Infinity }}
+			/>
+			<motion.div
+				className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/8 rounded-full blur-3xl"
+				animate={{
+					x: [0, -30, 20, 0],
+					y: [0, 40, -20, 0],
+				}}
+				transition={{ duration: 15, repeat: Infinity }}
+			/>
+			<div className="absolute inset-0 dot-pattern opacity-20" />
 
-        {/* Carousel Container - 2 Cards Display */}
-        <div className="max-w-6xl mx-auto">
-          {/* Features Grid - 2 cards side by side, full width on mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
-            {visibleFeatures.map((feature, idx) => (
-              <motion.div
-                key={activeIndex + idx}
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative"
-              >
-                <div className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full relative overflow-hidden">
-                  {/* Number badge */}
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
-                    {String(features.indexOf(feature) + 1).padStart(2, "0")}
-                  </div>
+			<div className="container relative z-10 px-4 sm:px-6">
+				{/* Section Header */}
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8 }}
+					viewport={{ once: true }}
+					className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
+				>
+					<div className="inline-block">
+						<div className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
+							<span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+								Powerful Capabilities
+							</span>
+						</div>
+					</div>
+					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 gradient-text px-4 mt-4">
+						Enterprise Features
+					</h2>
+					<p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
+						Comprehensive compliance management tools designed for modern enterprises.
+					</p>
+				</motion.div>
 
-                  {/* Icon and title */}
-                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <motion.div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                      animate={{ rotate: [0, 10, 0] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    >
-                      <IconComponent iconType={feature.icon} />
-                    </motion.div>
-                    <motion.h3
-                      className="text-lg md:text-xl font-bold text-foreground pt-2"
-                    >
-                      {feature.title}
-                    </motion.h3>
-                  </div>
+				{/* Carousel Container - 2 Cards Display */}
+				<div className="max-w-6xl mx-auto">
+					{/* Features Grid - 2 cards side by side, full width on mobile */}
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
+						{visibleFeatures.map((feature, idx) => (
+							<motion.div
+								key={activeIndex + idx}
+								initial={{ opacity: 0, scale: 0.95, y: 20 }}
+								animate={{ opacity: 1, scale: 1, y: 0 }}
+								transition={{ duration: 0.5, delay: idx * 0.1 }}
+								className="group relative"
+							>
+								<div className="rounded-xl sm:rounded-2xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-4 sm:p-6 md:p-8 h-full relative overflow-hidden transition-all duration-300">
+									{/* Number badge */}
+									<div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+										{String(features.indexOf(feature) + 1).padStart(2, "0")}
+									</div>
 
-                  {/* Description Section */}
-                  <motion.p
-                    className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 font-semibold"
-                  >
-                    {feature.desc}
-                  </motion.p>
+									{/* Icon and title */}
+									<div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4 flex-col sm:flex-row">
+										<motion.div
+											className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+											animate={{ rotate: [0, 10, 0] }}
+											transition={{ duration: 3, repeat: Infinity }}
+										>
+											<IconComponent iconType={feature.icon} />
+										</motion.div>
+										<motion.h3 className="text-lg md:text-xl font-bold gradient-text pt-2">
+											{feature.title}
+										</motion.h3>
+									</div>
 
-                  {/* Benefits Section */}
-                  <motion.div
-                    className="mt-auto"
-                  >
-                    <div className="space-y-2">
-                      {feature?.benefits && feature.benefits.length > 0 ? (
-                        feature.benefits.map((benefit, bidx) => (
-                          <motion.div
-                            key={bidx}
-                            className="flex items-start gap-2 text-xs md:text-sm"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 + bidx * 0.1 }}
-                          >
-                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-foreground leading-tight">{benefit}</span>
-                          </motion.div>
-                        ))
-                      ) : null}
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+									{/* Description Section */}
+									<motion.p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4 font-semibold">
+										{feature.desc}
+									</motion.p>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap mt-6 md:mt-8">
-            {/* Previous Button */}
-            <motion.button
-              onClick={goToPrevious}
-              className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            </motion.button>
+									{/* Benefits Section */}
+									<motion.div className="mt-auto">
+										<div className="space-y-2">
+											{feature?.benefits && feature.benefits.length > 0 ? (
+												feature.benefits.map((benefit, bidx) => (
+													<motion.div
+														key={bidx}
+														className="flex items-start gap-2 text-xs md:text-sm"
+														initial={{ opacity: 0, x: -10 }}
+														animate={{ opacity: 1, x: 0 }}
+														transition={{ delay: 0.2 + bidx * 0.1 }}
+													>
+														<CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+														<span className="text-foreground leading-tight">{benefit}</span>
+													</motion.div>
+												))
+											) : null}
+										</div>
+									</motion.div>
+								</div>
+							</motion.div>
+						))}
+					</div>
 
-            {/* Dots indicator - 3 groups for 6 cards shown 2 at a time */}
-            <div className="flex gap-1.5 md:gap-2">
-              {[0, 1, 2].map((index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setActiveIndex(index * 2)}
-                  className={`transition-all duration-300 rounded-full ${
-                    carouselIndex === index
-                      ? "bg-gradient-to-r from-primary to-secondary w-5 md:w-6 h-2 md:h-2.5"
-                      : "bg-border w-2 md:w-2.5 h-2 md:h-2.5 hover:bg-border/50"
-                  }`}
-                  whileHover={{ scale: 1.2 }}
-                />
-              ))}
-            </div>
+					{/* Navigation Controls */}
+					<div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap mt-6 md:mt-8">
+						{/* Previous Button */}
+						<motion.button
+							onClick={goToPrevious}
+							className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+						>
+							<ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+						</motion.button>
 
-            {/* Next Button */}
-            <motion.button
-              onClick={goToNext}
-              className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-            </motion.button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+						{/* Dots indicator - 3 groups for 6 cards shown 2 at a time */}
+						<div className="flex gap-1.5 md:gap-2">
+							{[0, 1, 2].map((index) => (
+								<motion.button
+									key={index}
+									onClick={() => setActiveIndex(index * 2)}
+									className={`transition-all duration-300 rounded-full ${
+										carouselIndex === index
+											? "bg-gradient-to-r from-primary to-secondary w-5 md:w-6 h-2 md:h-2.5"
+											: "bg-border w-2 md:w-2.5 h-2 md:h-2.5 hover:bg-border/50"
+									}`}
+									whileHover={{ scale: 1.2 }}
+								/>
+							))}
+						</div>
+
+						{/* Next Button */}
+						<motion.button
+							onClick={goToNext}
+							className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+						>
+							<ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+						</motion.button>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default FeaturesSection;
