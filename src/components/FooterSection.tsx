@@ -19,26 +19,21 @@ const FooterSection = () => {
   <footer className="relative overflow-hidden bg-navy text-navy-foreground py-6 sm:py-8">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-    <div className="container relative">
-      <div className="container">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 mb-6 sm:mb-8 max-w-full">
-        {/* Company Info - Left (1 col) */}
-        <div className="sm:col-span-2 lg:col-span-1">
+    <div className="container relative py-2 sm:py-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-8 sm:mb-10">
+        {/* Company Info - Left */}
+        <div className="flex flex-col items-start">
           <div className="flex items-center gap-2.5 mb-6">
             <img src={logo} alt="Compliance Vista" width={180} height={40} className="h-8 sm:h-10 w-auto" />
           </div>
-          <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs">
+          <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs text-left">
             Enterprise governance simplified. Salesforce-native compliance by Ardira.
           </p>
         </div>
 
-        {/* Center - Empty (1 col) */}
-        <div className="hidden lg:block lg:col-span-1"></div>
-
-        {/* Right Column - Contact Info and Quick Links (2 cols) */}
-        <div className="sm:col-span-2 lg:col-span-2 grid grid-cols-2 gap-6 sm:gap-8">
-          {/* Quick Links */}
-          <div>
+        {/* Quick Links - Center */}
+        <div className="flex flex-col md:items-center">
+          <div className="w-fit">
             <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li>
@@ -73,24 +68,26 @@ const FooterSection = () => {
               </li>
             </ul>
           </div>
+        </div>
 
-          {/* Contact Info */}
-          <div>
+        {/* Contact Info - Right */}
+        <div className="flex flex-col md:items-end">
+          <div className="w-fit md:text-right">
             <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 md:justify-end">
                 <span className="text-primary" aria-hidden="true">🌐</span>
-                <a href="https://www.compliancevista.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Compliance Vista main website" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
+                <a href="https://compliance-quest-page.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Compliance Vista main website" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   www.compliancevista.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 md:justify-end">
                 <span className="text-primary" aria-hidden="true">✉️</span>
                 <a href="mailto:support@ardira.com" aria-label="Email support at support@ardira.com" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   support@ardira.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 md:justify-end">
                 <span className="text-primary" aria-hidden="true">📱</span>
                 <a href="tel:1.669.777.6838" aria-label="Call support at 1.669.777.6838" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                   1.669.777.6838
