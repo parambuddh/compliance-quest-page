@@ -61,7 +61,7 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-15% 0px -80% 0px", // Narrower band near top for precision
+      rootMargin: "-5% 0px -75% 0px", // Lowered band to catch the 120px scroll offset
       threshold: 0,
     };
 
@@ -142,6 +142,8 @@ const Navbar = () => {
       navigate("/", { replace: false });
       setTimeout(() => scrollToSection(href), 100);
     } else if (href.startsWith("#")) {
+      // Manually set active section on click for immediate feedback
+      setActiveSection(href.slice(1));
       scrollToSection(href);
     }
   };
