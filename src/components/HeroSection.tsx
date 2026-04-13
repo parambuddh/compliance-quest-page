@@ -50,7 +50,15 @@ const HeroSection = () => {
                 <span className="relative inline-block">
                   All inside Salesforce.
                   <svg className="absolute -bottom-4 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                    <path d="M2 10C50 6 150 6 198 10" stroke="hsl(168 76% 42%)" strokeWidth="3" strokeLinecap="round" />
+                    <motion.path
+                      d="M2 10C50 6 150 6 198 10"
+                      stroke="hsl(168 76% 42%)"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                    />
                   </svg>
                 </span>
               </div>
