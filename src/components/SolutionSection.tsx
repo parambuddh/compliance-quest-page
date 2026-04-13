@@ -98,6 +98,8 @@ const SolutionSection = () => {
                     alt={`Compliance Vista ${active.title} - ${active.desc.substring(0, 80)}...`}
                     loading="lazy"
                     decoding="async"
+                    width={480}
+                    height={384}
                     className="w-full h-full object-cover"
                   />
                 </motion.div>

@@ -166,15 +166,10 @@ img, iframe, video {
     transform: none !important;
   }
 
-  /* Improve rendering performance by deferring off-screen section drawing */
-  section {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 1000px; /* More realistic mobile section height to improve CLS */
-  }
-
-  /* Keep hero section visible immediately */
-  #home {
-    content-visibility: visible;
+  /* Background stability - ensure absolute elements have strict containment */
+  .dot-pattern, .mesh-bg {
+    contain: strict;
+    pointer-events: none;
   }
 }
 
