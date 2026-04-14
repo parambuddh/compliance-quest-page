@@ -108,7 +108,8 @@ const Navbar = () => {
   }, [isIndependentPage]);
 
   const handleClick = (href: string) => {
-    setMobileOpen(false);
+    // Small delay to ensure the click/touch event is fully registered before we collapse the UI
+    setTimeout(() => setMobileOpen(false), 150);
     
     // Manual scroll calculation for pixel-perfect offset (120px buffer)
     const scrollToSection = (targetId: string) => {
@@ -141,6 +142,7 @@ const Navbar = () => {
     if (isIndependentPage) {
       navigate("/");
     } else {
+      setTimeout(() => setMobileOpen(false), 150);
       handleClick("#home");
     }
   };
@@ -249,14 +251,10 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`md:hidden overflow-hidden backdrop-blur-xl border-t transition-all duration-500 ${
+            className={`md:hidden overflow-hidden backdrop-blur-xl border-t transition-all duration-500 shadow-[0_12px_48px_rgba(0,0,0,0.15)] ${
               scrolled
-                ? isOverColoredSection
-                  ? "mx-4 md:mx-8 mt-1 rounded-b-[2.5rem] bg-slate-900/80 border-slate-600/50 shadow-[0_12px_48px_rgba(0,0,0,0.5)]"
-                  : "mx-4 md:mx-8 mt-1 rounded-b-[2.5rem] bg-white/40 border-white/40 shadow-[0_12px_48px_rgba(0,0,0,0.25)]"
-                : isOverColoredSection
-                ? "bg-slate-900/80 border-slate-600/50 shadow-[0_12px_48px_rgba(0,0,0,0.5)]"
-                : "bg-white/40 border-white/40 shadow-[0_12px_48px_rgba(0,0,0,0.25)]"
+                ? "mx-4 md:mx-8 mt-1 rounded-b-[2.5rem] bg-white/60 border-white/40"
+                : "bg-white/60 border-white/20"
             }`}
           >
             <div className="container py-4 flex flex-col gap-1">
@@ -270,16 +268,8 @@ const Navbar = () => {
                   transition={{ delay: index * 0.08, duration: 0.3, ease: "easeOut" }}
                   className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
                     !isIndependentPage && activeSection === link.href.slice(1)
-                      ? isOverColoredSection
-                        ? "text-white bg-white/10"
-                        : !scrolled
-                        ? "text-slate-900 bg-slate-800/5"
-                        : "text-primary bg-primary/5"
-                      : isOverColoredSection
-                      ? "text-white/60"
-                      : !scrolled
-                      ? "text-slate-800"
-                      : "text-foreground/70"
+                      ? "text-primary bg-primary/10"
+                      : "text-slate-800 hover:bg-slate-800/5"
                   }`}
                 >
                   {link.label}
@@ -287,7 +277,7 @@ const Navbar = () => {
               ))}
               <motion.button
                 onClick={() => {
-                  setMobileOpen(false);
+                  setTimeout(() => setMobileOpen(false), 150);
                   setIsCalendlyOpen(true);
                 }}
                 aria-label="Book a product demo"
