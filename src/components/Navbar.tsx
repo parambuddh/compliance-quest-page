@@ -183,6 +183,7 @@ const Navbar = () => {
               <button
                 key={link.href}
                 onClick={() => handleClick(link.href)}
+                aria-label={`Navigate to ${link.label} section`}
                 className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   isIndependentPage
                     ? !scrolled
@@ -212,6 +213,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={() => setIsCalendlyOpen(true)}
+              aria-label="Book a product demo"
               className={`ml-4 ${
                 !scrolled
                   ? "bg-gradient-to-r from-primary to-secondary text-white"
@@ -262,6 +264,7 @@ const Navbar = () => {
                 <motion.button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
+                  aria-label={`Navigate to ${link.label} section`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.08, duration: 0.3, ease: "easeOut" }}
@@ -287,6 +290,7 @@ const Navbar = () => {
                   setMobileOpen(false);
                   setIsCalendlyOpen(true);
                 }}
+                aria-label="Book a product demo"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.08, duration: 0.3, ease: "easeOut" }}

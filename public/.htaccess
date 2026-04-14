@@ -11,6 +11,9 @@
   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
+  # 3. Legacy Path Redirect (Redirect old product path to new home)
+  Redirect 301 /products/compliance-vista/ /
+
   # 3. Handle React SPA Routes (Fallback to index.html)
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f

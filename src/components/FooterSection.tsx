@@ -38,7 +38,7 @@ const FooterSection = () => {
           {/* Quick Links - Center (Col 3) */}
           <div className="flex flex-col md:items-center md:col-span-1">
             <div className="w-fit">
-              <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h4>
+              <h3 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 <li>
                   <button onClick={() => navigateToSection('home')} aria-label="Navigate to Home section" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 bg-none border-none cursor-pointer p-0">
@@ -80,7 +80,7 @@ const FooterSection = () => {
           {/* Contact Info - Right (Col 5) */}
           <div className="flex flex-col md:items-end md:col-span-1">
             <div className="w-fit">
-              <h4 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h4>
+              <h3 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 <li className="flex items-center gap-2">
                   <span className="text-primary" aria-hidden="true">🌐</span>
@@ -106,14 +106,14 @@ const FooterSection = () => {
         </div>
 
         <div className="border-t border-navy-foreground/10 py-3 flex flex-col gap-2 sm:gap-3 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-navy-foreground/40 order-2 md:order-1">
+          <p className="text-xs text-navy-foreground/60 order-2 md:order-1">
             © {currentYear} ComplianceVista. All Rights Reserved.
           </p>
           <div className="flex gap-4 sm:gap-6 text-[10px] sm:text-xs order-1 md:order-2">
-            <Link to="/terms-of-use" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
+            <Link to="/terms-of-use" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
               Terms of Use
             </Link>
-            <Link to="/privacy-policy" className="text-navy-foreground/40 hover:text-primary transition-colors duration-300">
+            <Link to="/privacy-policy" className="text-navy-foreground/60 hover:text-primary transition-colors duration-300">
               Privacy Policy
             </Link>
           </div>

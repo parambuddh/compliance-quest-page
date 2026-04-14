@@ -214,6 +214,7 @@ const FeaturesSection = () => {
 						{/* Previous Button */}
 						<motion.button
 							onClick={goToPrevious}
+							aria-label="Previous features"
 							className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.95 }}
@@ -227,19 +228,24 @@ const FeaturesSection = () => {
 								<motion.button
 									key={index}
 									onClick={() => setActiveIndex(index * 2)}
-									className={`transition-all duration-300 rounded-full ${
+									aria-label={`Go to features group ${index + 1}`}
+									className={`transition-all duration-300 rounded-full relative ${
 										carouselIndex === index
 											? "bg-gradient-to-r from-primary to-secondary w-5 md:w-6 h-2 md:h-2.5"
 											: "bg-border w-2 md:w-2.5 h-2 md:h-2.5 hover:bg-border/50"
 									}`}
 									whileHover={{ scale: 1.2 }}
-								/>
+								>
+									{/* Invisible touch target expansion */}
+									<span className="absolute inset-[-8px] md:inset-[-12px]" aria-hidden="true" />
+								</motion.button>
 							))}
 						</div>
 
 						{/* Next Button */}
 						<motion.button
 							onClick={goToNext}
+							aria-label="Next features"
 							className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30 flex items-center justify-center hover:border-primary/60 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 transition-all duration-300"
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.95 }}
