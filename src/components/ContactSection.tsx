@@ -12,7 +12,7 @@ const ContactSection = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
-  
+
   const formRef = useRef<HTMLFormElement>(null);
   const [rightSideHeight, setRightSideHeight] = useState<string>("auto");
 
@@ -26,7 +26,7 @@ const ContactSection = () => {
     };
 
     updateHeight();
-    
+
     const resizeObserver = new ResizeObserver(() => {
       updateHeight();
     });
@@ -65,7 +65,7 @@ const ContactSection = () => {
 
       // Send form data to PHP backend
       const API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact.php';
-      
+
       const payload = {
         ...form,
         recaptcha_token: token,
@@ -96,8 +96,7 @@ const ContactSection = () => {
   };
 
   const inputClass = (name: string) =>
-    `w-full rounded-xl border px-4 py-3 text-sm text-foreground bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:bg-white/80 transition-all duration-300 ${
-      errors[name] ? "border-destructive" : "border-border/50"
+    `w-full rounded-xl border px-4 py-3 text-sm text-foreground bg-white/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:bg-white/80 transition-all duration-300 ${errors[name] ? "border-destructive" : "border-border/50"
     }`;
 
   return (
@@ -196,7 +195,7 @@ const ContactSection = () => {
                 Quick Contact
               </h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                Get in touch with a SurveyVista representative to see a demo or simply learn more about our products.
+                Get in touch with a representative to see a demo or simply learn more about the product.
               </p>
 
               <div className="space-y-3 sm:space-y-5">
@@ -224,7 +223,7 @@ const ContactSection = () => {
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">info@surveyvista.com</span>
+                  <span className="text-sm font-bold text-foreground">info@ardira.com</span>
                 </div>
 
                 {/* Support Note */}
