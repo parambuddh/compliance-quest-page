@@ -34,9 +34,9 @@ const features = [
 		benefits: ["Evidence tracking", "Audit trails", "Finding manager"],
 	},
 	{
-		icon: "circular",
+		icon: "mobile",
 		title: "Mobile Access",
-		desc: "Manage compliance on-the-go with full mobile Salesforce experience.",
+		desc: "Manage compliance on-the-go with full mobile Salesforce experience-driven visibility.",
 		benefits: ["Mobile app", "Full sync", "Offline support"],
 	},
 ];
@@ -49,6 +49,7 @@ const IconComponent = ({ iconType }: { iconType: string }) => {
 		lightning: "/icons/SV-LightningBolt.webp",
 		magnifying: "/icons/SV-MagnifyingGlass.webp",
 		circular: "/icons/SV-CircularArrows.webp",
+		mobile: "/icons/SV-MobileAccess.png"
 	};
 
 	const altTextMap: { [key: string]: string } = {
