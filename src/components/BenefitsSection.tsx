@@ -117,10 +117,6 @@ const BenefitsSection = () => {
                   aria-label={`${benefit.title}: ${benefit.description}`}
                   role="article"
                 >
-                  {/* Number Badge */}
-                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/15 transition-colors pointer-events-none" aria-hidden="true">
-                    {String(idx + 1).padStart(2, '0')}
-                  </div>
 
                   {/* Icon */}
                   <motion.div

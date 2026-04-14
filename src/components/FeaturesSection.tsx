@@ -162,10 +162,6 @@ const FeaturesSection = () => {
 								className="group relative"
 							>
 								<div className="rounded-xl sm:rounded-2xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-4 sm:p-6 md:p-8 h-full relative overflow-hidden transition-all duration-300">
-									{/* Number badge */}
-									<div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
-										{String(features.indexOf(feature) + 1).padStart(2, "0")}
-									</div>
 
 									{/* Icon and title */}
 									<div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4 flex-col sm:flex-row">

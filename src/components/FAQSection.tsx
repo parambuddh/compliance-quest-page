@@ -15,12 +15,6 @@ const faqs = [
       "Compliance Vista is 100% native to Salesforce. It provides real-time compliance monitoring, automated audit trails, and intelligent risk scoring all within the platform your team already uses. Plus, it's designed specifically for enterprise-scale governance with multi-language support and industry-specific compliance frameworks.",
   },
   {
-    id: "item-2",
-    question: "How long does it take to implement Compliance Vista?",
-    answer:
-      "Implementation typically takes 2-4 weeks depending on your organization's complexity and existing Salesforce infrastructure. We provide dedicated implementation support, training, and custom configuration to ensure a smooth deployment. Most organizations see compliance improvements within the first month of implementation.",
-  },
-  {
     id: "item-3",
     question: "Can Compliance Vista handle multiple regulatory frameworks simultaneously?",
     answer:
@@ -102,9 +96,6 @@ const FAQSection = () => {
                     aria-label={`Question ${index + 1}: ${faq.question}`}
                   >
                     <div className="flex items-center gap-4 text-left flex-1" aria-hidden="true">
-                      <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-200">
-                        <span className="text-primary font-bold text-sm sm:text-lg">{index + 1}</span>
-                      </div>
                       <span className="font-semibold text-sm sm:text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200">
                         {faq.question}
                       </span>

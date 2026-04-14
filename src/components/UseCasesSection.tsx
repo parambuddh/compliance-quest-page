@@ -114,10 +114,6 @@ const UseCasesSection = () => {
                   aria-label={`${useCase.title}: ${useCase.description}`}
                   role="article"
                 >
-                  {/* Number badge */}
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 text-3xl sm:text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors" aria-hidden="true">
-                    {String(idx + 1).padStart(2, "0")}
-                  </div>
 
                   {/* Icon and title */}
                   <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
