@@ -24,9 +24,13 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-0 mb-8 sm:mb-10">
           {/* Company Info - Left (Col 1) */}
           <div className="flex flex-col items-start md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-6">
+            <button 
+              onClick={() => navigateToSection('home')} 
+              aria-label="Compliance Vista - Return to Home"
+              className="flex items-center gap-2.5 mb-6 hover:opacity-80 transition-opacity bg-none border-none cursor-pointer p-0"
+            >
               <img src={logo} alt="Compliance Vista" width={180} height={40} className="h-8 sm:h-10 w-auto" />
-            </div>
+            </button>
             <p className="text-sm text-navy-foreground/60 leading-relaxed max-w-xs text-left">
               Enterprise governance simplified. Salesforce-native compliance by Ardira.
             </p>
