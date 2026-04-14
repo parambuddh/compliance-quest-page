@@ -13,7 +13,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[100dvh] flex items-center overflow-hidden mesh-bg">
+    <section id="home" className="relative min-h-[85dvh] md:min-h-[100dvh] pt-24 md:pt-0 flex items-center overflow-hidden mesh-bg">
       {/* Floating orbs */}
       <div className="absolute top-20 right-[15%] w-72 h-72 bg-primary/10 rounded-full blur-3xl float-animation" />
       <div className="absolute bottom-20 left-[10%] w-96 h-96 bg-secondary/8 rounded-full blur-3xl float-animation" style={{ animationDelay: "3s" }} />
@@ -22,7 +22,7 @@ const HeroSection = () => {
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 dot-pattern opacity-40" />
 
-      <div className="container relative z-10 py-8 px-4 sm:px-6 md:py-14">
+      <div className="container relative z-10 py-8 md:py-14 px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}

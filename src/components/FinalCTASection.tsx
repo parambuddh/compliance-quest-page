@@ -80,7 +80,7 @@ const FinalCTASection = () => {
               whileTap={{ scale: 0.97 }}
             >
               {/* Content */}
-              <div className="relative flex items-center gap-2 font-bold drop-shadow-sm">
+              <div className="relative flex items-center justify-center gap-2 font-bold drop-shadow-sm">
                 <span>Request a Demo</span>
                 <ArrowRight className="w-5 h-5" />
               </div>

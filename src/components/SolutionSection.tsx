@@ -67,9 +67,9 @@ const SolutionSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-6 sm:mb-8 md:mb-12"
           >
-            <div className="inline-block mb-4">
+            <div className="inline-block mb-3 sm:mb-4">
               <div className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
                 <span className="text-xs md:text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Our Solution
@@ -81,7 +81,7 @@ const SolutionSection = () => {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-stretch max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-2 sm:gap-6 md:gap-8 items-stretch max-w-6xl mx-auto">
             {/* Visual */}
             <div className="w-full md:w-1/2 flex justify-center items-stretch">
               <div className="relative group w-full">
@@ -91,7 +91,7 @@ const SolutionSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
-                  className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
+                  className="relative w-full h-36 sm:h-64 md:h-80 lg:h-96 rounded-2xl sm:rounded-3xl glass-strong overflow-hidden shadow-2xl shadow-primary/20 border border-white/30"
                 >
                   <img
                     src={active.image}
@@ -113,11 +113,11 @@ const SolutionSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="rounded-xl sm:rounded-2xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4 md:space-y-6 h-auto md:h-80 lg:h-96 flex flex-col"
+                className="rounded-xl sm:rounded-2xl border border-primary/20 bg-gradient-to-br from-background/40 to-primary/5 p-3 sm:p-6 md:p-8 space-y-2 sm:space-y-4 md:space-y-6 h-auto md:h-80 lg:h-96 flex flex-col"
                 >
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">{active.title}</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-justify flex-grow">{active.desc}</p>
-                  <ul className="space-y-2 sm:space-y-3 md:space-y-4">
+                  <p className="text-xs sm:text-base md:text-lg text-muted-foreground leading-relaxed text-justify flex-grow">{active.desc}</p>
+                  <ul className="space-y-1.5 sm:space-y-3 md:space-y-4">
                     {active.benefits.map((b, j) => (
                       <li key={j} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground">
                         <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
