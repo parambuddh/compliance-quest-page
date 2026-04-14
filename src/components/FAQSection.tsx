@@ -12,7 +12,7 @@ const faqs = [
     id: "item-1",
     question: "What makes Compliance Vista different from other compliance solutions?",
     answer:
-      "Compliance Vista is 100% native to Salesforce, meaning it integrates seamlessly without requiring external systems or data transfers. It provides real-time compliance monitoring, automated audit trails, and intelligent risk scoring all within the platform your team already uses. Plus, it's designed specifically for enterprise-scale governance with multi-language support and industry-specific compliance frameworks.",
+      "Compliance Vista is 100% native to Salesforce. It provides real-time compliance monitoring, automated audit trails, and intelligent risk scoring all within the platform your team already uses. Plus, it's designed specifically for enterprise-scale governance with multi-language support and industry-specific compliance frameworks.",
   },
   {
     id: "item-2",
@@ -77,9 +77,9 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <Accordion 
-            type="single" 
-            collapsible 
+          <Accordion
+            type="single"
+            collapsible
             className="w-full space-y-4"
             value={openItem}
             onValueChange={setOpenItem}
@@ -97,7 +97,7 @@ const FAQSection = () => {
                   value={faq.id}
                   className="border border-border/50 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/40 hover:shadow-lg bg-card"
                 >
-                  <AccordionTrigger 
+                  <AccordionTrigger
                     className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 hover:bg-surface-light/50 transition-colors duration-200 [&[data-state=open]]:bg-primary/8 group"
                     aria-label={`Question ${index + 1}: ${faq.question}`}
                   >
