@@ -100,20 +100,20 @@ const FooterSection = () => {
             <div className="w-full md:w-fit">
               <h3 className="font-bold text-white mb-4 sm:mb-6 text-sm sm:text-base">Contact Info</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="shrink-0 w-4 h-4 flex items-center justify-center -translate-y-[1px]" aria-hidden="true">🌐</span>
+                <li className="flex items-start gap-2">
+                  <span className="shrink-0 pt-[2px]" aria-hidden="true">🌐</span>
                   <a href="https://compliance-quest-page.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Compliance Vista main website" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300 break-all">
                     www.compliancevista.com
                   </a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="shrink-0 w-4 h-4 flex items-center justify-center -translate-y-[1px]" aria-hidden="true">✉️</span>
+                <li className="flex items-start gap-2">
+                  <span className="shrink-0 pt-[2px]" aria-hidden="true">✉️</span>
                   <a href="mailto:support@ardira.com" aria-label="Email support at support@ardira.com" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                     support@ardira.com
                   </a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="shrink-0 w-4 h-4 flex items-center justify-center -translate-y-[1px]" aria-hidden="true">📱</span>
+                <li className="flex items-start gap-2">
+                  <span className="shrink-0 pt-[2px]" aria-hidden="true">📱</span>
                   <a href="tel:1.669.777.6838" aria-label="Call support at 1.669.777.6838" className="text-navy-foreground/80 hover:text-primary transition-colors duration-300">
                     1.669.777.6838
                   </a>
