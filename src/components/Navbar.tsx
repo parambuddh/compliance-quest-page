@@ -187,11 +187,9 @@ const Navbar = () => {
                       ? "text-[#37C643]"
                       : "text-slate-800 hover:text-slate-900 hover:bg-slate-800/5"
                     : activeSection === link.href.slice(1)
-                    ? isOverColoredSection
-                      ? "text-[#37C643] bg-white/10"
-                      : "text-[#37C643] bg-[#37C643]/10"
+                    ? "text-[#37C643]"
                     : isOverColoredSection
-                    ? "text-white/90 hover:text-white hover:bg-white/10"
+                    ? "text-white hover:text-white hover:bg-white/10"
                     : "text-foreground hover:text-foreground hover:bg-primary/5"
                 }`}
               >
