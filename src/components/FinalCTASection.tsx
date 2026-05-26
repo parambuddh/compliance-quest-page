@@ -1,22 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import CalendlyModal from "./CalendlyModal";
 
 const FinalCTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Very subtle darkening - preserves vibrant brand colors
-  const darkOverlay = useTransform(scrollYProgress, [0, 1], [0, 0.15]);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section ref={sectionRef} id="final-cta" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#26C64F]">

@@ -15,24 +15,26 @@
     <!-- Preconnect to external third-party script domains -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google.com" />
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+
     
-    <!-- Google Tag Manager - Initialized on Idle to prioritize Hero rendering -->
+    <!-- Google Tag Manager - Deferred to first user interaction for mobile performance -->
     <script>
-      window.addEventListener('load', function() {
-        const initGTM = function() {
+      (function() {
+        var loaded = false;
+        function initGTM() {
+          if (loaded) return;
+          loaded = true;
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-MS38XLX4');
-        };
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(initGTM);
-        } else {
-          setTimeout(initGTM, 1000);
         }
-      });
+        ['scroll','mousemove','touchstart','keydown'].forEach(function(e) {
+          window.addEventListener(e, initGTM, {once: true, passive: true});
+        });
+        setTimeout(initGTM, 5000);
+      })();
     </script>
     <!-- End Google Tag Manager -->
     
@@ -188,7 +190,7 @@
     
     <div id="root"></div>
     
-    <!-- ReCAPTCHA is now dynamically loaded by components when needed to improve mobile performance -->
+    <!-- ReCAPTCHA v3 is loaded globally on app mount via useRecaptcha hook -->
     
     <script type="module" src="/src/main.tsx"></script>
     

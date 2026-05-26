@@ -33,12 +33,6 @@ export default defineConfig(({ mode }) => ({
           if (id.includes('node_modules/@radix-ui')) {
             return 'vendor-ui';
           }
-          if (id.includes('node_modules/@hookform') || id.includes('node_modules/react-hook-form') || id.includes('node_modules/zod')) {
-            return 'vendor-form';
-          }
-          if (id.includes('node_modules/recharts')) {
-            return 'vendor-charts';
-          }
         },
       },
     },
