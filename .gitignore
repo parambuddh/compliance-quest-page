@@ -30,3 +30,5 @@ GMAIL_SETUP_GUIDE.md
 MAIL_SERVER_SETUP.md
 .env.local
 BACKLINK_STRATEGY.md
+.vercel
+.env*
