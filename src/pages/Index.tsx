@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FooterSection from "@/components/FooterSection";
+import LazySection from "@/components/LazySection";
 
 // Lazy load below-the-fold sections for better performance
 const ProblemSection = lazy(() => 
@@ -64,30 +65,54 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionSkeleton />}>
-          <ProblemSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <SolutionSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <FeaturesSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <BenefitsSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <UseCasesSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <FAQSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <ContactSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <FinalCTASection />
-        </Suspense>
+        
+        <LazySection minHeight="450px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <ProblemSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="500px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <SolutionSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="600px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <FeaturesSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="500px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <BenefitsSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="600px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <UseCasesSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="500px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <FAQSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="700px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <ContactSection />
+          </Suspense>
+        </LazySection>
+
+        <LazySection minHeight="400px">
+          <Suspense fallback={<SectionSkeleton />}>
+            <FinalCTASection />
+          </Suspense>
+        </LazySection>
       </main>
       <FooterSection />
     </>
