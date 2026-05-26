@@ -33,11 +33,7 @@ const App = () => {
   const { loadRecaptcha } = useRecaptcha();
 
   useEffect(() => {
-    // Defer reCAPTCHA initialization by 2 seconds to prevent blocking early LCP and FCP rendering
-    const timer = setTimeout(() => {
-      loadRecaptcha();
-    }, 2000);
-    return () => clearTimeout(timer);
+    loadRecaptcha();
   }, [loadRecaptcha]);
 
   return (
