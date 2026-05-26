@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -11,6 +11,27 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const { loadRecaptcha, executeRecaptcha } = useRecaptcha();
+
+  const [isMapVisible, setIsMapVisible] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsMapVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // trigger load 200px before the map container scrolls into view
+    );
+
+    if (mapRef.current) {
+      observer.observe(mapRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Validation rules for each field
   const validateField = (name: string, value: string): string => {
@@ -372,11 +393,18 @@ const ContactSection = () => {
                   </p>
  
                   {/* Map */}
-                  <div className="mt-6 rounded-xl overflow-hidden border border-slate-200" style={{ height: "250px" }}>
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
-                      width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade" title="Office Location" />
+                  <div ref={mapRef} className="mt-6 rounded-xl overflow-hidden border border-slate-200" style={{ height: "250px" }}>
+                    {isMapVisible ? (
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6342.08172427285!2d-121.96206399999998!3d37.36521!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca3b29bd16bd%3A0x1b7e4bbf55b3700b!2s2040%20Martin%20Ave%2C%20Santa%20Clara%2C%20CA%2095050%2C%20USA!5e0!3m2!1sen!2sin!4v1775548501571!5m2!1sen!2sin"
+                        width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade" title="Office Location" />
+                    ) : (
+                      <div className="w-full h-full bg-slate-50 flex flex-col items-center justify-center gap-2 text-slate-400 text-sm">
+                        <div className="w-6 h-6 border-2 border-slate-300 border-t-transparent rounded-full animate-spin" />
+                        <span>Loading interactive map...</span>
+                      </div>
+                    )}
                   </div>
                 </form>
               )}
