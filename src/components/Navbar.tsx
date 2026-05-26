@@ -59,7 +59,6 @@ const Navbar = () => {
         const footerAbsoluteBottom = window.scrollY + footerRect.bottom;
 
         if (footerAbsoluteTop < navbarAbsoluteBottom && footerAbsoluteBottom > window.scrollY) overColored = true;
-        if (footerAbsoluteTop < buttonAbsoluteBottom && footerAbsoluteBottom > buttonAbsoluteTop) buttonOverColored = true;
       }
 
       if (!overColored && heroElement && window.scrollY <= 50) {
