@@ -44,6 +44,8 @@ export default defineConfig(({ mode }) => ({
     },
     // Optimize build size
     minify: "terser",
+    target: "es2020",
+    cssCodeSplit: true,
     terserOptions: {
       compress: {
         drop_console: true,
