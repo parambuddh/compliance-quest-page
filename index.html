@@ -190,7 +190,34 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <div id="root"></div>
+    <div id="root">
+      <style>
+        .initial-loader-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          width: 100vw;
+          background-color: #ffffff;
+        }
+        .initial-loader-spinner {
+          width: 48px;
+          height: 48px;
+          border: 4px solid rgba(55, 198, 67, 0.2);
+          border-top-color: #37C643;
+          border-radius: 50%;
+          animation: initial-loader-spin 1s linear infinite;
+        }
+        @keyframes initial-loader-spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+      <div class="initial-loader-container">
+        <div class="initial-loader-spinner"></div>
+      </div>
+    </div>
     
     <!-- ReCAPTCHA v3 is loaded globally on app mount via useRecaptcha hook -->
     
