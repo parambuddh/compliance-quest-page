@@ -103,7 +103,7 @@ const BenefitsSection = () => {
             Why Choose Us
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 text-slate-900 px-4 mt-4">
-            Key Benefits
+            Key <span className="text-[#37C643]">Benefits</span>
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4">
             Transform your compliance management and unlock competitive advantages

@@ -59,7 +59,7 @@ const ProblemSection = () => (
 					The Challenge
 				</span>
 				<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 px-4 mt-4">
-					Enterprise Compliance Challenges
+					Enterprise <span className="text-[#37C643]">Compliance</span> Challenges
 				</h2>
 				<p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4 mt-3">
 					Common obstacles organizations face in managing compliance

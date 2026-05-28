@@ -74,7 +74,7 @@ const SolutionSection = () => {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 px-4 mt-4">
-            How ComplianceVista Solves This
+            How <span className="text-[#37C643]">ComplianceVista</span> Solves This
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4 mt-3">
             Comprehensive solutions for every compliance challenge

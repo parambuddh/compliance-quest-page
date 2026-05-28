@@ -63,7 +63,7 @@ const UseCasesSection = () => {
             Real-World Applications
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 text-slate-900 px-4 mt-4">
-            Perfect for Every Scenario
+            Perfect for Every <span className="text-[#37C643]">Scenario</span>
           </h2>
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4">
             Enterprises trust ComplianceVista for comprehensive compliance management across all use cases

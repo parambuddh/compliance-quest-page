@@ -105,7 +105,7 @@ const FeaturesSection = () => {
 						</span>
 					</div>
 					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 text-slate-900 px-4 mt-4">
-						Enterprise Features
+						Enterprise <span className="text-[#37C643]">Features</span>
 					</h2>
 					<p className="text-sm md:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4">
 						Comprehensive compliance management tools designed for modern enterprises.
