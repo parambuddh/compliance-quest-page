@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
+import { Agentation } from "agentation";
 
 // Lazy load page components to split javascript chunks and minimize initial load size
 const Index = lazy(() => import("./pages/Index.tsx"));
@@ -55,6 +56,7 @@ const App = () => {
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
+      {import.meta.env.DEV && <Agentation />}
     </ErrorBoundary>
   );
 };
